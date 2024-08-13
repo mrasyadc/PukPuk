@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var vm: HomeViewModel
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            // Iterate over the dictionary
+            ForEach(vm.modelResult.sorted(by: <), id: \.key) { key, value in
+                // Display key-value pair as "Key: Value"
+                Text("\(key): \(value, specifier: "%.2f")")
+            }
+
+        }.refreshable {
+            vm.refreshPage()
+        }.onAppear {
+            vm.checkAndGetModelResult()
+        }
+        let _ = print(vm.$modelResult)
     }
 }
 

@@ -24,6 +24,9 @@
 		9D80A22B2C6C130A002AB74F /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A22A2C6C130A002AB74F /* UseCase.swift */; };
 		9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A22C2C6C1316002AB74F /* ExampleView.swift */; };
 		9D80A22F2C6C1321002AB74F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A22E2C6C1321002AB74F /* ViewModel.swift */; };
+		9D80A2312C6C19D5002AB74F /* HomeUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */; };
+		9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */; };
+		9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		9D80A22A2C6C130A002AB74F /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		9D80A22C2C6C1316002AB74F /* ExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
 		9D80A22E2C6C1321002AB74F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseProtocol.swift; sourceTree = "<group>"; };
+		9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultRepositoryProtocol.swift; sourceTree = "<group>"; };
+		9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2182C6C11DC002AB74F /* HomeDataSource.swift */,
+				9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */,
 			);
 			path = "Data Source";
 			sourceTree = "<group>";
@@ -201,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				9D80A21A2C6C11EA002AB74F /* HomeDefaultRepository.swift */,
+				9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				9D80A21E2C6C1203002AB74F /* HomeUseCase.swift */,
+				9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -349,14 +358,17 @@
 				9D80A21B2C6C11EA002AB74F /* HomeDefaultRepository.swift in Sources */,
 				9D80A21F2C6C1203002AB74F /* HomeUseCase.swift in Sources */,
 				9D80A21D2C6C11F9002AB74F /* HomeModel.swift in Sources */,
+				9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */,
 				9D80A2272C6C12F5002AB74F /* Repository.swift in Sources */,
 				9D80A22B2C6C130A002AB74F /* UseCase.swift in Sources */,
 				9D80A2292C6C1303002AB74F /* Entities.swift in Sources */,
+				9D80A2312C6C19D5002AB74F /* HomeUseCaseProtocol.swift in Sources */,
 				9D80A1882C6B4774002AB74F /* PukPukApp.swift in Sources */,
 				9D80A2212C6C122A002AB74F /* HomeView.swift in Sources */,
 				9D80A22F2C6C1321002AB74F /* ViewModel.swift in Sources */,
 				9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */,
 				9D80A2252C6C12EA002AB74F /* DataSource.swift in Sources */,
+				9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */,
 				9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */,
 				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
 			);

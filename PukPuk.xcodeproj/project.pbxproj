@@ -11,6 +11,7 @@
 		9D80A18A2C6B4774002AB74F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A1892C6B4774002AB74F /* ContentView.swift */; };
 		9D80A18C2C6B4776002AB74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D80A18B2C6B4776002AB74F /* Assets.xcassets */; };
 		9D80A18F2C6B4776002AB74F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D80A18E2C6B4776002AB74F /* Preview Assets.xcassets */; };
+		9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		9D80A1892C6B4774002AB74F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9D80A18B2C6B4776002AB74F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D80A18E2C6B4776002AB74F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,8 @@
 			children = (
 				9D80A1872C6B4774002AB74F /* PukPukApp.swift */,
 				9D80A1892C6B4774002AB74F /* ContentView.swift */,
+				9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */,
+				9D80A1FB2C6B4AA7002AB74F /* Modules */,
 				9D80A18B2C6B4776002AB74F /* Assets.xcassets */,
 				9D80A18D2C6B4776002AB74F /* Preview Content */,
 			);
@@ -65,6 +69,173 @@
 				9D80A18E2C6B4776002AB74F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9D80A1E92C6B4AA7002AB74F /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		9D80A1EA2C6B4AA7002AB74F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		9D80A1EB2C6B4AA7002AB74F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A1E92C6B4AA7002AB74F /* Data Source */,
+				9D80A1EA2C6B4AA7002AB74F /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9D80A1EC2C6B4AA7002AB74F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		9D80A1F12C6B4AA7002AB74F /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		9D80A1F22C6B4AA7002AB74F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A1EC2C6B4AA7002AB74F /* Entities */,
+				9D80A1F12C6B4AA7002AB74F /* Use Cases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		9D80A1F52C6B4AA7002AB74F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D80A1F82C6B4AA7002AB74F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9D80A1F92C6B4AA7002AB74F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A1F52C6B4AA7002AB74F /* View */,
+				9D80A1F82C6B4AA7002AB74F /* ViewModel */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		9D80A1FA2C6B4AA7002AB74F /* [TEMPLATE] */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A1EB2C6B4AA7002AB74F /* Data */,
+				9D80A1F22C6B4AA7002AB74F /* Domain */,
+				9D80A1F92C6B4AA7002AB74F /* Scene */,
+			);
+			path = "[TEMPLATE]";
+			sourceTree = "<group>";
+		};
+		9D80A1FB2C6B4AA7002AB74F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A2172C6B4B85002AB74F /* HomePage */,
+				9D80A1FA2C6B4AA7002AB74F /* [TEMPLATE] */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9D80A20E2C6B4B85002AB74F /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		9D80A20F2C6B4B85002AB74F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		9D80A2102C6B4B85002AB74F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A20E2C6B4B85002AB74F /* Data Source */,
+				9D80A20F2C6B4B85002AB74F /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9D80A2112C6B4B85002AB74F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		9D80A2122C6B4B85002AB74F /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		9D80A2132C6B4B85002AB74F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A2112C6B4B85002AB74F /* Entities */,
+				9D80A2122C6B4B85002AB74F /* Use Cases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		9D80A2142C6B4B85002AB74F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D80A2152C6B4B85002AB74F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9D80A2162C6B4B85002AB74F /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A2142C6B4B85002AB74F /* View */,
+				9D80A2152C6B4B85002AB74F /* ViewModel */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		9D80A2172C6B4B85002AB74F /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A2102C6B4B85002AB74F /* Data */,
+				9D80A2132C6B4B85002AB74F /* Domain */,
+				9D80A2162C6B4B85002AB74F /* Scene */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +310,7 @@
 			files = (
 				9D80A18A2C6B4774002AB74F /* ContentView.swift in Sources */,
 				9D80A1882C6B4774002AB74F /* PukPukApp.swift in Sources */,
+				9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

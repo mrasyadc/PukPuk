@@ -12,6 +12,9 @@ struct PukPukApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+
+//            HomeView()
+//                .environmentObject(DependencyInjection.shared.homeViewModel())
         }
     }
 }

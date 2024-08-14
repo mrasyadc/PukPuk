@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class HomeDataSource: HomeLocalDataSourceProtocol {
+    func getModelResult(url: URL) -> [String: Double] {
+        return ["A": 0.99, "B": 0.89]
+    }
+}

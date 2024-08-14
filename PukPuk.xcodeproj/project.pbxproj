@@ -28,6 +28,9 @@
 		9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */; };
 		9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */; };
 		9D80A2772C6C296A002AB74F /* PukPuk_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2762C6C296A002AB74F /* PukPuk_Tests.swift */; };
+		9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */; };
+		9D80A2822C6C5DA8002AB74F /* TestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2802C6C5DA8002AB74F /* TestSheet.swift */; };
+		9D80A2832C6C5DA8002AB74F /* TestFullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
 		9D80A2742C6C296A002AB74F /* PukPuk-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PukPuk-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D80A2762C6C296A002AB74F /* PukPuk_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PukPuk_Tests.swift; sourceTree = "<group>"; };
+		9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingCoordinator.swift; sourceTree = "<group>"; };
+		9D80A2802C6C5DA8002AB74F /* TestSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSheet.swift; sourceTree = "<group>"; };
+		9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFullScreenCover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 			children = (
 				9D80A1872C6B4774002AB74F /* PukPukApp.swift */,
 				9D80A1892C6B4774002AB74F /* ContentView.swift */,
+				9D80A27D2C6C5D31002AB74F /* RoutingCoordinator */,
 				9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */,
 				9D80A1FB2C6B4AA7002AB74F /* Modules */,
 				9D80A18B2C6B4776002AB74F /* Assets.xcassets */,
@@ -313,6 +320,16 @@
 			path = "PukPuk-Tests";
 			sourceTree = "<group>";
 		};
+		9D80A27D2C6C5D31002AB74F /* RoutingCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */,
+				9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */,
+				9D80A2802C6C5DA8002AB74F /* TestSheet.swift */,
+			);
+			path = RoutingCoordinator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,13 +441,16 @@
 				9D80A2292C6C1303002AB74F /* Entities.swift in Sources */,
 				9D80A2312C6C19D5002AB74F /* HomeUseCaseProtocol.swift in Sources */,
 				9D80A1882C6B4774002AB74F /* PukPukApp.swift in Sources */,
+				9D80A2832C6C5DA8002AB74F /* TestFullScreenCover.swift in Sources */,
 				9D80A2212C6C122A002AB74F /* HomeView.swift in Sources */,
 				9D80A22F2C6C1321002AB74F /* ViewModel.swift in Sources */,
 				9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */,
 				9D80A2252C6C12EA002AB74F /* DataSource.swift in Sources */,
+				9D80A2822C6C5DA8002AB74F /* TestSheet.swift in Sources */,
 				9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */,
 				9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */,
 				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
+				9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

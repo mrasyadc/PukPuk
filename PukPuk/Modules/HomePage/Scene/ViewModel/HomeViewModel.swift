@@ -22,6 +22,8 @@ class HomeViewModel: ObservableObject {
         if isNewOpen {
             firstOpenApp()
             isNewOpen = false
+        } else {
+            refreshPage()
         }
     }
 

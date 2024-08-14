@@ -11,10 +11,10 @@ import SwiftUI
 struct PukPukApp: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
+            ContentView()
 
-            HomeView()
-                .environmentObject(DependencyInjection.shared.homeViewModel())
+//            HomeView()
+//                .environmentObject(DependencyInjection.shared.homeViewModel())
         }
     }
 }

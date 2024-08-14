@@ -1,0 +1,42 @@
+@startuml PukPuk
+
+interface DataSource {
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+}
+
+class LocalDataSource implements DataSource {
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+    - getCryNotCryResult(url: URL): Map<String, Double>
+    - getCryReasonResult(url: URL): Map<String, Double>
+}
+
+
+class Repository {
+    - localDataSource: DataSource
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+}
+
+class UseCase {
+    - repository: Repository
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+}
+
+class ViewModel {
+    - useCase: UseCase
+    + data: Map<String, Double>
+    + errorMessage: String?
+    + getModelResult(url: URL)
+}
+
+class Presentation {
+    + getModelResult(url: URL)
+}
+
+
+
+Repository "1" --> "1" LocalDataSource : uses
+UseCase "1" --> "1" Repository : uses
+ViewModel "1" --> "1" UseCase : interacts with
+Presentation "1" --> "1" ViewModel : observes
+
+@enduml

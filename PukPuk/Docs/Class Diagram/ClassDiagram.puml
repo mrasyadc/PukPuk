@@ -4,39 +4,53 @@ interface DataSource {
     + getModelResult(url: URL): Result<Map<String, Double>, Error>
 }
 
-class LocalDataSource implements DataSource {
+class HomeLocalDataSource implements DataSource {
     + getModelResult(url: URL): Result<Map<String, Double>, Error>
     - getCryNotCryResult(url: URL): Map<String, Double>
     - getCryReasonResult(url: URL): Map<String, Double>
 }
 
 
-class Repository {
+class HomeRepository {
     - localDataSource: DataSource
     + getModelResult(url: URL): Result<Map<String, Double>, Error>
 }
 
-class UseCase {
+class HomeUseCase {
     - repository: Repository
     + getModelResult(url: URL): Result<Map<String, Double>, Error>
 }
 
-class ViewModel {
+class HomeViewModel {
     - useCase: UseCase
     + data: Map<String, Double>
     + errorMessage: String?
     + getModelResult(url: URL)
 }
 
-class Presentation {
-    + getModelResult(url: URL)
+class HomePresentation {
 }
 
 
 
-Repository "1" --> "1" LocalDataSource : uses
-UseCase "1" --> "1" Repository : uses
-ViewModel "1" --> "1" UseCase : interacts with
-Presentation "1" --> "1" ViewModel : observes
+HomeRepository "1" --> "1" HomeLocalDataSource : uses
+HomeUseCase "1" --> "1" HomeRepository : uses
+HomeViewModel "1" --> "1" HomeUseCase : interacts with
+HomePresentation "1" --> "1" HomeViewModel : observes
+
+class LoadingPresentation {
+
+}
+
+class LoadingViewModel {
+
+}
+
+class LoadingViewController {
+    
+}
+
+LoadingViewController "1" --> "1" LoadingViewModel : interacts with
+LoadingPresentation "1" --> "1" LoadingViewController : observes
 
 @enduml

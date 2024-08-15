@@ -31,6 +31,8 @@
 		9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */; };
 		9D80A2822C6C5DA8002AB74F /* TestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2802C6C5DA8002AB74F /* TestSheet.swift */; };
 		9D80A2832C6C5DA8002AB74F /* TestFullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */; };
+		B59B34D02C6D0C5600BB6BEC /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */; };
+		B59B34D22C6D100F00BB6BEC /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34D12C6D100F00BB6BEC /* ResultVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingCoordinator.swift; sourceTree = "<group>"; };
 		9D80A2802C6C5DA8002AB74F /* TestSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSheet.swift; sourceTree = "<group>"; };
 		9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFullScreenCover.swift; sourceTree = "<group>"; };
+		B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
+		B59B34D12C6D100F00BB6BEC /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2202C6C122A002AB74F /* HomeView.swift */,
+				B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */,
+				B59B34D12C6D100F00BB6BEC /* ResultVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D80A18F2C6B4776002AB74F /* Preview Assets.xcassets in Resources */,
+				B59B34D02C6D0C5600BB6BEC /* Result.storyboard in Resources */,
 				9D80A18C2C6B4776002AB74F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,6 +457,7 @@
 				9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */,
 				9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */,
 				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
+				B59B34D22C6D100F00BB6BEC /* ResultVC.swift in Sources */,
 				9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

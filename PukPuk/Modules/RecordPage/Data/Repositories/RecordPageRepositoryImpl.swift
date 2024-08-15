@@ -9,19 +9,26 @@ import UIKit
 import AVFoundation
 
 internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRepository {
+    
     let audioDataSource: AudioRecorderDataSource
+    let audioPlayDataSource: AudioPlayerDataSource
     let classificationDataSource: ClassificationDataSource
     let fileManagerDataSource: DefaultFileManagerDataSource
     
-    init(audioDataSource: AudioRecorderDataSource, classificationDataSource: ClassificationDataSource, fileManagerDataSource: DefaultFileManagerDataSource) {
+    private var currentAudioFileURL: URL?
+    
+    init(audioDataSource: AudioRecorderDataSource, audioPlayDataSource: AudioPlayerDataSource, classificationDataSource: ClassificationDataSource, fileManagerDataSource: DefaultFileManagerDataSource) {
         self.audioDataSource = audioDataSource
+        self.audioPlayDataSource = audioPlayDataSource
         self.classificationDataSource = classificationDataSource
         self.fileManagerDataSource = fileManagerDataSource
     }
     
     func startRecording() {
+        self.configureAudioRecordSession()
         let audioFileName = generateAudioFileName()
         let audioFileURL = URL(filePath: NSTemporaryDirectory() + audioFileName)
+        self.currentAudioFileURL = audioFileURL
         do {
             try audioDataSource.startRecording(to: audioFileURL)
         } catch {
@@ -31,32 +38,31 @@ internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRe
     
     func stopRecording() {
         audioDataSource.stopRecording()
+        
+        guard let audioFileURL = currentAudioFileURL else {
+            print("No audio file URL found!")
+            return
+        }
+        
+        audioPlayDataSource.configureAudioPlaybackSession()
+        audioPlayDataSource.play(from: audioFileURL)
     }
     
     func cancelRecording() {
         audioDataSource.stopRecording()
     }
     
-    func getRecordedAudio(url: URL) {
-        fileManagerDataSource.getAudioFiles(in: url)
+    func getRecordedAudio() -> URL? {
+        return fileManagerDataSource.getLatestRecordedAudio()
     }
     
     func configureAudioRecordSession() {
         audioDataSource.configureRecordSession()
     }
     
-//    func classifyAudio(at audioFileURL: URL) async throws -> ClassificationResultEntity {
-//        classificationDataSource.classifyAudio(at: audioFileURL)
-//        // lakuin mapping ubah ke benntuk result entity.
-//    }
-    
-//    func prepareClassificationModel() {
-//        <#code#>
-//    }
-//    
-//    func resetClassification() {
-//        <#code#>
-//    }
+    func configureAudioPlaybackSession() {
+        audioPlayDataSource.configureAudioPlaybackSession()
+    }
     
     // helper
     func generateAudioFileName() -> String {

@@ -9,26 +9,30 @@ import UIKit
 import SwiftUI
 
 struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
-    typealias UIViewControllerType = RecordPageViewController
+//    typealias UIViewControllerType = RecordPageViewController
+    typealias UIViewControllerType = UINavigationController
     
-    func makeUIViewController(context: Context) -> RecordPageViewController {
-        return RecordPageViewController()
+    func makeUIViewController(context: Context) -> UINavigationController {
+//        return RecordPageViewController()
+        let navigationController = UINavigationController()
+        let coordinator = RecordPageCoordinator(navigationController: navigationController)
+        coordinator.start()
+        return navigationController
     }
     
-    func updateUIViewController(_ uiViewController: RecordPageViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
         // update view controlller if needed.
     }
 }
 
 class RecordPageViewController: UIViewController {
     
-    private var viewModel: RecordPageViewModel!
-    
+    var viewModel: RecordPageViewModel!
+
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var infoImage: UIImageView!
     @IBOutlet weak var labelInfo: UILabel!
     @IBOutlet weak var hStackInfo: UIStackView!
-    
     @IBOutlet weak var headerLabel: UILabel!
     
     override func viewDidLoad() {
@@ -69,6 +73,8 @@ class RecordPageViewController: UIViewController {
             recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             recordButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+        
+        recordButton.addTarget(self, action: #selector(onClickRecordButton), for: .touchUpInside)
     }
     
     private func setupInfoLabel() {
@@ -119,12 +125,23 @@ class RecordPageViewController: UIViewController {
     }
     
     @IBAction func onClickRecordButton(_ sender: UIButton) {
-        let pulse = PulseAnimation(numberOfPulse: Float.infinity, radius: 1200, postion: sender.center)
-        pulse.animationDuration = 1.0
-        pulse.backgroundColor = Color.gray.cgColor
-        self.view.layer.insertSublayer(pulse, below: sender.layer)
+//        let pulse = PulseAnimation(numberOfPulse: Float.infinity, radius: 1200, postion: sender.center)
+//        pulse.animationDuration = 1.0
+//        pulse.backgroundColor = Color.gray.cgColor
+//        self.view.layer.insertSublayer(pulse, below: sender.layer)
+//        
+//        recordButton.setTitle("Recording...", for: .normal)
+        if recordButton.currentTitle == "Tap to Record" {
+            viewModel.didTapRecordButton.send(())
+            recordButton.setTitle("Recording...", for: .normal)
+        } else {
+            viewModel.didStopRecording.send(())
+            recordButton.setTitle("Tap to Record", for: .normal)
+        }
         
-        recordButton.setTitle("Recording...", for: .normal)
+//        private func bindViewModel() {
+//            // Bind any outputs from the view model to the UI here
+//        }
     }
     
 }

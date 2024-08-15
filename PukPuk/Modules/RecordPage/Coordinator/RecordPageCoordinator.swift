@@ -5,56 +5,57 @@
 //  Created by Jason Susanto on 15/08/24.
 //
 
-import Foundation
-import SwiftUI
+import UIKit
 import Combine
+import CoreML
 
 public final class RecordPageCoordinator {
     
-    private var navigationController: UINavigationController?
-    private let audioRepository: AudioRepository
-    private let classificationRepository: ClassificationRepository
+    private var navigationController: UINavigationController
     
-    init(navigationController: UINavigationController? = nil, audioRepository: AudioRepository, classificationRepository: ClassificationRepository) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.audioRepository = audioRepository
-        self.classificationRepository = classificationRepository
     }
     
-//    private func makeRecordPageViewController() -> RecordPageViewController {
-//        
-//    }
-    
-    // create view Model
-    private func makeRecordPageViewModel(
-        startRecordUseCase: StartRecordUseCase,
-        stopRecordUseCase:StopRecordUseCase, 
-        cancelRecordUseCase:CancelRecordUseCase
-    ) -> RecordPageViewModel {
-        return RecordPageViewModel(startRecordUseCase: startRecordUseCase, stopRecordUseCase: stopRecordUseCase, cancelRecordUseCase: cancelRecordUseCase)
-    }
-    
-    // create use case
-    private func makeStartRecordUseCase() -> StartRecordUseCase {
-        StartRecordUseCase(repository: audioRepository)
-    }
-    
-    private func makeStopRecordUseCase() -> StopRecordUseCase {
-        StopRecordUseCase(repository: audioRepository)
-    }
-    
-    private func makeCancelRecordUseCase() -> CancelRecordUseCase {
-        CancelRecordUseCase(repository: audioRepository)
-    }
-    
-    
-    // Starting coordinator
-}
+    private func makeRecordPageViewController() -> RecordPageViewController {
+        let babyCryClassifier: BabyCrySoundClassifierFinal
 
-//func makeAddHabitUseCase() -> AddHabitUseCase {
-//    AddHabitUseCase(repository: habitRepository)
-//}
-//
-//func makeGetHabitsUseCase() -> GetHabitsUseCase {
-//    GetHabitsUseCase(repository: habitRepository)
-//}
+        
+        do {
+            babyCryClassifier = try BabyCrySoundClassifierFinal(configuration: MLModelConfiguration())
+        } catch {
+            print("error convert model")
+            return RecordPageViewController()
+        }
+
+        // default URL
+        let recordingsDirectoryURL = FileManager.default.temporaryDirectory
+
+        
+        let audioRepository = RecordPageRepositoryImpl(
+            audioDataSource: audioRecorderDataSource(), 
+            audioPlayDataSource: audioplayerDataSource(),
+            classificationDataSource: classificationDataSource(model: babyCryClassifier.model),
+            fileManagerDataSource: DefaultFileManagerDataSource(recordingsDirectoryURL: recordingsDirectoryURL))
+        
+        // List add use case
+        let startRecordUseCase = StartRecordUseCase(repository: audioRepository)
+        let stopRecordUseCase = StopRecordUseCase(repository: audioRepository)
+        let getRecordedAudioUseCase = GetRecordedAudioUseCase(repository: audioRepository)
+        
+        let viewModel = RecordPageViewModel(
+             startRecordUseCase: startRecordUseCase,
+             stopRecordUseCase: stopRecordUseCase,
+             getRecordedAudioUseCase: getRecordedAudioUseCase
+         )
+        
+        let viewController = RecordPageViewController()
+        viewController.viewModel = viewModel
+        return viewController
+    }
+    
+    func start() {
+        let viewController = makeRecordPageViewController()
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
+}

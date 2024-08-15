@@ -45,6 +45,7 @@
 		CD73CE7D2C6DC96300C07729 /* ResultObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD73CE7C2C6DC96300C07729 /* ResultObserver.swift */; };
 		CD73CE802C6DE86400C07729 /* RecordPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD73CE7F2C6DE86400C07729 /* RecordPageCoordinator.swift */; };
 		CD73CE822C6DF53C00C07729 /* FileManagerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD73CE812C6DF53C00C07729 /* FileManagerDataSource.swift */; };
+		CD73CE842C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		CD73CE7C2C6DC96300C07729 /* ResultObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultObserver.swift; sourceTree = "<group>"; };
 		CD73CE7F2C6DE86400C07729 /* RecordPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPageCoordinator.swift; sourceTree = "<group>"; };
 		CD73CE812C6DF53C00C07729 /* FileManagerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDataSource.swift; sourceTree = "<group>"; };
+		CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BabyCrySoundClassifierFinal.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 				CD73CE432C6C5CF800C07729 /* Domain */,
 				CD73CE422C6C5CF000C07729 /* Scene */,
 				CD73CE7C2C6DC96300C07729 /* ResultObserver.swift */,
+				CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */,
 			);
 			path = RecordPage;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				CD73CE822C6DF53C00C07729 /* FileManagerDataSource.swift in Sources */,
 				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
 				CD73CE4E2C6CFEB000C07729 /* PulseAnimation.swift in Sources */,
+				CD73CE842C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,9 +676,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = M73B4W9D68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to record audio for analyzing baby cries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -701,9 +706,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = M73B4W9D68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to record audio for analyzing baby cries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

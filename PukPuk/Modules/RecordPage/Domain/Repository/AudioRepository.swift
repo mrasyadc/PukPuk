@@ -11,6 +11,6 @@ internal protocol AudioRepository {
     func startRecording()
     func stopRecording()
     func cancelRecording()
-    func getRecordedAudio()
+    func getRecordedAudio() -> URL?
     func configureAudioRecordSession() // ini blm
 }

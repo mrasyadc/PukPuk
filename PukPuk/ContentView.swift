@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-class AddNoteWrapper: ObservableObject {
-    @Published var isPresented: Bool = false
-    @Published var result: String?
-}
-
 struct ContentView: View {
     var body: some View {
 //        NavigationStack {

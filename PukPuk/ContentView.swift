@@ -7,15 +7,18 @@
 
 import SwiftUI
 
+class AddNoteWrapper: ObservableObject {
+    @Published var isPresented: Bool = false
+    @Published var result: String?
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+//        NavigationStack {
+//            <#code#>
+//        }
+        RecordPageViewControllerWrapper()
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

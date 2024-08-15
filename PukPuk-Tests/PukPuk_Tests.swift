@@ -26,8 +26,8 @@ final class PukPuk_Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        let response = useCase.getModelResult(url: URL(filePath: "A"))
+    func testExample() async throws {
+        let response = try await useCase.getModelResult(url: URL(filePath: "134n.wav"))
         
         // Assert that the response is not nil
         XCTAssertNotNil(response, "The response should not be nil.")

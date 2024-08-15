@@ -14,7 +14,7 @@ class HomeUseCase: HomeUseCaseProtocol {
         self.homeRepository = homeRepository
     }
 
-    func getModelResult(url: URL) -> [String: Double] {
-        return homeRepository.getModelResult(url: url)
+    func getModelResult(url: URL) async throws -> [String: Double] {
+        return try await homeRepository.getModelResult(url: url)
     }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol HomeLocalDataSourceProtocol {
-    func getModelResult(url: URL) -> [String: Double]
+    func getModelResult(url: URL) async throws -> [String: Double]
 }

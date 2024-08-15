@@ -8,5 +8,5 @@
 import Foundation
 
 protocol HomeDefaultRepositoryProtocol {
-    func getModelResult(url: URL) -> [String: Double]
+    func getModelResult(url: URL) async throws -> [String: Double]
 }

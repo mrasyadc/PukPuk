@@ -27,9 +27,13 @@ struct HomeView: View {
             })
 
         }.refreshable {
-            vm.refreshPage()
+            Task {
+                await vm.checkAndGetModelResult()
+            }
         }.onAppear {
-            vm.checkAndGetModelResult()
+            Task {
+                await vm.checkAndGetModelResult()
+            }
         }
         let _ = print(vm.$modelResult)
     }

@@ -18,20 +18,29 @@ class HomeViewModel: ObservableObject {
         self.isNewOpen = true
     }
 
-    func checkAndGetModelResult() {
+    @MainActor
+    func checkAndGetModelResult() async {
         if isNewOpen {
-            firstOpenApp()
+            await firstOpenApp()
             isNewOpen = false
         } else {
-            refreshPage()
+            await refreshPage()
         }
     }
 
-    func firstOpenApp() {
-        modelResult = homeUseCase.getModelResult(url: URL(fileURLWithPath: "a"))
+    @MainActor
+    func firstOpenApp() async {
+        do {
+            guard let url = Bundle.main.url(forResource: "134n", withExtension: "wav") else { return }
+
+            modelResult = try await homeUseCase.getModelResult(url: url)
+        } catch {
+            print("failed in firstOpenApp()")
+        }
     }
 
-    func refreshPage() {
-        firstOpenApp()
+    @MainActor
+    func refreshPage() async {
+        await firstOpenApp()
     }
 }

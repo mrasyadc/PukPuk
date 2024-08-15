@@ -15,7 +15,7 @@ class HomeDefaultRepository:
         self.homeLocalDataSource = homeLocalDataSource
     }
 
-    func getModelResult(url: URL) -> [String: Double] {
-        return homeLocalDataSource.getModelResult(url: url)
+    func getModelResult(url: URL) async throws -> [String: Double] {
+        return try await homeLocalDataSource.getModelResult(url: url)
     }
 }

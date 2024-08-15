@@ -14,7 +14,7 @@ protocol AudioPlayerDataSource {
     var isPlaying: Bool { get }
 }
 
-class AudioplayerDataSource: AudioPlayerDataSource {
+class audioplayerDataSource: AudioPlayerDataSource {
     private var audioPlayer: AVAudioPlayer?
     
     func play(from url: URL) { // setiap sebelum play hrs configure sessionya

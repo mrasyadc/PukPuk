@@ -9,12 +9,14 @@ import UIKit
 import AVFoundation
 
 internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRepository {
-    let audioDataSource: audioRecorderDataSource
-    let classificationDataSource: classificationDataSource
+    let audioDataSource: AudioRecorderDataSource
+    let classificationDataSource: ClassificationDataSource
+    let fileManagerDataSource: DefaultFileManagerDataSource
     
-    init(audioDataSource: audioRecorderDataSource, classificationDataSource: classificationDataSource) {
+    init(audioDataSource: AudioRecorderDataSource, classificationDataSource: ClassificationDataSource, fileManagerDataSource: DefaultFileManagerDataSource) {
         self.audioDataSource = audioDataSource
         self.classificationDataSource = classificationDataSource
+        self.fileManagerDataSource = fileManagerDataSource
     }
     
     func startRecording() {
@@ -35,8 +37,8 @@ internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRe
         audioDataSource.stopRecording()
     }
     
-    func getRecordedAudio() {
-        print("INi masih belum")
+    func getRecordedAudio(url: URL) {
+        fileManagerDataSource.getAudioFiles(in: url)
     }
     
     func configureAudioRecordSession() {

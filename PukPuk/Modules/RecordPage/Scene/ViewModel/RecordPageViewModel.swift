@@ -12,10 +12,8 @@ internal final class RecordPageViewModel {
     private let startRecordUseCase: StartRecordUseCase
     private let stopRecordUseCase: StopRecordUseCase
     private let cancelRecordUseCase: CancelRecordUseCase
+    private let classifyAudioUseCase: ClassifyAudioUseCase
+    private let getRecordedAudioUseCase: GetRecordedAudioUseCase
+
     
-    init(startRecordUseCase: StartRecordUseCase, stopRecordUseCase: StopRecordUseCase, cancelRecordUseCase: CancelRecordUseCase) {
-        self.startRecordUseCase = startRecordUseCase
-        self.stopRecordUseCase = stopRecordUseCase
-        self.cancelRecordUseCase = cancelRecordUseCase
-    }
 }

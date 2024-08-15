@@ -8,12 +8,38 @@
 import Foundation
 import SoundAnalysis
 
+enum CryClassificationError: Equatable, Error, LocalizedError {
+    case notCryDetected
+    case cryClassificationError(String)
+
+    var errorDescription: String? {
+        switch self {
+        case .notCryDetected:
+            return "Cry classification indicates not a cry. Try again."
+        case .cryClassificationError(let message):
+            return message
+        }
+    }
+}
+
 class HomeDataSource: HomeLocalDataSourceProtocol {
     func getModelResult(url: URL) async throws -> [String: Double] {
-        let classifications = try await classifyCryNotCry(url: url)
+        let cryClassifications = try await classifyCryNotCry(url: url)
+        let reasonsClassifications = try await classifyCryReasons(url: url)
+
+        // Check cry_classifications for confidence levels of "cry" and "not_cry"
+        if let cryClassification = cryClassifications.first(where: { $0.identifier == "cry" }),
+           let notCryClassification = cryClassifications.first(where: { $0.identifier == "not_cry" })
+        {
+            // Compare confidence levels
+            if cryClassification.confidence < notCryClassification.confidence {
+                // If "cry" confidence is lower, return an indication to try again
+                throw CryClassificationError.notCryDetected
+            }
+        }
 
         // Convert the classifications to a [String: Double] dictionary
-        let results = classifications.reduce(into: [String: Double]()) { dict, classification in
+        let results = reasonsClassifications.reduce(into: [String: Double]()) { dict, classification in
             dict[classification.identifier] = classification.confidence
         }
 

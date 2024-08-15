@@ -26,6 +26,8 @@ struct HomeView: View {
                 Text("Click to show example (loading)")
             })
 
+            Text(vm.errorText)
+
         }.refreshable {
             Task {
                 await vm.checkAndGetModelResult()

@@ -10,8 +10,8 @@ import Foundation
 class HomeDefaultRepository:
     HomeDefaultRepositoryProtocol
 {
-    private let homeLocalDataSource: HomeLocalDataSourceProtocol
-    init(homeLocalDataSource: HomeLocalDataSourceProtocol) {
+    private let homeLocalDataSource: HomeDataSourceProtocol
+    init(homeLocalDataSource: HomeDataSourceProtocol) {
         self.homeLocalDataSource = homeLocalDataSource
     }
 

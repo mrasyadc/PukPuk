@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    @Published var modelResult: [String: Double] = ["A": 1.1]
+    @Published var modelResult: [String: Double] = [:]
     @Published var isNewOpen: Bool
     @Published var errorText: String
 

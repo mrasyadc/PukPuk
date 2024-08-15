@@ -12,7 +12,7 @@
 		9D80A18C2C6B4776002AB74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D80A18B2C6B4776002AB74F /* Assets.xcassets */; };
 		9D80A18F2C6B4776002AB74F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D80A18E2C6B4776002AB74F /* Preview Assets.xcassets */; };
 		9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */; };
-		9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2182C6C11DC002AB74F /* HomeDataSource.swift */; };
+		9D80A2192C6C11DC002AB74F /* HomeLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2182C6C11DC002AB74F /* HomeLocalDataSource.swift */; };
 		9D80A21B2C6C11EA002AB74F /* HomeDefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A21A2C6C11EA002AB74F /* HomeDefaultRepository.swift */; };
 		9D80A21D2C6C11F9002AB74F /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A21C2C6C11F9002AB74F /* HomeModel.swift */; };
 		9D80A21F2C6C1203002AB74F /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A21E2C6C1203002AB74F /* HomeUseCase.swift */; };
@@ -26,7 +26,7 @@
 		9D80A22F2C6C1321002AB74F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A22E2C6C1321002AB74F /* ViewModel.swift */; };
 		9D80A2312C6C19D5002AB74F /* HomeUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */; };
 		9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */; };
-		9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */; };
+		9D80A2352C6C1B50002AB74F /* HomeDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2342C6C1B50002AB74F /* HomeDataSourceProtocol.swift */; };
 		9D80A2772C6C296A002AB74F /* PukPuk_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2762C6C296A002AB74F /* PukPuk_Tests.swift */; };
 		9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */; };
 		9D80A2822C6C5DA8002AB74F /* TestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2802C6C5DA8002AB74F /* TestSheet.swift */; };
@@ -36,6 +36,7 @@
 		9D8535302C6DB963007FF46E /* not_cry.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D85352F2C6DB963007FF46E /* not_cry.wav */; };
 		9D8535342C6DFF67007FF46E /* cry.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D8535332C6DFF67007FF46E /* cry.wav */; };
 		9D8535362C6DFFA7007FF46E /* 542c.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9D8535352C6DFFA7007FF46E /* 542c.wav */; };
+		9D8535382C6E030F007FF46E /* CryClassificationErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8535372C6E030F007FF46E /* CryClassificationErrorEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,7 @@
 		9D80A18B2C6B4776002AB74F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D80A18E2C6B4776002AB74F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
-		9D80A2182C6C11DC002AB74F /* HomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSource.swift; sourceTree = "<group>"; };
+		9D80A2182C6C11DC002AB74F /* HomeLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataSource.swift; sourceTree = "<group>"; };
 		9D80A21A2C6C11EA002AB74F /* HomeDefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultRepository.swift; sourceTree = "<group>"; };
 		9D80A21C2C6C11F9002AB74F /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		9D80A21E2C6C1203002AB74F /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
@@ -69,7 +70,7 @@
 		9D80A22E2C6C1321002AB74F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseProtocol.swift; sourceTree = "<group>"; };
 		9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultRepositoryProtocol.swift; sourceTree = "<group>"; };
-		9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		9D80A2342C6C1B50002AB74F /* HomeDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataSourceProtocol.swift; sourceTree = "<group>"; };
 		9D80A2742C6C296A002AB74F /* PukPuk-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PukPuk-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D80A2762C6C296A002AB74F /* PukPuk_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PukPuk_Tests.swift; sourceTree = "<group>"; };
 		9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingCoordinator.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		9D85352F2C6DB963007FF46E /* not_cry.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = not_cry.wav; sourceTree = "<group>"; };
 		9D8535332C6DFF67007FF46E /* cry.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cry.wav; sourceTree = "<group>"; };
 		9D8535352C6DFFA7007FF46E /* 542c.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 542c.wav; sourceTree = "<group>"; };
+		9D8535372C6E030F007FF46E /* CryClassificationErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryClassificationErrorEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,8 +244,9 @@
 			children = (
 				9D85352C2C6DB6FB007FF46E /* BabyCrySoundClassifierFinal.mlmodel */,
 				9D85352B2C6DB6FB007FF46E /* CryNotCry.mlmodel */,
-				9D80A2182C6C11DC002AB74F /* HomeDataSource.swift */,
-				9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */,
+				9D80A2182C6C11DC002AB74F /* HomeLocalDataSource.swift */,
+				9D8535372C6E030F007FF46E /* CryClassificationErrorEnum.swift */,
+				9D80A2342C6C1B50002AB74F /* HomeDataSourceProtocol.swift */,
 			);
 			path = "Data Source";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			files = (
 				9D80A18A2C6B4774002AB74F /* ContentView.swift in Sources */,
 				9D85352E2C6DB6FB007FF46E /* BabyCrySoundClassifierFinal.mlmodel in Sources */,
+				9D8535382C6E030F007FF46E /* CryClassificationErrorEnum.swift in Sources */,
 				9D80A2232C6C1235002AB74F /* HomeViewModel.swift in Sources */,
 				9D80A21B2C6C11EA002AB74F /* HomeDefaultRepository.swift in Sources */,
 				9D80A21F2C6C1203002AB74F /* HomeUseCase.swift in Sources */,
@@ -467,9 +471,9 @@
 				9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */,
 				9D80A2252C6C12EA002AB74F /* DataSource.swift in Sources */,
 				9D80A2822C6C5DA8002AB74F /* TestSheet.swift in Sources */,
-				9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */,
+				9D80A2352C6C1B50002AB74F /* HomeDataSourceProtocol.swift in Sources */,
 				9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */,
-				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
+				9D80A2192C6C11DC002AB74F /* HomeLocalDataSource.swift in Sources */,
 				9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

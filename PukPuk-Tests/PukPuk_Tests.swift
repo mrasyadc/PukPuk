@@ -11,12 +11,12 @@ import XCTest
 final class PukPuk_Tests: XCTestCase {
     private var useCase: HomeUseCase!
     private var repository: HomeDefaultRepository!
-    private var dataSource: HomeDataSource!
+    private var dataSource: HomeLocalDataSource!
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         super.setUp()
-        dataSource = HomeDataSource()
+        dataSource = HomeLocalDataSource()
         repository = HomeDefaultRepository(homeLocalDataSource: dataSource)
         useCase = HomeUseCase(homeRepository: repository)
     }

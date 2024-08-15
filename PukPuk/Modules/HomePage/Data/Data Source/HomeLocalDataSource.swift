@@ -8,21 +8,7 @@
 import Foundation
 import SoundAnalysis
 
-enum CryClassificationError: Equatable, Error, LocalizedError {
-    case notCryDetected
-    case cryClassificationError(String)
-
-    var errorDescription: String? {
-        switch self {
-        case .notCryDetected:
-            return "Cry classification indicates not a cry. Try again."
-        case .cryClassificationError(let message):
-            return message
-        }
-    }
-}
-
-class HomeDataSource: HomeLocalDataSourceProtocol {
+class HomeLocalDataSource: HomeDataSourceProtocol {
     func getModelResult(url: URL) async throws -> [String: Double] {
         let cryClassifications = try await classifyCryNotCry(url: url)
         let reasonsClassifications = try await classifyCryReasons(url: url)

@@ -14,7 +14,7 @@ class DependencyInjection: ObservableObject {
 
     private init() {}
 
-    lazy var homeDataSource = HomeDataSource()
+    lazy var homeDataSource = HomeLocalDataSource()
 
     lazy var homeDefaultRepository = HomeDefaultRepository(homeLocalDataSource: homeDataSource)
 

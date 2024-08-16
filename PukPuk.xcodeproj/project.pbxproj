@@ -124,6 +124,7 @@
 				9D80A1872C6B4774002AB74F /* PukPukApp.swift */,
 				9D80A1892C6B4774002AB74F /* ContentView.swift */,
 				9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */,
+				CD853E3F2C6E590700894320 /* Resources */,
 				9D80A1FB2C6B4AA7002AB74F /* Modules */,
 				9D80A18B2C6B4776002AB74F /* Assets.xcassets */,
 				9D80A18D2C6B4776002AB74F /* Preview Content */,
@@ -326,8 +327,6 @@
 				CD73CE412C6C5CEA00C07729 /* Data */,
 				CD73CE432C6C5CF800C07729 /* Domain */,
 				CD73CE422C6C5CF000C07729 /* Scene */,
-				CD73CE7C2C6DC96300C07729 /* ResultObserver.swift */,
-				CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */,
 			);
 			path = RecordPage;
 			sourceTree = "<group>";
@@ -338,6 +337,7 @@
 				CD73CE652C6D11E300C07729 /* Repositories */,
 				CD73CE642C6D11DC00C07729 /* DataSources */,
 				CD73CE6C2C6D170800C07729 /* AudioService.swift */,
+				CD73CE7C2C6DC96300C07729 /* ResultObserver.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -434,6 +434,22 @@
 				CD73CE7F2C6DE86400C07729 /* RecordPageCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		CD853E3F2C6E590700894320 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD853E402C6E591C00894320 /* Model */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD853E402C6E591C00894320 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

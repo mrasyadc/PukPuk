@@ -7,6 +7,20 @@
 
 import Foundation
 
-struct ClassificationResultEntity{
+struct ClassificationResultEntity {
+    struct Classification {
+        let label: String
+        let confidence: Double
+        
+        var confidencePercentage: String {
+            return String(format: "%.2f%%", confidence * 100)
+        }
+    }
     
+    let classifications: [Classification]
+    let timestamp: Date
+    
+    var topResult: Classification? {
+        return classifications.first
+    }
 }

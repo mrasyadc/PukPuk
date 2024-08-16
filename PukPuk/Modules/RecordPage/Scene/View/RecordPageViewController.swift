@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
 //    typealias UIViewControllerType = RecordPageViewController
@@ -35,28 +36,56 @@ class RecordPageViewController: UIViewController {
     @IBOutlet weak var hStackInfo: UIStackView!
     @IBOutlet weak var headerLabel: UILabel!
     
+    private var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeBackgroundColor()
         setupHeaderLabel()
         setupRecordButton()
         setupInfoLabel()
+        bindViewModel()
+    }
+    
+    private func changeBackgroundColor() {
+        view.backgroundColor = UIColor(resource: .purple)
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor(resource: .purple).cgColor]
+        
+        gradientLayer.type = .radial
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
+        // hardcode setting gradient :(
+        gradientLayer.endPoint = CGPoint(x: 0.92, y: 0.69)
+
+//        view.layer.addSublayer(gradientLayer)
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.frame = view.frame
     }
     
     private func setupHeaderLabel(){
         headerLabel.text = "Let's hear what your baby wants"
+        headerLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
         headerLabel.textAlignment = .center
     }
     
     private func setupRecordButton(){
         let image = UIImage(resource: .babyIcon)
         recordButton.setTitle("Tap to Record", for: .normal)
+
+        let boldFont = UIFont.boldSystemFont(ofSize: 16.0)
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: boldFont
+            ]
+        let attributedTitle = NSAttributedString(string: "Tap to Record", attributes: attributes)
+        recordButton.setAttributedTitle(attributedTitle, for: .normal)
+        
         recordButton.setImage(image, for: .normal)
-        recordButton.backgroundColor = .systemGray3
+        recordButton.backgroundColor = UIColor(resource: .purple)
         
         recordButton.configuration = UIButton.Configuration.plain()
         recordButton.configuration?.imagePlacement = .top
         recordButton.configuration?.imagePadding = 15
-        recordButton.configuration?.baseForegroundColor = .black
+        recordButton.configuration?.baseForegroundColor = .white
         
         // Mengatur ukuran button.
         let screenWidth = UIScreen.main.bounds.width
@@ -78,27 +107,35 @@ class RecordPageViewController: UIViewController {
     }
     
     private func setupInfoLabel() {
-        infoImage.image = UIImage(resource: .infoIcon)
-        labelInfo.text = "Lorem ipsum dolor sit amet, consec tetur"
+        infoImage.image = UIImage(systemName: "info.circle")
+        infoImage.tintColor = .black
+        
+        //TODO: INI HARUS DIUBAH NNT JANGAN HARDCODE
+        labelInfo.text = "To ensure accurate analysis, please avoid any background noise or disturbances while recording your baby's cry."
         
         labelInfo.numberOfLines = 0
-        labelInfo.font = labelInfo.font.withSize(14)
+        labelInfo.font = labelInfo.font.withSize(12)
+        labelInfo.textColor = .black
         
         hStackInfo.axis = .horizontal
-        hStackInfo.alignment = .center
+        hStackInfo.alignment = .leading
         hStackInfo.distribution = .fill
         hStackInfo.spacing = 8 // Jarak antara image dan label
         
+        hStackInfo.isLayoutMarginsRelativeArrangement = true
+        hStackInfo.layoutMargins = UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 8)
+        
         // Mengatur ukuran infoImage
         infoImage.contentMode = .scaleAspectFit
-        infoImage.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        infoImage.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        infoImage.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        infoImage.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         let screenWidth = UIScreen.main.bounds.width
-        let infoSize = screenWidth * 0.65
+        let infoSize = screenWidth * 0.80
         
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.backgroundColor = .white
         containerView.addSubview(hStackInfo)
         view.addSubview(containerView)
         
@@ -107,7 +144,6 @@ class RecordPageViewController: UIViewController {
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             containerView.widthAnchor.constraint(equalToConstant: infoSize),
-            containerView.heightAnchor.constraint(equalToConstant: 60)
         ])
         
         // Setting posisi hstacInfo
@@ -120,28 +156,46 @@ class RecordPageViewController: UIViewController {
         
         // Menambahkan border ke containerView
         containerView.layer.borderWidth = 2.0
-        containerView.layer.borderColor = UIColor.systemGray5.cgColor
+        containerView.layer.borderColor = UIColor(resource: .darkPurple).cgColor
         containerView.layer.cornerRadius = 8
     }
     
-    @IBAction func onClickRecordButton(_ sender: UIButton) {
-//        let pulse = PulseAnimation(numberOfPulse: Float.infinity, radius: 1200, postion: sender.center)
-//        pulse.animationDuration = 1.0
-//        pulse.backgroundColor = Color.gray.cgColor
-//        self.view.layer.insertSublayer(pulse, below: sender.layer)
-//        
-//        recordButton.setTitle("Recording...", for: .normal)
-        if recordButton.currentTitle == "Tap to Record" {
+    @IBAction func onClickRecordButton(_ sender: UIButton) {    
+        if viewModel.recordingState == .idle {
             viewModel.didTapRecordButton.send(())
-            recordButton.setTitle("Recording...", for: .normal)
         } else {
             viewModel.didStopRecording.send(())
-            recordButton.setTitle("Tap to Record", for: .normal)
         }
-        
-//        private func bindViewModel() {
-//            // Bind any outputs from the view model to the UI here
-//        }
     }
     
+    // melakukan bind perubahan state recording dari ViewModel ke UI tombol recording
+    private func bindViewModel() {
+        viewModel.$recordingState
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                self?.updateRecordButton(for: state)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func updateRecordButton(for state: AudioRecordingState) {
+        let title = stateTextRecordConfiguration(for: state)
+        let boldFont = UIFont.boldSystemFont(ofSize: 16.0)
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: boldFont,
+        ]
+        let attributedTitle = NSAttributedString(string: title, attributes: attributes)
+        recordButton.setAttributedTitle(attributedTitle, for: .normal)
+    }
+
+    private func stateTextRecordConfiguration(for state: AudioRecordingState) -> String {
+        switch state {
+        case .idle:
+            return ("Tap to Record")
+        case .recording:
+            return ("Recording...")
+        case .analyzing:
+            return ("Analyzing...")
+        }
+    }
 }

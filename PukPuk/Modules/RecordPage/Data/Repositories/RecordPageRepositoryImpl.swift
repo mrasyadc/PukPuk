@@ -64,6 +64,10 @@ internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRe
         audioPlayDataSource.configureAudioPlaybackSession()
     }
     
+    func classifyAudio(at audioFileURL: URL) async throws -> ClassificationResultEntity {
+        try await classificationDataSource.classifyAudio(at: audioFileURL)
+    }
+    
     // helper
     func generateAudioFileName() -> String {
         let formatter = DateFormatter()

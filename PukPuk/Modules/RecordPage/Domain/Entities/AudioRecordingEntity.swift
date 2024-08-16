@@ -15,5 +15,4 @@ enum AudioRecordingState {
 
 struct AudioRecordingEntity {
     let fileUrl: URL
-    let duration: TimeInterval
 }

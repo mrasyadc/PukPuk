@@ -14,7 +14,7 @@ internal final class GetRecordedAudioUseCase {
         self.repository = repository
     }
     
-    func execute() {
+    func execute() -> URL? {
         repository.getRecordedAudio()
     }
 }

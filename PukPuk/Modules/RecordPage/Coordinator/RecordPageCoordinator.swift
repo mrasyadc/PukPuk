@@ -42,11 +42,13 @@ public final class RecordPageCoordinator {
         let startRecordUseCase = StartRecordUseCase(repository: audioRepository)
         let stopRecordUseCase = StopRecordUseCase(repository: audioRepository)
         let getRecordedAudioUseCase = GetRecordedAudioUseCase(repository: audioRepository)
+        let classifyAudioUseCase = ClassifyAudioUseCase(repository: audioRepository)
         
         let viewModel = RecordPageViewModel(
              startRecordUseCase: startRecordUseCase,
              stopRecordUseCase: stopRecordUseCase,
-             getRecordedAudioUseCase: getRecordedAudioUseCase
+             getRecordedAudioUseCase: getRecordedAudioUseCase, 
+             classifyAudioUseCase: classifyAudioUseCase
          )
         
         let viewController = RecordPageViewController()

@@ -9,7 +9,6 @@ import Foundation
 
 internal protocol ClassificationRepository {
     
-//    func classifyAudio(at audioFileURL: URL) async throws -> ClassificationResultEntity
-//    func prepareClassificationModel() // ini blm
-//    func resetClassification() // ini blm
+    func classifyAudio(at audioFileURL: URL) async throws -> ClassificationResultEntity
+
 }

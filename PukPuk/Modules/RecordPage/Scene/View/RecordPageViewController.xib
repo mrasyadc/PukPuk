@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,24 +23,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpC-KE-MgC">
-                    <rect key="frame" x="0.0" y="196" width="393" height="20.333333333333343"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="0.0" y="119.00000000000001" width="393" height="21.666666666666671"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSf-ms-DGa">
-                    <rect key="frame" x="158" y="328.66666666666669" width="79" height="89.333333333333314"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="babyIcon" imagePlacement="top" title="Button">
-                        <backgroundConfiguration key="background">
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </backgroundConfiguration>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="onClickRecordButton:" destination="-1" eventType="touchUpInside" id="n0E-t4-ZPK"/>
-                    </connections>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="loc-0E-nah">
                     <rect key="frame" x="51" y="603" width="292.33333333333331" height="129"/>
                     <subviews>
@@ -56,14 +42,27 @@
                         </label>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSf-ms-DGa">
+                    <rect key="frame" x="160" y="390" width="79" height="89"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="babyIcon" imagePlacement="top" title="Button">
+                        <backgroundConfiguration key="background">
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </backgroundConfiguration>
+                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="onClickRecordButton:" destination="-1" eventType="touchUpInside" id="n0E-t4-ZPK"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="HpC-KE-MgC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EoY-ya-mVf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="loc-0E-nah" secondAttribute="bottom" constant="86" id="QT1-oD-5MF"/>
                 <constraint firstItem="HpC-KE-MgC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="W0O-sX-Vbl"/>
-                <constraint firstItem="HpC-KE-MgC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="137" id="gWQ-27-3lU"/>
+                <constraint firstItem="HpC-KE-MgC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="gWQ-27-3lU"/>
                 <constraint firstItem="loc-0E-nah" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="544" id="qBF-Pg-det"/>
             </constraints>
             <point key="canvasLocation" x="139.69465648854961" y="-1.4084507042253522"/>
@@ -71,8 +70,5 @@
     </objects>
     <resources>
         <image name="babyIcon" width="55" height="55"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

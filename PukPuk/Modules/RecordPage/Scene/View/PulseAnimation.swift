@@ -5,11 +5,10 @@
 //  Created by Jason Susanto on 14/08/24.
 //
 
-import Foundation
 import UIKit
 
 class PulseAnimation: CALayer {
-    
+
     var animationGroup = CAAnimationGroup()
     var animationDuration: TimeInterval = 1.5
     var radius: CGFloat = 200
@@ -25,25 +24,27 @@ class PulseAnimation: CALayer {
     
     init(numberOfPulse: Float = Float.infinity, radius: CGFloat, postion: CGPoint){
         super.init()
-        self.backgroundColor = UIColor.gray.cgColor // Warna yang lebih mudah terlihat
+        self.backgroundColor = UIColor.black.cgColor
         self.contentsScale = UIScreen.main.scale
         self.opacity = 0
         self.radius = radius
         self.numberOfPulse = numberOfPulse
         self.position = postion
         
-        // Atur ukuran dan posisi layer
         self.bounds = CGRect(x: 0, y: 0, width: radius*2, height: radius*2)
         self.cornerRadius = radius
         
-        // Setup animasi
-        self.setupAnimationGroup()
-        self.add(self.animationGroup, forKey: "pulse")
+        DispatchQueue.global(qos: .default).async {
+            self.setupAnimationGroup()
+            DispatchQueue.main.async {
+                self.add(self.animationGroup, forKey: "pulse")
+           }
+        }
     }
     
     func scaleAnimation() -> CABasicAnimation {
         let scaleAnimaton = CABasicAnimation(keyPath: "transform.scale.xy")
-        scaleAnimaton.fromValue = NSNumber(value: 0)
+        scaleAnimaton.fromValue = NSNumber(value: 0.5)
         scaleAnimaton.toValue = NSNumber(value: 1)
         scaleAnimaton.duration = animationDuration
         return scaleAnimaton
@@ -52,8 +53,8 @@ class PulseAnimation: CALayer {
     func createOpacityAnimation() -> CAKeyframeAnimation {
         let opacityAnimiation = CAKeyframeAnimation(keyPath: "opacity")
         opacityAnimiation.duration = animationDuration
-        opacityAnimiation.values = [0.4, 0.8, 0]
-        opacityAnimiation.keyTimes = [0, 0.3, 1]
+        opacityAnimiation.values = [0.4,0.8,0]
+        opacityAnimiation.keyTimes = [0,0.3,1]
         return opacityAnimiation
     }
     
@@ -62,6 +63,8 @@ class PulseAnimation: CALayer {
         self.animationGroup.repeatCount = numberOfPulse
         let defaultCurve = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
         self.animationGroup.timingFunction = defaultCurve
-        self.animationGroup.animations = [scaleAnimation(), createOpacityAnimation()]
+        self.animationGroup.animations = [scaleAnimation(),createOpacityAnimation()]
     }
+    
+    
 }

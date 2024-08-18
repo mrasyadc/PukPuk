@@ -37,13 +37,15 @@ class RecordPageViewController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     
     private var cancellables = Set<AnyCancellable>()
-    
+    var pulseLayers = [CAShapeLayer]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         changeBackgroundColor()
         setupHeaderLabel()
         setupRecordButton()
         setupInfoLabel()
+        
         bindViewModel()
     }
     
@@ -57,7 +59,6 @@ class RecordPageViewController: UIViewController {
         // hardcode setting gradient :(
         gradientLayer.endPoint = CGPoint(x: 0.92, y: 0.69)
 
-//        view.layer.addSublayer(gradientLayer)
         view.layer.insertSublayer(gradientLayer, at: 0)
         gradientLayer.frame = view.frame
     }
@@ -186,6 +187,15 @@ class RecordPageViewController: UIViewController {
         ]
         let attributedTitle = NSAttributedString(string: title, attributes: attributes)
         recordButton.setAttributedTitle(attributedTitle, for: .normal)
+        
+        switch state {
+        case .idle:
+            stopImpulseAnimation()
+        case .recording:
+            startImpulseAnimation()
+        case .analyzing:
+            stopImpulseAnimation()
+        }
     }
 
     private func stateTextRecordConfiguration(for state: AudioRecordingState) -> String {
@@ -197,5 +207,80 @@ class RecordPageViewController: UIViewController {
         case .analyzing:
             return ("Analyzing...")
         }
+    }
+    
+    private func createFirstImpulseAnimation() {
+        let pulseLayer = CAShapeLayer()
+        pulseLayer.bounds = CGRect(x: 0, y: 0, width: recordButton.bounds.width, height: recordButton.bounds.height)
+        pulseLayer.position = recordButton.center
+        pulseLayer.path = UIBezierPath(ovalIn: pulseLayer.bounds).cgPath
+        pulseLayer.fillColor = UIColor.systemGray6.cgColor
+        pulseLayer.strokeColor = UIColor(resource: .purple).cgColor
+        pulseLayer.lineWidth = 2
+        pulseLayer.opacity = 0
+        
+        view.layer.insertSublayer(pulseLayer, below: recordButton.layer)
+        pulseLayers.append(pulseLayer)
+        
+        let animation = CAAnimationGroup()
+        animation.duration = 2
+        animation.repeatCount = .infinity
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 1.0
+        scaleAnimation.toValue = 1.4
+        
+        let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+        opacityAnimation.values = [0, 0.5, 0]
+        opacityAnimation.keyTimes = [0, 0.5, 1]
+        
+        animation.animations = [scaleAnimation, opacityAnimation]
+        
+        pulseLayer.add(animation, forKey: "pulseFirst")
+    }
+    
+    private func createSecondImpulseAnimation() {
+        let pulseLayer = CAShapeLayer()
+        pulseLayer.bounds = CGRect(x: 0, y: 0, width: recordButton.bounds.width, height: recordButton.bounds.height)
+        pulseLayer.position = recordButton.center
+        pulseLayer.path = UIBezierPath(ovalIn: pulseLayer.bounds).cgPath
+        pulseLayer.fillColor = UIColor.systemGray4.cgColor
+        pulseLayer.strokeColor = UIColor(resource: .purple).cgColor
+        pulseLayer.lineWidth = 2
+        pulseLayer.opacity = 0
+        
+        view.layer.insertSublayer(pulseLayer, below: recordButton.layer)
+        pulseLayers.append(pulseLayer)
+        
+        let animation = CAAnimationGroup()
+        animation.duration = 2
+        animation.repeatCount = .infinity
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 1.0
+        scaleAnimation.toValue = 1.8
+        
+        let opacityAnimation = CAKeyframeAnimation(keyPath: "opacity")
+        opacityAnimation.values = [0, 0.5, 0]
+        opacityAnimation.keyTimes = [0, 0.5, 1]
+        
+        animation.animations = [scaleAnimation, opacityAnimation]
+        
+        pulseLayer.add(animation, forKey: "pulseSecond")
+    }
+    
+    private func startImpulseAnimation() {
+        stopImpulseAnimation()
+        createFirstImpulseAnimation()
+        createSecondImpulseAnimation()
+    }
+
+    private func stopImpulseAnimation() {
+        for layer in pulseLayers {
+            layer.removeFromSuperlayer()
+        }
+        pulseLayers.removeAll()
     }
 }

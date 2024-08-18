@@ -8,29 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var vm: HomeViewModel
-
-    // Use this to apply routing mechanism
-    @EnvironmentObject var routingCoordinator: RoutingCoordinator
-
     var body: some View {
-        ScrollView {
-            // Iterate over the dictionary
-            ForEach(vm.modelResult.sorted(by: <), id: \.key) { key, value in
-                // Display key-value pair as "Key: Value"
-                Text("\(key): \(value, specifier: "%.2f")")
-            }
-
-            // Use .push to show what page when button clicked
-            Button(action: { routingCoordinator.push(page: .loading) }, label: {
-                Text("Click to show example (loading)")
-            })
-
-        }.refreshable {
-            vm.refreshPage()
-        }.onAppear {
-            vm.checkAndGetModelResult()
-        }
-        let _ = print(vm.$modelResult)
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
+}
+
+#Preview {
+    HomeView()
 }

@@ -13,18 +13,6 @@ class DependencyInjection: ObservableObject {
     static let shared = DependencyInjection()
 
     private init() {}
-
-    lazy var homeDataSource = HomeDataSource()
-
-    lazy var homeDefaultRepository = HomeDefaultRepository(homeLocalDataSource: homeDataSource)
-
-    lazy var homeUseCase = HomeUseCase(homeRepository: homeDefaultRepository)
-
-    // MARK: FUNCTION
-
-    func homeViewModel() -> HomeViewModel {
-        HomeViewModel(homeUseCase: homeUseCase)
-    }
 }
 
 //// Singleton instance

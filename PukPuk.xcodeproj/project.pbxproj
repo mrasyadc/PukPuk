@@ -46,13 +46,6 @@
 		CD73CE802C6DE86400C07729 /* RecordPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD73CE7F2C6DE86400C07729 /* RecordPageCoordinator.swift */; };
 		CD73CE822C6DF53C00C07729 /* FileManagerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD73CE812C6DF53C00C07729 /* FileManagerDataSource.swift */; };
 		CD73CE842C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */; };
-		9D80A2312C6C19D5002AB74F /* HomeUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */; };
-		9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */; };
-		9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */; };
-		9D80A2772C6C296A002AB74F /* PukPuk_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2762C6C296A002AB74F /* PukPuk_Tests.swift */; };
-		9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */; };
-		9D80A2822C6C5DA8002AB74F /* TestSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2802C6C5DA8002AB74F /* TestSheet.swift */; };
-		9D80A2832C6C5DA8002AB74F /* TestFullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,14 +89,6 @@
 		CD73CE7F2C6DE86400C07729 /* RecordPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPageCoordinator.swift; sourceTree = "<group>"; };
 		CD73CE812C6DF53C00C07729 /* FileManagerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerDataSource.swift; sourceTree = "<group>"; };
 		CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = BabyCrySoundClassifierFinal.mlmodel; sourceTree = "<group>"; };
-		9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseProtocol.swift; sourceTree = "<group>"; };
-		9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDefaultRepositoryProtocol.swift; sourceTree = "<group>"; };
-		9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
-		9D80A2742C6C296A002AB74F /* PukPuk-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PukPuk-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D80A2762C6C296A002AB74F /* PukPuk_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PukPuk_Tests.swift; sourceTree = "<group>"; };
-		9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingCoordinator.swift; sourceTree = "<group>"; };
-		9D80A2802C6C5DA8002AB74F /* TestSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSheet.swift; sourceTree = "<group>"; };
-		9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFullScreenCover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +124,7 @@
 				9D80A1872C6B4774002AB74F /* PukPukApp.swift */,
 				9D80A1892C6B4774002AB74F /* ContentView.swift */,
 				9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */,
+				CD853E3F2C6E590700894320 /* Resources */,
 				9D80A1FB2C6B4AA7002AB74F /* Modules */,
 				9D80A18B2C6B4776002AB74F /* Assets.xcassets */,
 				9D80A18D2C6B4776002AB74F /* Preview Content */,
@@ -243,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2172C6B4B85002AB74F /* HomePage */,
+				CD73CE402C6C5B6F00C07729 /* RecordPage */,
 				9D80A1FA2C6B4AA7002AB74F /* [TEMPLATE] */,
 			);
 			path = Modules;
@@ -463,22 +450,6 @@
 				CD73CE832C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel */,
 			);
 			path = Model;
-		9D80A2752C6C296A002AB74F /* PukPuk-Tests */ = {
-			isa = PBXGroup;
-			children = (
-				9D80A2762C6C296A002AB74F /* PukPuk_Tests.swift */,
-			);
-			path = "PukPuk-Tests";
-			sourceTree = "<group>";
-		};
-		9D80A27D2C6C5D31002AB74F /* RoutingCoordinator */ = {
-			isa = PBXGroup;
-			children = (
-				9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */,
-				9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */,
-				9D80A2802C6C5DA8002AB74F /* TestSheet.swift */,
-			);
-			path = RoutingCoordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D80A18F2C6B4776002AB74F /* Preview Assets.xcassets in Resources */,
+				CD73CE462C6C5D4700C07729 /* RecordPageViewController.xib in Resources */,
 				9D80A18C2C6B4776002AB74F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,13 +524,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D80A18A2C6B4774002AB74F /* ContentView.swift in Sources */,
+				CD73CE772C6DC3D200C07729 /* audioRecorderDataSource.swift in Sources */,
 				9D80A2232C6C1235002AB74F /* HomeViewModel.swift in Sources */,
+				CD73CE7D2C6DC96300C07729 /* ResultObserver.swift in Sources */,
+				CD73CE792C6DC55100C07729 /* AudioPlayerDataSource.swift in Sources */,
+				CD73CE5F2C6D104F00C07729 /* StopRecordUseCase.swift in Sources */,
 				9D80A21B2C6C11EA002AB74F /* HomeDefaultRepository.swift in Sources */,
 				9D80A21F2C6C1203002AB74F /* HomeUseCase.swift in Sources */,
+				CD73CE472C6C5D4700C07729 /* RecordPageViewController.swift in Sources */,
 				9D80A21D2C6C11F9002AB74F /* HomeModel.swift in Sources */,
 				CD73CE732C6DBE9900C07729 /* GetRecordedAudioUseCase.swift in Sources */,
-				9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */,
 				9D80A2272C6C12F5002AB74F /* Repository.swift in Sources */,
+				CD73CE6D2C6D170800C07729 /* AudioService.swift in Sources */,
+				CD73CE5B2C6D0FE000C07729 /* AudioRepository.swift in Sources */,
 				9D80A22B2C6C130A002AB74F /* UseCase.swift in Sources */,
 				9D80A2292C6C1303002AB74F /* Entities.swift in Sources */,
 				CD73CE632C6D10BD00C07729 /* ClassifyAudioUseCase.swift in Sources */,
@@ -568,25 +546,19 @@
 				CD73CE552C6D0E3E00C07729 /* AudioRecordingEntity.swift in Sources */,
 				CD73CE572C6D0F3700C07729 /* ClassificationResultEntity.swift in Sources */,
 				CD73CE672C6D124800C07729 /* RecordPageRepositoryImpl.swift in Sources */,
-				9D80A2312C6C19D5002AB74F /* HomeUseCaseProtocol.swift in Sources */,
-				9D80A2832C6C5DA8002AB74F /* TestFullScreenCover.swift in Sources */,
 				9D80A2212C6C122A002AB74F /* HomeView.swift in Sources */,
 				9D80A22F2C6C1321002AB74F /* ViewModel.swift in Sources */,
 				9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */,
+				CD73CE612C6D109800C07729 /* CancelRecordUseCase.swift in Sources */,
 				9D80A2252C6C12EA002AB74F /* DataSource.swift in Sources */,
 				9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */,
+				CD73CE712C6D1AA600C07729 /* RecordPageViewModel.swift in Sources */,
+				CD73CE802C6DE86400C07729 /* RecordPageCoordinator.swift in Sources */,
+				CD73CE5D2C6D104500C07729 /* StartRecordUseCase.swift in Sources */,
+				CD73CE822C6DF53C00C07729 /* FileManagerDataSource.swift in Sources */,
 				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
 				CD73CE4E2C6CFEB000C07729 /* PulseAnimation.swift in Sources */,
 				CD73CE842C6E147400C07729 /* BabyCrySoundClassifierFinal.mlmodel in Sources */,
-				9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D80A2702C6C296A002AB74F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9D80A2772C6C296A002AB74F /* PukPuk_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,9 +692,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = M73B4W9D68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to record audio for analyzing baby cries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -749,9 +722,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = M73B4W9D68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to record audio for analyzing baby cries.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

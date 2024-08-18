@@ -8,15 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-//        NavigationStack {
-//            <#code#>
-//        }
-        RecordPageViewControllerWrapper()
-            .edgesIgnoringSafeArea(.all)
-    }
-}
+    @StateObject private var coordinator = RoutingCoordinator()
 
-#Preview {
-    ContentView()
+    var body: some View {
+//         RecordPageViewControllerWrapper()
+//             .edgesIgnoringSafeArea(.all)
+
+        NavigationStack(path: $coordinator.path
+        ) {
+            coordinator.build(page: .home)
+                .navigationDestination(for: Page.self) {
+                    page in
+                    coordinator.build(page: page)
+                }
+                .sheet(item: $coordinator.sheet) {
+                    sheet in coordinator.build(sheet: sheet)
+                }
+
+                .fullScreenCover(item: $coordinator.fullScreenCover) {
+                    fullScreenCover in coordinator.build(fullScreenCover: fullScreenCover)
+                }
+        }
+
+        .environmentObject(coordinator)
+    }
 }

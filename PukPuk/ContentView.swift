@@ -11,8 +11,6 @@ struct ContentView: View {
     @StateObject private var coordinator = RoutingCoordinator()
 
     var body: some View {
-//         RecordPageViewControllerWrapper()
-//             .edgesIgnoringSafeArea(.all)
         NavigationStack(path: $coordinator.path
         ) {
             coordinator.build(page: .home)

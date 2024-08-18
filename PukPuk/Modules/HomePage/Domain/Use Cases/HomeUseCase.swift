@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class HomeUseCase: HomeUseCaseProtocol {
+    let homeRepository: HomeDefaultRepositoryProtocol
+
+    init(homeRepository: HomeDefaultRepositoryProtocol) {
+        self.homeRepository = homeRepository
+    }
+
+    func getModelResult(url: URL) -> [String: Double] {
+        return homeRepository.getModelResult(url: url)
+    }
+}

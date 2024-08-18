@@ -65,6 +65,7 @@ class RecordPageViewController: UIViewController {
     
     private func setupHeaderLabel(){
         headerLabel.text = "Let's hear what your baby wants"
+        headerLabel.textColor = .white
         headerLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
         headerLabel.textAlignment = .center
     }
@@ -245,7 +246,7 @@ class RecordPageViewController: UIViewController {
         pulseLayer.bounds = CGRect(x: 0, y: 0, width: recordButton.bounds.width, height: recordButton.bounds.height)
         pulseLayer.position = recordButton.center
         pulseLayer.path = UIBezierPath(ovalIn: pulseLayer.bounds).cgPath
-        pulseLayer.fillColor = UIColor.systemGray4.cgColor
+        pulseLayer.fillColor = UIColor.systemGray5.cgColor
         pulseLayer.strokeColor = UIColor(resource: .purple).cgColor
         pulseLayer.lineWidth = 2
         pulseLayer.opacity = 0

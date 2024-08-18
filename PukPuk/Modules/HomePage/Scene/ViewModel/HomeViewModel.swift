@@ -8,8 +8,8 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    @Published var modelResult: [String: Double] = ["A": 1.1]
-    @Published var isNewOpen: Bool
+    @Published var modelResult : [String: Double] = ["A" : 1.1]
+    @Published var isNewOpen : Bool
 
     private let homeUseCase: HomeUseCaseProtocol
 

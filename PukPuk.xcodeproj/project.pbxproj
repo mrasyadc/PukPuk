@@ -33,6 +33,14 @@
 		9D80A2832C6C5DA8002AB74F /* TestFullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */; };
 		B59B34D02C6D0C5600BB6BEC /* Result.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */; };
 		B59B34D22C6D100F00BB6BEC /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34D12C6D100F00BB6BEC /* ResultVC.swift */; };
+		B59B34D42C6DAD6500BB6BEC /* ResultDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34D32C6DAD6500BB6BEC /* ResultDataSource.swift */; };
+		B59B34D62C6DAD6E00BB6BEC /* ResultLocalDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34D52C6DAD6E00BB6BEC /* ResultLocalDataSourceProtocol.swift */; };
+		B59B34D82C6DAEB100BB6BEC /* ResultDefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34D72C6DAEB100BB6BEC /* ResultDefaultRepository.swift */; };
+		B59B34DA2C6DAEC300BB6BEC /* ResultRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34D92C6DAEC300BB6BEC /* ResultRepositoryProtocol.swift */; };
+		B59B34DC2C6DB0AD00BB6BEC /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34DB2C6DB0AD00BB6BEC /* ResultViewModel.swift */; };
+		B59B34DE2C6DB15700BB6BEC /* ResultUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34DD2C6DB15700BB6BEC /* ResultUseCase.swift */; };
+		B59B34E02C6DB16600BB6BEC /* ResultUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34DF2C6DB16600BB6BEC /* ResultUseCaseProtocol.swift */; };
+		B59B34E22C6DBEB100BB6BEC /* ResultViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B34E12C6DBEB100BB6BEC /* ResultViewControllerRepresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +82,14 @@
 		9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFullScreenCover.swift; sourceTree = "<group>"; };
 		B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		B59B34D12C6D100F00BB6BEC /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
+		B59B34D32C6DAD6500BB6BEC /* ResultDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDataSource.swift; sourceTree = "<group>"; };
+		B59B34D52C6DAD6E00BB6BEC /* ResultLocalDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLocalDataSourceProtocol.swift; sourceTree = "<group>"; };
+		B59B34D72C6DAEB100BB6BEC /* ResultDefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDefaultRepository.swift; sourceTree = "<group>"; };
+		B59B34D92C6DAEC300BB6BEC /* ResultRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRepositoryProtocol.swift; sourceTree = "<group>"; };
+		B59B34DB2C6DB0AD00BB6BEC /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		B59B34DD2C6DB15700BB6BEC /* ResultUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultUseCase.swift; sourceTree = "<group>"; };
+		B59B34DF2C6DB16600BB6BEC /* ResultUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultUseCaseProtocol.swift; sourceTree = "<group>"; };
+		B59B34E12C6DBEB100BB6BEC /* ResultViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewControllerRepresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2182C6C11DC002AB74F /* HomeDataSource.swift */,
+				B59B34D32C6DAD6500BB6BEC /* ResultDataSource.swift */,
 				9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */,
+				B59B34D52C6DAD6E00BB6BEC /* ResultLocalDataSourceProtocol.swift */,
 			);
 			path = "Data Source";
 			sourceTree = "<group>";
@@ -241,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				9D80A21A2C6C11EA002AB74F /* HomeDefaultRepository.swift */,
+				B59B34D72C6DAEB100BB6BEC /* ResultDefaultRepository.swift */,
+				B59B34D92C6DAEC300BB6BEC /* ResultRepositoryProtocol.swift */,
 				9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */,
 			);
 			path = Repository;
@@ -267,6 +287,8 @@
 			isa = PBXGroup;
 			children = (
 				9D80A21E2C6C1203002AB74F /* HomeUseCase.swift */,
+				B59B34DD2C6DB15700BB6BEC /* ResultUseCase.swift */,
+				B59B34DF2C6DB16600BB6BEC /* ResultUseCaseProtocol.swift */,
 				9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */,
 			);
 			path = "Use Cases";
@@ -287,6 +309,7 @@
 				9D80A2202C6C122A002AB74F /* HomeView.swift */,
 				B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */,
 				B59B34D12C6D100F00BB6BEC /* ResultVC.swift */,
+				B59B34E12C6DBEB100BB6BEC /* ResultViewControllerRepresentable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2222C6C1235002AB74F /* HomeViewModel.swift */,
+				B59B34DB2C6DB0AD00BB6BEC /* ResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -445,19 +469,27 @@
 				9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */,
 				9D80A2272C6C12F5002AB74F /* Repository.swift in Sources */,
 				9D80A22B2C6C130A002AB74F /* UseCase.swift in Sources */,
+				B59B34D62C6DAD6E00BB6BEC /* ResultLocalDataSourceProtocol.swift in Sources */,
 				9D80A2292C6C1303002AB74F /* Entities.swift in Sources */,
+				B59B34DE2C6DB15700BB6BEC /* ResultUseCase.swift in Sources */,
 				9D80A2312C6C19D5002AB74F /* HomeUseCaseProtocol.swift in Sources */,
 				9D80A1882C6B4774002AB74F /* PukPukApp.swift in Sources */,
 				9D80A2832C6C5DA8002AB74F /* TestFullScreenCover.swift in Sources */,
+				B59B34D82C6DAEB100BB6BEC /* ResultDefaultRepository.swift in Sources */,
 				9D80A2212C6C122A002AB74F /* HomeView.swift in Sources */,
 				9D80A22F2C6C1321002AB74F /* ViewModel.swift in Sources */,
+				B59B34E02C6DB16600BB6BEC /* ResultUseCaseProtocol.swift in Sources */,
 				9D80A1E82C6B49FC002AB74F /* DependencyInjection.swift in Sources */,
 				9D80A2252C6C12EA002AB74F /* DataSource.swift in Sources */,
 				9D80A2822C6C5DA8002AB74F /* TestSheet.swift in Sources */,
+				B59B34DC2C6DB0AD00BB6BEC /* ResultViewModel.swift in Sources */,
 				9D80A2352C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift in Sources */,
+				B59B34DA2C6DAEC300BB6BEC /* ResultRepositoryProtocol.swift in Sources */,
+				B59B34E22C6DBEB100BB6BEC /* ResultViewControllerRepresentable.swift in Sources */,
 				9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */,
 				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
 				B59B34D22C6D100F00BB6BEC /* ResultVC.swift in Sources */,
+				B59B34D42C6DAD6500BB6BEC /* ResultDataSource.swift in Sources */,
 				9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,7 +640,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = VNG2A57GP5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -616,6 +648,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,7 +670,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = VNG2A57GP5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -645,6 +678,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -12,7 +12,8 @@ struct PukPukApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-
+//            ResultViewControllerRepresentable()
+//                .environmentObject(DependencyInjection.shared.resultViewModel())
 //            HomeView()
 //                .environmentObject(DependencyInjection.shared.homeViewModel())
         }

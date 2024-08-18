@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class ResultDataSource : ResultLocalDataSourceProtocol {
+    func getModelResult(url: URL) -> [String : Double] {
+        return ["Hungry" : 75]
+    }
+    
+    
+}

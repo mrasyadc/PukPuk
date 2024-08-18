@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol ResultUseCaseProtocol{
+    func getModelResult(url: URL) -> [String: Double]
+}

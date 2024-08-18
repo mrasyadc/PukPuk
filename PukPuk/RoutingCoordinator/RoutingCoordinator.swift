@@ -88,7 +88,7 @@ class RoutingCoordinator: ObservableObject {
         case .loading:
             ExampleView()
         case .recommendation:
-            ExampleView()
+            ResultViewControllerRepresentable()
         }
     }
 

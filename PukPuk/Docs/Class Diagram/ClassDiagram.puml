@@ -1,0 +1,56 @@
+@startuml PukPuk
+
+interface DataSource {
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+}
+
+class HomeLocalDataSource implements DataSource {
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+    - getCryNotCryResult(url: URL): Map<String, Double>
+    - getCryReasonResult(url: URL): Map<String, Double>
+}
+
+
+class HomeRepository {
+    - localDataSource: DataSource
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+}
+
+class HomeUseCase {
+    - repository: Repository
+    + getModelResult(url: URL): Result<Map<String, Double>, Error>
+}
+
+class HomeViewModel {
+    - useCase: UseCase
+    + data: Map<String, Double>
+    + errorMessage: String?
+    + getModelResult(url: URL)
+}
+
+class HomePresentation {
+}
+
+
+
+HomeRepository "1" --> "1" HomeLocalDataSource : uses
+HomeUseCase "1" --> "1" HomeRepository : uses
+HomeViewModel "1" --> "1" HomeUseCase : interacts with
+HomePresentation "1" --> "1" HomeViewModel : observes
+
+class LoadingPresentation {
+
+}
+
+class LoadingViewModel {
+
+}
+
+class LoadingViewController {
+    
+}
+
+LoadingViewController "1" --> "1" LoadingViewModel : interacts with
+LoadingPresentation "1" --> "1" LoadingViewController : observes
+
+@enduml

@@ -8,7 +8,7 @@
 import Foundation
 
 class ResultViewModel : ObservableObject{
-    @Published var modelResult : [String: Double] = ["A" : 1.1]
+    @Published var modelResult : [String: Double] = [:]
     @Published var isNewOpen : Bool
     
     private let resultUseCase : ResultUseCaseProtocol
@@ -18,7 +18,7 @@ class ResultViewModel : ObservableObject{
     }
     
     var percentage: String{
-        if let value = modelResult.keys.first{
+        if let value = modelResult.values.first{
             return "\(value)%"
         }
         return ""

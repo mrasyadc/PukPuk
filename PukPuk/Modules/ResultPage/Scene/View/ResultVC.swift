@@ -31,6 +31,7 @@ class ResultVC: UIViewController {
             button.layer.cornerRadius = 12
         }
         
+        vm.checkAndGetModelResult()
         causeLabel.text = vm.cause
         percentageLabel.text = vm.percentage
         

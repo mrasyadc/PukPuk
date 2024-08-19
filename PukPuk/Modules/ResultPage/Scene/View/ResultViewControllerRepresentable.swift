@@ -13,6 +13,8 @@ struct ResultViewControllerRepresentable: UIViewControllerRepresentable{
     
     @EnvironmentObject var routingCoordinator: RoutingCoordinator
     
+    
+    
     func updateUIViewController(_ uiViewController: ResultVC, context: Context) {
         uiViewController.vm = resultViewModel
     }
@@ -22,6 +24,7 @@ struct ResultViewControllerRepresentable: UIViewControllerRepresentable{
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC else{
             fatalError("Cannot find Result View Controller in storyboard")
         }
+        viewController.vm = resultViewModel
         return viewController
         
     }

@@ -13,6 +13,17 @@ class ResultViewModel : ObservableObject{
     
     private let resultUseCase : ResultUseCaseProtocol
     
+    var cause: String {
+        return modelResult.keys.first ?? ""
+    }
+    
+    var percentage: String{
+        if let value = modelResult.keys.first{
+            return "\(value)%"
+        }
+        return ""
+    }
+    
     init(resultUseCase: ResultUseCaseProtocol) {
         self.resultUseCase = resultUseCase
         self.isNewOpen = true

@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ResultViewControllerRepresentable: UIViewControllerRepresentable{
+    
+    @EnvironmentObject var resultViewModel : ResultViewModel
+    
+    @EnvironmentObject var routingCoordinator: RoutingCoordinator
+    
     func updateUIViewController(_ uiViewController: ResultVC, context: Context) {
-        print("yes")
+        uiViewController.vm = resultViewModel
     }
     
     func makeUIViewController(context: Context) -> ResultVC {

@@ -14,12 +14,11 @@ class ResultVC: UIViewController {
     @IBOutlet var descLabel: UILabel!
     @IBOutlet var xReviewButton: UIButton!
     @IBOutlet var checkReviewButton: UIButton!
-    
-//    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var imageCause: UIImageView!
     @IBOutlet var cards: [UIView]!
     @IBOutlet var buttons: [UIButton]!
     
-    
+    var vm : ResultViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +31,20 @@ class ResultVC: UIViewController {
             button.layer.cornerRadius = 12
         }
         
-//        imageView.layer.cornerRadius = imageView.layer.frame.size.width/2
-//        imageView.layer.masksToBounds = true
-//        imageView.contentMode = .scaleAspectFill
-//        
+//        imageCause.layer.cornerRadius = imageCause.layer.frame.size.width/2
+//        imageCause.layer.masksToBounds = true
+//        imageCause.contentMode = .scaleAspectFill
         
+//        causeLabel.text = vm.cause.isEmpty ? "bjir" : vm.cause
+//        if let vm = vm {
+//            causeLabel.text = vm.cause.lowercased()
+//        } else {
+//            causeLabel.text = "Default Cause"  // Fallback if vm is nil
+//        }
+        
+        causeLabel.text = vm.cause
+
+//        percentageLabel.text = vm.percentage
         
     }
     

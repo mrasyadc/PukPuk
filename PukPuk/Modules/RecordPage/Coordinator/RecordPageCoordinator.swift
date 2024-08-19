@@ -18,38 +18,9 @@ public final class RecordPageCoordinator {
     }
     
     private func makeRecordPageViewController() -> RecordPageViewController {
-        let babyCryClassifier: BabyCrySoundClassifierFinal
-
-        
-        do {
-            babyCryClassifier = try BabyCrySoundClassifierFinal(configuration: MLModelConfiguration())
-        } catch {
-            print("error convert model")
+        guard let viewModel = DependencyInjection.shared.recordPageViewModel() else {
             return RecordPageViewController()
         }
-
-        // default URL
-        let recordingsDirectoryURL = FileManager.default.temporaryDirectory
-
-        
-        let audioRepository = RecordPageRepositoryImpl(
-            audioDataSource: audioRecorderDataSource(), 
-            audioPlayDataSource: audioplayerDataSource(),
-            classificationDataSource: classificationDataSource(model: babyCryClassifier.model),
-            fileManagerDataSource: DefaultFileManagerDataSource(recordingsDirectoryURL: recordingsDirectoryURL))
-        
-        // List add use case
-        let startRecordUseCase = StartRecordUseCase(repository: audioRepository)
-        let stopRecordUseCase = StopRecordUseCase(repository: audioRepository)
-        let getRecordedAudioUseCase = GetRecordedAudioUseCase(repository: audioRepository)
-        let classifyAudioUseCase = ClassifyAudioUseCase(repository: audioRepository)
-        
-        let viewModel = RecordPageViewModel(
-             startRecordUseCase: startRecordUseCase,
-             stopRecordUseCase: stopRecordUseCase,
-             getRecordedAudioUseCase: getRecordedAudioUseCase, 
-             classifyAudioUseCase: classifyAudioUseCase
-         )
         
         let viewController = RecordPageViewController()
         viewController.viewModel = viewModel

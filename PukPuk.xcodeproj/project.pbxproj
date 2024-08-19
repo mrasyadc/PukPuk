@@ -58,7 +58,6 @@
 		9D50F8A42C72F76E000FC056 /* GetRecordedAudioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8892C72F76E000FC056 /* GetRecordedAudioUseCase.swift */; };
 		9D50F8A52C72F76E000FC056 /* StartRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88A2C72F76E000FC056 /* StartRecordUseCase.swift */; };
 		9D50F8A62C72F76E000FC056 /* StopRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88B2C72F76E000FC056 /* StopRecordUseCase.swift */; };
-		9D50F8A72C72F76E000FC056 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88E2C72F76E000FC056 /* PulseAnimation.swift */; };
 		9D50F8A82C72F76E000FC056 /* RecordPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88F2C72F76E000FC056 /* RecordPageViewController.swift */; };
 		9D50F8A92C72F76E000FC056 /* RecordPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D50F8902C72F76E000FC056 /* RecordPageViewController.xib */; };
 		9D50F8AA2C72F76E000FC056 /* RecordPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8922C72F76E000FC056 /* RecordPageViewModel.swift */; };
@@ -141,7 +140,6 @@
 		9D50F8892C72F76E000FC056 /* GetRecordedAudioUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRecordedAudioUseCase.swift; sourceTree = "<group>"; };
 		9D50F88A2C72F76E000FC056 /* StartRecordUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartRecordUseCase.swift; sourceTree = "<group>"; };
 		9D50F88B2C72F76E000FC056 /* StopRecordUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopRecordUseCase.swift; sourceTree = "<group>"; };
-		9D50F88E2C72F76E000FC056 /* PulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		9D50F88F2C72F76E000FC056 /* RecordPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPageViewController.swift; sourceTree = "<group>"; };
 		9D50F8902C72F76E000FC056 /* RecordPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordPageViewController.xib; sourceTree = "<group>"; };
 		9D50F8922C72F76E000FC056 /* RecordPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPageViewModel.swift; sourceTree = "<group>"; };
@@ -500,7 +498,6 @@
 		9D50F8912C72F76E000FC056 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9D50F88E2C72F76E000FC056 /* PulseAnimation.swift */,
 				9D50F88F2C72F76E000FC056 /* RecordPageViewController.swift */,
 				9D50F8902C72F76E000FC056 /* RecordPageViewController.xib */,
 			);
@@ -848,7 +845,6 @@
 				9D85352E2C6DB6FB007FF46E /* (null) in Sources */,
 				9D50F85B2C72F54C000FC056 /* CryClassificationErrorEnum.swift in Sources */,
 				9D8535382C6E030F007FF46E /* (null) in Sources */,
-				9D50F8A72C72F76E000FC056 /* PulseAnimation.swift in Sources */,
 				9D50F89A2C72F76E000FC056 /* FileManagerDataSource.swift in Sources */,
 				9D80A2232C6C1235002AB74F /* HomeViewModel.swift in Sources */,
 				9D50F85E2C72F54C000FC056 /* HomeDataSourceProtocol.swift in Sources */,

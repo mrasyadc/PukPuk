@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E1E59452C6DADB800FB1770 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E59442C6DADB800FB1770 /* ViewController.swift */; };
+		0E1E59482C6DAECC00FB1770 /* LoadingViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E59472C6DAECC00FB1770 /* LoadingViewControllerRepresentable.swift */; };
+		0E1E594A2C6DAEF200FB1770 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1E59492C6DAEF200FB1770 /* SceneDelegate.swift */; };
 		9D80A1882C6B4774002AB74F /* PukPukApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A1872C6B4774002AB74F /* PukPukApp.swift */; };
 		9D80A18A2C6B4774002AB74F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A1892C6B4774002AB74F /* ContentView.swift */; };
 		9D80A18C2C6B4776002AB74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D80A18B2C6B4776002AB74F /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E1E59442C6DADB800FB1770 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0E1E59472C6DAECC00FB1770 /* LoadingViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		0E1E59492C6DAEF200FB1770 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9D80A1842C6B4774002AB74F /* PukPuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PukPuk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D80A1872C6B4774002AB74F /* PukPukApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PukPukApp.swift; sourceTree = "<group>"; };
 		9D80A1892C6B4774002AB74F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +96,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E1E59462C6DAE5400FB1770 /* Loading Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0E1E59442C6DADB800FB1770 /* ViewController.swift */,
+				0E1E59472C6DAECC00FB1770 /* LoadingViewControllerRepresentable.swift */,
+				0E1E59492C6DAEF200FB1770 /* SceneDelegate.swift */,
+			);
+			path = "Loading Screen";
+			sourceTree = "<group>";
+		};
 		9D80A17B2C6B4774002AB74F = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +312,7 @@
 		9D80A2162C6B4B85002AB74F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				0E1E59462C6DAE5400FB1770 /* Loading Screen */,
 				9D80A2142C6B4B85002AB74F /* View */,
 				9D80A2152C6B4B85002AB74F /* ViewModel */,
 			);
@@ -431,9 +448,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D80A18A2C6B4774002AB74F /* ContentView.swift in Sources */,
+				0E1E59482C6DAECC00FB1770 /* LoadingViewControllerRepresentable.swift in Sources */,
 				9D80A2232C6C1235002AB74F /* HomeViewModel.swift in Sources */,
 				9D80A21B2C6C11EA002AB74F /* HomeDefaultRepository.swift in Sources */,
 				9D80A21F2C6C1203002AB74F /* HomeUseCase.swift in Sources */,
+				0E1E59452C6DADB800FB1770 /* ViewController.swift in Sources */,
 				9D80A21D2C6C11F9002AB74F /* HomeModel.swift in Sources */,
 				9D80A2332C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift in Sources */,
 				9D80A2272C6C12F5002AB74F /* Repository.swift in Sources */,
@@ -451,6 +470,7 @@
 				9D80A22D2C6C1316002AB74F /* ExampleView.swift in Sources */,
 				9D80A2192C6C11DC002AB74F /* HomeDataSource.swift in Sources */,
 				9D80A27F2C6C5D3E002AB74F /* RoutingCoordinator.swift in Sources */,
+				0E1E594A2C6DAEF200FB1770 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +620,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = 56MX8FP3GC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -629,7 +649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PukPuk/Preview Content\"";
-				DEVELOPMENT_TEAM = HQSPL9G29Z;
+				DEVELOPMENT_TEAM = 56MX8FP3GC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

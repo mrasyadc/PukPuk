@@ -78,7 +78,7 @@ class RoutingCoordinator: ObservableObject {
     func pop() {
         self.path.removeLast(1)
     }
-
+    
     @ViewBuilder
     func build(page: Page) -> some View {
         switch page {
@@ -86,7 +86,9 @@ class RoutingCoordinator: ObservableObject {
             HomeView()
                 .environmentObject(DependencyInjection.shared.homeViewModel())
         case .loading:
-            ExampleView()
+            LoadingViewControllerRepresentable()
+                .toolbar(.hidden, for: .navigationBar)
+                .ignoresSafeArea()
         case .recommendation:
             ExampleView()
         }

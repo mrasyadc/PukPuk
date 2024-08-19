@@ -1,10 +1,3 @@
-//
-//  Cover1.swift
-//  DeafHealth
-//
-//  Created by Kurnia Kharisma Agung Samiadjie on 14/08/24.
-//
-
 import SwiftUI
 
 struct TestSheet: View {

@@ -16,6 +16,7 @@ enum Page: String, Identifiable {
     case home
     case loading
     case recommendation
+    case record
 
     var id: String {
         self.rawValue
@@ -86,7 +87,12 @@ class RoutingCoordinator: ObservableObject {
             HomeView()
                 .environmentObject(DependencyInjection.shared.homeViewModel())
         case .loading:
-            ExampleView()
+            LoadingViewControllerRepresentable()
+                .toolbar(.hidden, for: .navigationBar)
+                .ignoresSafeArea()
+        case .record:
+            RecordPageViewControllerWrapper()
+                .edgesIgnoringSafeArea(.all)
         case .recommendation:
             ResultViewControllerRepresentable()
                 .environmentObject(DependencyInjection.shared.resultViewModel())

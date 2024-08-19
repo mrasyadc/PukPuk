@@ -13,7 +13,7 @@ targets:
     resources: [Resources]
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.PukPuk
-      INFOPLIST_FILE: Info.plist
+      INFOPLIST_FILE: PukPuk/Info.plist
       GENERATE_INFOPLIST_FILE: true
 
   PukPuk-Tests:
@@ -24,6 +24,8 @@ targets:
       - target: PukPuk
     settings:
       base:
+        INFOPLIST_FILE: PukPuk/Info.plist
+        GENERATE_INFOPLIST_FILE: true
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/PukPuk.app/PukPuk"
         BUNDLE_LOADER: "$(TEST_HOST)"
         

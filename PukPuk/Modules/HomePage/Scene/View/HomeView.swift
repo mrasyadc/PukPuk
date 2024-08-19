@@ -31,6 +31,11 @@ struct HomeView: View {
                 Text("Click to show example (record)")
             })
 
+            // Use .push to show what page when button clicked
+            Button(action: { routingCoordinator.present(sheet: .testSheet) }, label: {
+                Text("Click to open sheet")
+            })
+
             Text(vm.errorText)
 
         }.refreshable {

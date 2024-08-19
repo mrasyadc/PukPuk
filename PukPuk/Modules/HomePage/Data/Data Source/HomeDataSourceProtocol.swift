@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol HomeLocalDataSourceProtocol {
-    func getModelResult(url: URL) -> [String: Double]
+protocol HomeDataSourceProtocol {
+    func getModelResult(url: URL) async throws -> [String: Double]
 }

@@ -26,10 +26,16 @@ struct HomeView: View {
                 Text("Click to show example (loading)")
             })
 
+            Text(vm.errorText)
+
         }.refreshable {
-            vm.refreshPage()
+            Task {
+                await vm.checkAndGetModelResult()
+            }
         }.onAppear {
-            vm.checkAndGetModelResult()
+            Task {
+                await vm.checkAndGetModelResult()
+            }
         }
         let _ = print(vm.$modelResult)
     }

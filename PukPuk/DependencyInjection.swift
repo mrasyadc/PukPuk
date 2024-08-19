@@ -14,17 +14,29 @@ class DependencyInjection: ObservableObject {
 
     private init() {}
 
+<<<<<<< HEAD
+    lazy var homeDataSource = HomeDataSource()
+=======
     lazy var homeDataSource = HomeLocalDataSource()
 
+>>>>>>> development
     lazy var homeDefaultRepository = HomeDefaultRepository(homeLocalDataSource: homeDataSource)
-
     lazy var homeUseCase = HomeUseCase(homeRepository: homeDefaultRepository)
+    
+    lazy var resultDataSource = ResultDataSource()
+    lazy var resultDefaultRepository = ResultDefaultRepository(resultLocalDataSource: resultDataSource)
+    lazy var resultUseCase = ResultUseCase(resultRepository: resultDefaultRepository)
 
     // MARK: FUNCTION
 
     func homeViewModel() -> HomeViewModel {
         HomeViewModel(homeUseCase: homeUseCase)
     }
+    
+    func resultViewModel() -> ResultViewModel {
+        ResultViewModel(resultUseCase: resultUseCase)
+    }
+    
 }
 
 //// Singleton instance

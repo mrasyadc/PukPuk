@@ -26,21 +26,10 @@ struct HomeView: View {
                 Text("Click to show example (loading)")
             })
 
-            // Use .push to show what page when button clicked
-            Button(action: { routingCoordinator.push(page: .record) }, label: {
-                Text("Click to show example (record)")
-            })
-
-            Text(vm.errorText)
-
         }.refreshable {
-            Task {
-                await vm.checkAndGetModelResult()
-            }
+            vm.refreshPage()
         }.onAppear {
-            Task {
-                await vm.checkAndGetModelResult()
-            }
+            vm.checkAndGetModelResult()
         }
         let _ = print(vm.$modelResult)
     }

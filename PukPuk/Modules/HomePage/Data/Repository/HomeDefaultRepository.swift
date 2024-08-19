@@ -10,12 +10,12 @@ import Foundation
 class HomeDefaultRepository:
     HomeDefaultRepositoryProtocol
 {
-    private let homeLocalDataSource: HomeDataSourceProtocol
-    init(homeLocalDataSource: HomeDataSourceProtocol) {
+    private let homeLocalDataSource: HomeLocalDataSourceProtocol
+    init(homeLocalDataSource: HomeLocalDataSourceProtocol) {
         self.homeLocalDataSource = homeLocalDataSource
     }
 
-    func getModelResult(url: URL) async throws -> [String: Double] {
-        return try await homeLocalDataSource.getModelResult(url: url)
+    func getModelResult(url: URL) -> [String: Double] {
+        return homeLocalDataSource.getModelResult(url: url)
     }
 }

@@ -39,13 +39,9 @@ struct HomeView: View {
             Text(vm.errorText)
 
         }.refreshable {
-            Task {
-                await vm.checkAndGetModelResult()
-            }
+            vm.refreshPage()
         }.onAppear {
-            Task {
-                await vm.checkAndGetModelResult()
-            }
+            vm.checkAndGetModelResult()
         }
         let _ = print(vm.$modelResult)
     }

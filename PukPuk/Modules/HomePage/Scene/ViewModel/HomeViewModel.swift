@@ -8,42 +8,30 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    @Published var modelResult: [String: Double] = [:]
-    @Published var isNewOpen: Bool
-    @Published var errorText: String
+    @Published var modelResult : [String: Double] = ["A" : 1.1]
+    @Published var isNewOpen : Bool
 
     private let homeUseCase: HomeUseCaseProtocol
 
     init(homeUseCase: HomeUseCaseProtocol) {
         self.homeUseCase = homeUseCase
         self.isNewOpen = true
-        self.errorText = ""
     }
 
-    @MainActor
-    func checkAndGetModelResult() async {
+    func checkAndGetModelResult() {
         if isNewOpen {
-            await firstOpenApp()
+            firstOpenApp()
             isNewOpen = false
         } else {
-            await refreshPage()
+            refreshPage()
         }
     }
 
-    @MainActor
-    func firstOpenApp() async {
-        do {
-            guard let url = Bundle.main.url(forResource: "542c", withExtension: "wav") else { return }
-
-            modelResult = try await homeUseCase.getModelResult(url: url)
-        } catch {
-            errorText = error.localizedDescription
-            print("failed in firstOpenApp()")
-        }
+    func firstOpenApp() {
+        modelResult = homeUseCase.getModelResult(url: URL(fileURLWithPath: "a"))
     }
 
-    @MainActor
-    func refreshPage() async {
-        await firstOpenApp()
+    func refreshPage() {
+        firstOpenApp()
     }
 }

@@ -94,7 +94,8 @@ class RoutingCoordinator: ObservableObject {
             RecordPageViewControllerWrapper()
                 .edgesIgnoringSafeArea(.all)
         case .recommendation:
-            ExampleView()
+            ResultViewControllerRepresentable()
+                .environmentObject(DependencyInjection.shared.resultViewModel())
         }
     }
 

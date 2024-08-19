@@ -27,7 +27,15 @@
 		9D50F89A2C72F76E000FC056 /* FileManagerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F87A2C72F76E000FC056 /* FileManagerDataSource.swift */; };
 		9D50F89B2C72F76E000FC056 /* RecordPageRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F87C2C72F76E000FC056 /* RecordPageRepositoryImpl.swift */; };
 		9D50F89D2C72F76E000FC056 /* ResultObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F87F2C72F76E000FC056 /* ResultObserver.swift */; };
-		9D50F8A72C72F76E000FC056 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88E2C72F76E000FC056 /* PulseAnimation.swift */; };
+		9D50F89E2C72F76E000FC056 /* AudioRecordingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8812C72F76E000FC056 /* AudioRecordingEntity.swift */; };
+		9D50F89F2C72F76E000FC056 /* ClassificationResultEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8822C72F76E000FC056 /* ClassificationResultEntity.swift */; };
+		9D50F8A02C72F76E000FC056 /* AudioRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8842C72F76E000FC056 /* AudioRepository.swift */; };
+		9D50F8A12C72F76E000FC056 /* ClassificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8852C72F76E000FC056 /* ClassificationRepository.swift */; };
+		9D50F8A22C72F76E000FC056 /* CancelRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8872C72F76E000FC056 /* CancelRecordUseCase.swift */; };
+		9D50F8A32C72F76E000FC056 /* ClassifyAudioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8882C72F76E000FC056 /* ClassifyAudioUseCase.swift */; };
+		9D50F8A42C72F76E000FC056 /* GetRecordedAudioUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F8892C72F76E000FC056 /* GetRecordedAudioUseCase.swift */; };
+		9D50F8A52C72F76E000FC056 /* StartRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88A2C72F76E000FC056 /* StartRecordUseCase.swift */; };
+		9D50F8A62C72F76E000FC056 /* StopRecordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88B2C72F76E000FC056 /* StopRecordUseCase.swift */; };
 		9D50F8A82C72F76E000FC056 /* RecordPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D50F88F2C72F76E000FC056 /* RecordPageViewController.swift */; };
 		9D50F8A92C72F76E000FC056 /* RecordPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D50F8902C72F76E000FC056 /* RecordPageViewController.xib */; };
 		9D80A1882C6B4774002AB74F /* PukPukApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80A1872C6B4774002AB74F /* PukPukApp.swift */; };
@@ -107,7 +115,6 @@
 		9D50F8892C72F76E000FC056 /* GetRecordedAudioUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRecordedAudioUseCase.swift; sourceTree = "<group>"; };
 		9D50F88A2C72F76E000FC056 /* StartRecordUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartRecordUseCase.swift; sourceTree = "<group>"; };
 		9D50F88B2C72F76E000FC056 /* StopRecordUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopRecordUseCase.swift; sourceTree = "<group>"; };
-		9D50F88E2C72F76E000FC056 /* PulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		9D50F88F2C72F76E000FC056 /* RecordPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPageViewController.swift; sourceTree = "<group>"; };
 		9D50F8902C72F76E000FC056 /* RecordPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordPageViewController.xib; sourceTree = "<group>"; };
 		9D50F8922C72F76E000FC056 /* RecordPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPageViewModel.swift; sourceTree = "<group>"; };
@@ -460,7 +467,6 @@
 		9D50F8912C72F76E000FC056 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9D50F88E2C72F76E000FC056 /* PulseAnimation.swift */,
 				9D50F88F2C72F76E000FC056 /* RecordPageViewController.swift */,
 				9D50F8902C72F76E000FC056 /* RecordPageViewController.xib */,
 			);
@@ -724,7 +730,6 @@
 				9D85352E2C6DB6FB007FF46E /* (null) in Sources */,
 				9D50F85B2C72F54C000FC056 /* CryClassificationErrorEnum.swift in Sources */,
 				9D8535382C6E030F007FF46E /* (null) in Sources */,
-				9D50F8A72C72F76E000FC056 /* PulseAnimation.swift in Sources */,
 				9D50F89A2C72F76E000FC056 /* FileManagerDataSource.swift in Sources */,
 				9D50F85E2C72F54C000FC056 /* HomeDataSourceProtocol.swift in Sources */,
 				9D50F8A82C72F76E000FC056 /* RecordPageViewController.swift in Sources */,

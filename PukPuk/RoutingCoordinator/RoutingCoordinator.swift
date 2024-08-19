@@ -16,6 +16,7 @@ enum Page: String, Identifiable {
     case home
     case loading
     case recommendation
+    case record
 
     var id: String {
         self.rawValue
@@ -78,7 +79,7 @@ class RoutingCoordinator: ObservableObject {
     func pop() {
         self.path.removeLast(1)
     }
-    
+
     @ViewBuilder
     func build(page: Page) -> some View {
         switch page {
@@ -89,6 +90,9 @@ class RoutingCoordinator: ObservableObject {
             LoadingViewControllerRepresentable()
                 .toolbar(.hidden, for: .navigationBar)
                 .ignoresSafeArea()
+        case .record:
+            RecordPageViewControllerWrapper()
+                .edgesIgnoringSafeArea(.all)
         case .recommendation:
             ExampleView()
         }

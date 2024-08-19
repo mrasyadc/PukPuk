@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var coordinator = RoutingCoordinator()
+
     var body: some View {
         NavigationStack(path: $coordinator.path
         ) {

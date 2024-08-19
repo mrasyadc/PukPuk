@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var vm: HomeViewModel
+
+    // Use this to apply routing mechanism
+    @EnvironmentObject var routingCoordinator: RoutingCoordinator
+
     var body: some View {
         ScrollView {
             // Iterate over the dictionary
@@ -19,6 +24,11 @@ struct HomeView: View {
             // Use .push to show what page when button clicked
             Button(action: { routingCoordinator.push(page: .loading) }, label: {
                 Text("Click to show example (loading)")
+            })
+
+            // Use .push to show what page when button clicked
+            Button(action: { routingCoordinator.push(page: .record) }, label: {
+                Text("Click to show example (record)")
             })
 
             Text(vm.errorText)

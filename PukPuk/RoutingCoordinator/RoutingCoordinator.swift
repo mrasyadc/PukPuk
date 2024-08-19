@@ -95,7 +95,7 @@ class RoutingCoordinator: ObservableObject {
                 .edgesIgnoringSafeArea(.all)
         case .recommendation:
             ResultViewControllerRepresentable()
-                .environmentObject(DependencyInjection.shared.resultViewModel())
+                .environmentObject(DependencyInjection.shared.resultViewModel()).ignoresSafeArea()
         }
     }
 

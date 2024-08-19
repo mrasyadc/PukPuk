@@ -18,8 +18,11 @@ class DependencyInjection: ObservableObject {
     lazy var homeDataSource = HomeLocalDataSource()
 
     lazy var homeDefaultRepository = HomeDefaultRepository(homeLocalDataSource: homeDataSource)
-
     lazy var homeUseCase = HomeUseCase(homeRepository: homeDefaultRepository)
+    
+    lazy var resultDataSource = ResultDataSource()
+    lazy var resultDefaultRepository = ResultDefaultRepository(resultLocalDataSource: resultDataSource)
+    lazy var resultUseCase = ResultUseCase(resultRepository: resultDefaultRepository)
 
     // MARK: FUNCTION
 
@@ -59,6 +62,10 @@ class DependencyInjection: ObservableObject {
             return nil
         }
     }
+    func resultViewModel() -> ResultViewModel {
+        ResultViewModel(resultUseCase: resultUseCase)
+    }
+    
 }
 
 //// Singleton instance

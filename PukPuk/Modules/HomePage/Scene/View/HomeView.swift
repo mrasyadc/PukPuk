@@ -26,10 +26,31 @@ struct HomeView: View {
                 Text("Click to show example (loading)")
             })
 
+            // Use .push to show what page when button clicked
+            Button(action: { routingCoordinator.push(page: .record) }, label: {
+                Text("Click to show example (record)")
+            })
+
+            // Use .push to show what page when button clicked
+            Button(action: { routingCoordinator.push(page: .recommendation) }, label: {
+                Text("Click to open recommendation")
+            })
+
+            // Use .push to show what page when button clicked
+            Button(action: { routingCoordinator.present(sheet: .testSheet) }, label: {
+                Text("Click to open sheet")
+            })
+
+            Text(vm.errorText)
+
         }.refreshable {
-            vm.refreshPage()
+            Task {
+                await vm.checkAndGetModelResult()
+            }
         }.onAppear {
-            vm.checkAndGetModelResult()
+            Task {
+                await vm.checkAndGetModelResult()
+            }
         }
         let _ = print(vm.$modelResult)
     }

@@ -238,6 +238,7 @@
 		9D80A1FB2C6B4AA7002AB74F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B50324D12C72FA87002D9F06 /* ResultPage */,
 				9D80A2172C6B4B85002AB74F /* HomePage */,
 				9D80A1FA2C6B4AA7002AB74F /* [TEMPLATE] */,
 			);
@@ -248,9 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2182C6C11DC002AB74F /* HomeDataSource.swift */,
-				B59B34D32C6DAD6500BB6BEC /* ResultDataSource.swift */,
 				9D80A2342C6C1B50002AB74F /* HomeLocalDataSourceProtocol.swift */,
-				B59B34D52C6DAD6E00BB6BEC /* ResultLocalDataSourceProtocol.swift */,
 			);
 			path = "Data Source";
 			sourceTree = "<group>";
@@ -259,8 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				9D80A21A2C6C11EA002AB74F /* HomeDefaultRepository.swift */,
-				B59B34D72C6DAEB100BB6BEC /* ResultDefaultRepository.swift */,
-				B59B34D92C6DAEC300BB6BEC /* ResultRepositoryProtocol.swift */,
 				9D80A2322C6C1B05002AB74F /* HomeDefaultRepositoryProtocol.swift */,
 			);
 			path = Repository;
@@ -287,8 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				9D80A21E2C6C1203002AB74F /* HomeUseCase.swift */,
-				B59B34DD2C6DB15700BB6BEC /* ResultUseCase.swift */,
-				B59B34DF2C6DB16600BB6BEC /* ResultUseCaseProtocol.swift */,
 				9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */,
 			);
 			path = "Use Cases";
@@ -307,9 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2202C6C122A002AB74F /* HomeView.swift */,
-				B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */,
-				B59B34D12C6D100F00BB6BEC /* ResultVC.swift */,
-				B59B34E12C6DBEB100BB6BEC /* ResultViewControllerRepresentable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,7 +310,6 @@
 			isa = PBXGroup;
 			children = (
 				9D80A2222C6C1235002AB74F /* HomeViewModel.swift */,
-				B59B34DB2C6DB0AD00BB6BEC /* ResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,6 +349,95 @@
 				9D80A2802C6C5DA8002AB74F /* TestSheet.swift */,
 			);
 			path = RoutingCoordinator;
+			sourceTree = "<group>";
+		};
+		B50324D12C72FA87002D9F06 /* ResultPage */ = {
+			isa = PBXGroup;
+			children = (
+				B50324D22C72FAFF002D9F06 /* Data */,
+				B50324D32C72FB10002D9F06 /* Domain */,
+				B50324D42C72FB19002D9F06 /* Scene */,
+			);
+			path = ResultPage;
+			sourceTree = "<group>";
+		};
+		B50324D22C72FAFF002D9F06 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B50324D52C72FB2B002D9F06 /* Data Source */,
+				B50324D62C72FB34002D9F06 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B50324D32C72FB10002D9F06 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B50324D72C72FB39002D9F06 /* Entities */,
+				B50324D82C72FB44002D9F06 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B50324D42C72FB19002D9F06 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B50324D92C72FB55002D9F06 /* View */,
+				B50324DA2C72FB5A002D9F06 /* ViewModel */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		B50324D52C72FB2B002D9F06 /* Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				B59B34D32C6DAD6500BB6BEC /* ResultDataSource.swift */,
+				B59B34D52C6DAD6E00BB6BEC /* ResultLocalDataSourceProtocol.swift */,
+			);
+			path = "Data Source";
+			sourceTree = "<group>";
+		};
+		B50324D62C72FB34002D9F06 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B59B34D72C6DAEB100BB6BEC /* ResultDefaultRepository.swift */,
+				B59B34D92C6DAEC300BB6BEC /* ResultRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B50324D72C72FB39002D9F06 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		B50324D82C72FB44002D9F06 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				B59B34DD2C6DB15700BB6BEC /* ResultUseCase.swift */,
+				B59B34DF2C6DB16600BB6BEC /* ResultUseCaseProtocol.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B50324D92C72FB55002D9F06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */,
+				B59B34D12C6D100F00BB6BEC /* ResultVC.swift */,
+				B59B34E12C6DBEB100BB6BEC /* ResultViewControllerRepresentable.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B50324DA2C72FB5A002D9F06 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B59B34DB2C6DB0AD00BB6BEC /* ResultViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

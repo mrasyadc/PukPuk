@@ -89,6 +89,7 @@ class RoutingCoordinator: ObservableObject {
             ExampleView()
         case .recommendation:
             ResultViewControllerRepresentable()
+                .environmentObject(DependencyInjection.shared.resultViewModel())
         }
     }
 

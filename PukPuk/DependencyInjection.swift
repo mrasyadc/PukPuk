@@ -15,15 +15,11 @@ class DependencyInjection: ObservableObject {
     private init() {}
 
     lazy var homeDataSource = HomeDataSource()
-
     lazy var homeDefaultRepository = HomeDefaultRepository(homeLocalDataSource: homeDataSource)
-
     lazy var homeUseCase = HomeUseCase(homeRepository: homeDefaultRepository)
     
     lazy var resultDataSource = ResultDataSource()
-    
     lazy var resultDefaultRepository = ResultDefaultRepository(resultLocalDataSource: resultDataSource)
-    
     lazy var resultUseCase = ResultUseCase(resultRepository: resultDefaultRepository)
 
     // MARK: FUNCTION

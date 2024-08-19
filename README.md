@@ -2,10 +2,10 @@
 
 We have `xcodegen` built in to the project. This will help us to manage the project structure and dependencies.
 
-    ```bash
+   ```bash
     brew install xcodegen
     xcodegen generate
-    ```
+   ```
 
 # Git Agreement
 

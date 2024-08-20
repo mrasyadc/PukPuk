@@ -5,9 +5,9 @@
 //  Created by Jason Susanto on 14/08/24.
 //
 
-import UIKit
-import SwiftUI
 import Combine
+import SwiftUI
+import UIKit
 
 struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
     typealias UIViewControllerType = UINavigationController
@@ -18,6 +18,7 @@ struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
         let navigationController = UINavigationController()
         let coordinator = RecordPageCoordinator(navigationController: navigationController, routingCoordinator: routingCoordinator)
         coordinator.start()
+        navigationController.setNavigationBarHidden(true, animated: true)
         return navigationController
     }
     
@@ -27,15 +28,14 @@ struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
 }
 
 class RecordPageViewController: UIViewController {
-    
     var viewModel: RecordPageViewModel!
     var routingCoordinator: RoutingCoordinator!
 
-    @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var infoImage: UIImageView!
-    @IBOutlet weak var labelInfo: UILabel!
-    @IBOutlet weak var hStackInfo: UIStackView!
-    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet var recordButton: UIButton!
+    @IBOutlet var infoImage: UIImageView!
+    @IBOutlet var labelInfo: UILabel!
+    @IBOutlet var hStackInfo: UIStackView!
+    @IBOutlet var headerLabel: UILabel!
     
     private var cancellables = Set<AnyCancellable>()
     var pulseLayers = [CAShapeLayer]()
@@ -64,21 +64,21 @@ class RecordPageViewController: UIViewController {
         gradientLayer.frame = view.frame
     }
     
-    private func setupHeaderLabel(){
+    private func setupHeaderLabel() {
         headerLabel.text = "Let's hear what your baby wants"
         headerLabel.textColor = .white
         headerLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
         headerLabel.textAlignment = .center
     }
     
-    private func setupRecordButton(){
+    private func setupRecordButton() {
         let image = UIImage(resource: .babyIcon)
         recordButton.setTitle("Tap to Record", for: .normal)
 
         let boldFont = UIFont.boldSystemFont(ofSize: 16.0)
-            let attributes: [NSAttributedString.Key: Any] = [
-                .font: boldFont
-            ]
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: boldFont
+        ]
         let attributedTitle = NSAttributedString(string: "Tap to Record", attributes: attributes)
         recordButton.setAttributedTitle(attributedTitle, for: .normal)
         
@@ -113,7 +113,7 @@ class RecordPageViewController: UIViewController {
         infoImage.image = UIImage(systemName: "info.circle")
         infoImage.tintColor = .black
         
-        //TODO: INI HARUS DIUBAH NNT JANGAN HARDCODE
+        // TODO: INI HARUS DIUBAH NNT JANGAN HARDCODE
         labelInfo.text = "To ensure accurate analysis, please avoid any background noise or disturbances while recording your baby's cry."
         
         labelInfo.numberOfLines = 0
@@ -146,7 +146,7 @@ class RecordPageViewController: UIViewController {
         NSLayoutConstraint.activate([
             containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
-            containerView.widthAnchor.constraint(equalToConstant: infoSize),
+            containerView.widthAnchor.constraint(equalToConstant: infoSize)
         ])
         
         // Setting posisi hstacInfo
@@ -163,7 +163,7 @@ class RecordPageViewController: UIViewController {
         containerView.layer.cornerRadius = 8
     }
     
-    @IBAction func onClickRecordButton(_ sender: UIButton) {    
+    @IBAction func onClickRecordButton(_ sender: UIButton) {
         if viewModel.recordingState == .idle {
             viewModel.didTapRecordButton.send(())
         } else {
@@ -204,7 +204,7 @@ class RecordPageViewController: UIViewController {
         let title = stateTextRecordConfiguration(for: state)
         let boldFont = UIFont.boldSystemFont(ofSize: 16.0)
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: boldFont,
+            .font: boldFont
         ]
         let attributedTitle = NSAttributedString(string: title, attributes: attributes)
         recordButton.setAttributedTitle(attributedTitle, for: .normal)
@@ -246,11 +246,11 @@ class RecordPageViewController: UIViewController {
     private func stateTextRecordConfiguration(for state: AudioRecordingState) -> String {
         switch state {
         case .idle:
-            return ("Tap to Record")
+            return "Tap to Record"
         case .recording:
-            return ("Recording...")
+            return "Recording..."
         case .analyzing:
-            return ("Analyzing...")
+            return "Analyzing..."
         }
     }
     

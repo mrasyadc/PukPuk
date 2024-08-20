@@ -1,3 +1,12 @@
+# NEW FEATURES!!!! 🎉🎉🎉
+
+We have `xcodegen` built in to the project. This will help us to manage the project structure and dependencies.
+
+   ```bash
+    brew install xcodegen
+    xcodegen generate
+   ```
+
 # Git Agreement
 
 1. Always create a new branch from `development` branch to execute coding a new feature

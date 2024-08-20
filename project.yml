@@ -1,0 +1,41 @@
+name: PukPuk
+settings:
+  MARKETING_VERSION: "1.0"
+  CURRENT_PROJECT_VERSION: 1
+options:
+  bundleIdPrefix: com.PukPuk
+
+targets:
+  PukPuk:
+    type: application
+    platform: iOS
+    sources: [PukPuk]
+    resources: [Resources]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.PukPuk
+      INFOPLIST_FILE: PukPuk/Info.plist
+      GENERATE_INFOPLIST_FILE: true
+
+  PukPuk-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [PukPuk-Tests]
+    dependencies:
+      - target: PukPuk
+    settings:
+      base:
+        INFOPLIST_FILE: PukPuk/Info.plist
+        GENERATE_INFOPLIST_FILE: true
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/PukPuk.app/PukPuk"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        
+schemes:
+ PukPuk:
+    build:
+      targets:
+        PukPuk: all
+        PukPuk-Tests: all
+    test:
+        targets:
+        - name: PukPuk-Tests
+        gatherCoverageData: true

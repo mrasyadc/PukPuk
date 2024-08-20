@@ -11,8 +11,7 @@ import Combine
 internal final class RecordPageViewModel {
     @Published var recordingState: AudioRecordingState = .idle
     @Published var classificationResult: ClassificationResultEntity?
-    @Published var shouldNavigateToResult = false
-
+    
     private var currentRecording: AudioRecordingEntity?
     
     private let startRecordUseCase: StartRecordUseCase
@@ -84,8 +83,6 @@ internal final class RecordPageViewModel {
                     if let topResult = classificationResult.topResult {
                         print("Top result: \(topResult.label) with \(topResult.confidencePercentage) confidence")
                     }
-                    
-                    shouldNavigateToResult = true // navigate to result Page
                 } catch {
                     print("Error during classification: \(error)")
                 }

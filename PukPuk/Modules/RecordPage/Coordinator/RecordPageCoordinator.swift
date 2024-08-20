@@ -12,25 +12,23 @@ import CoreML
 public final class RecordPageCoordinator {
     
     private var navigationController: UINavigationController
-    private var routingCoordinator: RoutingCoordinator
     
-    init(navigationController: UINavigationController, routingCoordinator: RoutingCoordinator) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.routingCoordinator = routingCoordinator
     }
     
     private func makeRecordPageViewController() -> RecordPageViewController {
+        guard let viewModel = DependencyInjection.shared.recordPageViewModel() else {
+            return RecordPageViewController()
+        }
+        
         let viewController = RecordPageViewController()
+        viewController.viewModel = viewModel
         return viewController
     }
     
     func start() {
         let viewController = makeRecordPageViewController()
-        
-        let viewModel = DependencyInjection.shared.recordPageViewModel()
-        viewController.viewModel = viewModel
-        viewController.routingCoordinator = routingCoordinator
-        
         self.navigationController.pushViewController(viewController, animated: true)
     }
 }

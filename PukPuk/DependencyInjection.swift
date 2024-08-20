@@ -19,6 +19,10 @@ class DependencyInjection: ObservableObject {
 
     lazy var homeDefaultRepository = HomeDefaultRepository(homeLocalDataSource: homeDataSource)
     lazy var homeUseCase = HomeUseCase(homeRepository: homeDefaultRepository)
+    
+    lazy var resultDataSource = ResultDataSource()
+    lazy var resultDefaultRepository = ResultDefaultRepository(resultLocalDataSource: resultDataSource)
+    lazy var resultUseCase = ResultUseCase(resultRepository: resultDefaultRepository)
 
     // MARK: FUNCTION
 
@@ -26,7 +30,7 @@ class DependencyInjection: ObservableObject {
         HomeViewModel(homeUseCase: homeUseCase)
     }
     
-    // ML Model
+    // Record Page
     lazy var babyCryClassifier: BabyCrySoundClassifierFinal? = {
         do {
             return try BabyCrySoundClassifierFinal(configuration: MLModelConfiguration())
@@ -38,7 +42,6 @@ class DependencyInjection: ObservableObject {
     
     lazy var recordingsDirectoryURL: URL = FileManager.default.temporaryDirectory
 
-    //MARK: - Depdency Injection Record Page
     func recordPageViewModel() -> RecordPageViewModel? {
         if let model = babyCryClassifier?.model {
             let audioRepository = RecordPageRepositoryImpl(
@@ -59,12 +62,8 @@ class DependencyInjection: ObservableObject {
             return nil
         }
     }
-    
-    //MARK: - Depedency Injection Result Page
-    func resultPageViewModel(classificationResult: ClassificationResultEntity) -> ResultPageViewModel {
-        let resultRepository = ResultRepositoryImpl(dataSource: ResultDataSource())
-        
-        return ResultPageViewModel(classificationResult: classificationResult, getRecommendationUseCase: GetRecommendationUseCase(repository: resultRepository))
+    func resultViewModel() -> ResultViewModel {
+        ResultViewModel(resultUseCase: resultUseCase)
     }
     
 }

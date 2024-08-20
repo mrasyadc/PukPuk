@@ -10,13 +10,13 @@ import SwiftUI
 import Combine
 
 struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
+//    typealias UIViewControllerType = RecordPageViewController
     typealias UIViewControllerType = UINavigationController
-    @EnvironmentObject var routingCoordinator: RoutingCoordinator
     
     func makeUIViewController(context: Context) -> UINavigationController {
 //        return RecordPageViewController()
         let navigationController = UINavigationController()
-        let coordinator = RecordPageCoordinator(navigationController: navigationController, routingCoordinator: routingCoordinator)
+        let coordinator = RecordPageCoordinator(navigationController: navigationController)
         coordinator.start()
         return navigationController
     }
@@ -29,7 +29,6 @@ struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
 class RecordPageViewController: UIViewController {
     
     var viewModel: RecordPageViewModel!
-    var routingCoordinator: RoutingCoordinator!
 
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var infoImage: UIImageView!
@@ -179,23 +178,6 @@ class RecordPageViewController: UIViewController {
                 self?.updateRecordButton(for: state)
             }
             .store(in: &cancellables)
-        
-        viewModel.$shouldNavigateToResult
-            .sink { [weak self] shouldNavigate in
-                if shouldNavigate {
-                    self?.navigateToResultPage()
-                }
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func navigateToResultPage() {
-        guard let result = viewModel.classificationResult else { return }
-
-        DispatchQueue.main.async {
-            let resultCoordinator = ResultPageCoordinator(navigationController: self.navigationController!, classificationResult: result)
-            resultCoordinator.start()
-        }
     }
     
     private func updateRecordButton(for state: AudioRecordingState) {

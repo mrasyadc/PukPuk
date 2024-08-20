@@ -32,6 +32,11 @@ struct HomeView: View {
             })
 
             // Use .push to show what page when button clicked
+            Button(action: { routingCoordinator.push(page: .recommendation) }, label: {
+                Text("Click to open recommendation")
+            })
+
+            // Use .push to show what page when button clicked
             Button(action: { routingCoordinator.present(sheet: .testSheet) }, label: {
                 Text("Click to open sheet")
             })

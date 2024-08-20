@@ -15,6 +15,7 @@ enum Page: String, Identifiable {
 
     case home
     case loading
+    case recommendation
     case record
 
     var id: String {
@@ -50,8 +51,7 @@ class RoutingCoordinator: ObservableObject {
     @Published var path = NavigationPath()
     @Published var sheet: Sheet?
     @Published var fullScreenCover: FullScreenCover?
-    private var classificationResult: ClassificationResultEntity?
-    
+
     func push(page: Page) {
         self.path.append(page)
     }
@@ -93,6 +93,9 @@ class RoutingCoordinator: ObservableObject {
         case .record:
             RecordPageViewControllerWrapper()
                 .edgesIgnoringSafeArea(.all)
+        case .recommendation:
+            ResultViewControllerRepresentable()
+                .environmentObject(DependencyInjection.shared.resultViewModel()).ignoresSafeArea()
         }
     }
 

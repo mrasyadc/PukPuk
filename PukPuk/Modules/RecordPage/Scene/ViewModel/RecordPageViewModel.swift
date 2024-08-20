@@ -12,6 +12,7 @@ internal final class RecordPageViewModel {
     @Published var recordingState: AudioRecordingState = .idle
     @Published var classificationResult: ClassificationResultEntity?
     @Published var shouldNavigateToResult = false
+    @Published var shouldNavigateToNoResult = false
 
     private var currentRecording: AudioRecordingEntity?
     
@@ -98,13 +99,19 @@ internal final class RecordPageViewModel {
                         shouldNavigateToResult = true // navigate to result Page
                     } else { // kalau baby not crying.
                         print("The sound is not a baby cry")
+                        
+                        shouldNavigateToNoResult = true
                     }
-                    
-                    
                 } catch {
                     print("Error during classification: \(error)")
                 }
             }
         }
+    }
+    
+    func resetToIdle() {
+        recordingState = .idle
+        shouldNavigateToNoResult = false
+        shouldNavigateToResult = false
     }
 }

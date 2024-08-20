@@ -30,7 +30,8 @@ struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
 class RecordPageViewController: UIViewController {
     var viewModel: RecordPageViewModel!
     var routingCoordinator: RoutingCoordinator!
-
+    private var ringLayer: CAShapeLayer?
+    
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var infoImage: UIImageView!
     @IBOutlet var labelInfo: UILabel!
@@ -189,6 +190,16 @@ class RecordPageViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        
+        viewModel.$shouldNavigateToNoResult
+            .sink { [weak self] shouldNavigate in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                    if shouldNavigate {
+                        self?.navigateToNoResultPage()
+                    }
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private func navigateToResultPage() {
@@ -198,6 +209,23 @@ class RecordPageViewController: UIViewController {
             let resultCoordinator = ResultPageCoordinator(navigationController: self.navigationController!, classificationResult: result)
             resultCoordinator.start()
         }
+    }
+    
+    private func navigateToNoResultPage() {
+        DispatchQueue.main.async {
+            let noResultVC = NoResultViewController()
+            noResultVC.onTryAgainTapped = { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+                self?.resetToIdleState()
+            }
+            self.navigationController?.pushViewController(noResultVC, animated: true)
+            self.viewModel.shouldNavigateToNoResult = false
+        }
+    }
+    
+    private func resetToIdleState() {
+        viewModel.resetToIdle()
+        updateRecordButton(for: .idle)
     }
     
     private func updateRecordButton(for state: AudioRecordingState) {
@@ -212,8 +240,10 @@ class RecordPageViewController: UIViewController {
         switch state {
         case .idle:
             stopImpulseAnimation()
+            stopRingBarAnimation()
         case .recording:
             startImpulseAnimation()
+            stopRingBarAnimation()
         case .analyzing:
             stopImpulseAnimation()
             startRingBarAnimation()
@@ -221,17 +251,21 @@ class RecordPageViewController: UIViewController {
     }
 
     private func startRingBarAnimation() {
-        let ringLayer = CAShapeLayer()
+
+        // Hapus ringLayer sebelumnya jika ada
+        ringLayer?.removeFromSuperlayer()
+
+        let newRingLayer = CAShapeLayer()
         let circularPath = UIBezierPath(arcCenter: recordButton.center, radius: recordButton.bounds.width / 2 + 5, startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
         
-        ringLayer.path = circularPath.cgPath
-        ringLayer.strokeColor = UIColor(resource: .darkPurple).cgColor
-        ringLayer.fillColor = UIColor.clear.cgColor
-        ringLayer.lineWidth = 8
-        ringLayer.lineCap = .round
-        ringLayer.strokeEnd = 0
+        newRingLayer.path = circularPath.cgPath
+        newRingLayer.strokeColor = UIColor(resource: .darkPurple).cgColor
+        newRingLayer.fillColor = UIColor.clear.cgColor
+        newRingLayer.lineWidth = 8
+        newRingLayer.lineCap = .round
+        newRingLayer.strokeEnd = 0
         
-        view.layer.addSublayer(ringLayer)
+        view.layer.addSublayer(newRingLayer)
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.toValue = 1
@@ -240,7 +274,13 @@ class RecordPageViewController: UIViewController {
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
         
-        ringLayer.add(animation, forKey: "ringAnimation")
+        newRingLayer.add(animation, forKey: "ringAnimation")
+        self.ringLayer = newRingLayer
+    }
+    
+    private func stopRingBarAnimation() {
+        ringLayer?.removeFromSuperlayer()
+        ringLayer = nil
     }
 
     private func stateTextRecordConfiguration(for state: AudioRecordingState) -> String {

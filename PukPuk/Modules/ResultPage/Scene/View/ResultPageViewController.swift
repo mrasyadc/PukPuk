@@ -13,21 +13,21 @@ import Combine
 //    typealias UIViewControllerType = UINavigationController
 //
 //    var classificationResult: ClassificationResultEntity
-//    
+//
 //    func makeUIViewController(context: Context) -> UINavigationController {
 //        let navigationController = UINavigationController()
 //        let coordinator = ResultPageCoordinator(navigationController: navigationController, classificationResult: classificationResult)
 //        coordinator.start()
 //        return navigationController
 //    }
-//    
+//
 //    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
 //        // Update if needed
 //    }
 //}
 
 class ResultPageViewController: UIViewController {
-
+    
     var viewModel: ResultPageViewModel!
     private var cancellables = Set<AnyCancellable>()
     
@@ -44,6 +44,9 @@ class ResultPageViewController: UIViewController {
         setupUI()
         
         bindViewModel()
+        
+        self.navigationController?.isToolbarHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func setupUI() {

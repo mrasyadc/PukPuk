@@ -51,7 +51,7 @@ class RoutingCoordinator: ObservableObject {
     @Published var sheet: Sheet?
     @Published var fullScreenCover: FullScreenCover?
     private var classificationResult: ClassificationResultEntity?
-    
+
     func push(page: Page) {
         self.path.append(page)
     }
@@ -86,12 +86,14 @@ class RoutingCoordinator: ObservableObject {
         case .home:
             HomeView()
                 .environmentObject(DependencyInjection.shared.homeViewModel())
+                .toolbar(.hidden, for: .navigationBar)
         case .loading:
             LoadingViewControllerRepresentable()
                 .toolbar(.hidden, for: .navigationBar)
                 .ignoresSafeArea()
         case .record:
             RecordPageViewControllerWrapper()
+                .toolbar(.hidden, for: .navigationBar)
                 .edgesIgnoringSafeArea(.all)
         }
     }

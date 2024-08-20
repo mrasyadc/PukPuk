@@ -9,7 +9,6 @@ import UIKit
 import AVFoundation
 
 internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRepository {
-    
     let audioDataSource: AudioRecorderDataSource
     let audioPlayDataSource: AudioPlayerDataSource
     let classificationDataSource: ClassificationDataSource
@@ -66,6 +65,10 @@ internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRe
     
     func classifyAudio(at audioFileURL: URL) async throws -> ClassificationResultEntity {
         try await classificationDataSource.classifyAudio(at: audioFileURL)
+    }
+    
+    func detectCry(at audioFileURL: URL) async throws -> Bool {
+        try await classificationDataSource.detectCry(at: audioFileURL)
     }
     
     // helper

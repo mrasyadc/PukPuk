@@ -182,8 +182,10 @@ class RecordPageViewController: UIViewController {
         
         viewModel.$shouldNavigateToResult
             .sink { [weak self] shouldNavigate in
-                if shouldNavigate {
-                    self?.navigateToResultPage()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                    if shouldNavigate {
+                        self?.navigateToResultPage()
+                    }
                 }
             }
             .store(in: &cancellables)
@@ -214,7 +216,31 @@ class RecordPageViewController: UIViewController {
             startImpulseAnimation()
         case .analyzing:
             stopImpulseAnimation()
+            startRingBarAnimation()
         }
+    }
+
+    private func startRingBarAnimation() {
+        let ringLayer = CAShapeLayer()
+        let circularPath = UIBezierPath(arcCenter: recordButton.center, radius: recordButton.bounds.width / 2 + 5, startAngle: -CGFloat.pi / 2, endAngle: 1.5 * CGFloat.pi, clockwise: true)
+        
+        ringLayer.path = circularPath.cgPath
+        ringLayer.strokeColor = UIColor(resource: .darkPurple).cgColor
+        ringLayer.fillColor = UIColor.clear.cgColor
+        ringLayer.lineWidth = 8
+        ringLayer.lineCap = .round
+        ringLayer.strokeEnd = 0
+        
+        view.layer.addSublayer(ringLayer)
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.toValue = 1
+        animation.duration = 10
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        
+        ringLayer.add(animation, forKey: "ringAnimation")
     }
 
     private func stateTextRecordConfiguration(for state: AudioRecordingState) -> String {

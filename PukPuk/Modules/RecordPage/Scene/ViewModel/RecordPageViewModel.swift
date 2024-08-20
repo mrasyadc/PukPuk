@@ -90,7 +90,6 @@ internal final class RecordPageViewModel {
                     print("Error during classification: \(error)")
                 }
             }
-            recordingState = .idle
         }
     }
 }

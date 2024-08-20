@@ -32,6 +32,9 @@ class RecordPageViewController: UIViewController {
     var routingCoordinator: RoutingCoordinator!
     private var ringLayer: CAShapeLayer?
     
+    private let idleImage = UIImage(resource: .babyIcon)
+    private let recordingImage = UIImage(resource: .micIcon)  // Atau gambar custom Anda
+    
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var infoImage: UIImageView!
     @IBOutlet var labelInfo: UILabel!
@@ -167,7 +170,7 @@ class RecordPageViewController: UIViewController {
     @IBAction func onClickRecordButton(_ sender: UIButton) {
         if viewModel.recordingState == .idle {
             viewModel.didTapRecordButton.send(())
-        } else {
+        } else if viewModel.recordingState == .recording {
             viewModel.didStopRecording.send(())
         }
     }
@@ -239,12 +242,16 @@ class RecordPageViewController: UIViewController {
         
         switch state {
         case .idle:
+            recordButton.setImage(idleImage, for: .normal)
             stopImpulseAnimation()
             stopRingBarAnimation()
         case .recording:
+            let resizedRecordingImage = recordingImage.withConfiguration(UIImage.SymbolConfiguration(pointSize: 40, weight: .bold))
+            recordButton.setImage(resizedRecordingImage, for: .normal)
             startImpulseAnimation()
             stopRingBarAnimation()
         case .analyzing:
+            recordButton.setImage(idleImage, for: .normal)
             stopImpulseAnimation()
             startRingBarAnimation()
         }

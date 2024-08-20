@@ -116,9 +116,9 @@
 		9D80A1892C6B4774002AB74F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9D80A18E2C6B4776002AB74F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9D80A1E72C6B49FC002AB74F /* DependencyInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
-		9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseProtocol.swift; sourceTree = "<group>"; };
-		9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingCoordinator.swift; sourceTree = "<group>"; };
-		9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFullScreenCover.swift; sourceTree = "<group>"; };
+		9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeUseCaseProtocol.swift; path = ../../HomeUseCaseProtocol.swift; sourceTree = "<group>"; };
+		9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoutingCoordinator.swift; path = ../../RoutingCoordinator.swift; sourceTree = "<group>"; };
+		9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestFullScreenCover.swift; path = ../../TestFullScreenCover.swift; sourceTree = "<group>"; };
 		B59B34CF2C6D0C5600BB6BEC /* Result.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Result.storyboard; sourceTree = "<group>"; };
 		B59B34D12C6D100F00BB6BEC /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
 		B59B34D32C6DAD6500BB6BEC /* ResultDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDataSource.swift; sourceTree = "<group>"; };
@@ -373,7 +373,10 @@
 			isa = PBXGroup;
 			children = (
 				9D50F8502C72F54C000FC056 /* RoutingCoordinator.swift */,
+				9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */,
 				9D50F8712C72F5F6000FC056 /* TestFullScreenCover.swift */,
+				9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */,
+				9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */,
 				9D50F8732C72F626000FC056 /* TestSheet.swift */,
 			);
 			path = RoutingCoordinator;
@@ -630,9 +633,6 @@
 		B50324DC2C730ECF002D9F06 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				9D80A2302C6C19D5002AB74F /* HomeUseCaseProtocol.swift */,
-				9D80A2812C6C5DA8002AB74F /* TestFullScreenCover.swift */,
-				9D80A27E2C6C5D3E002AB74F /* RoutingCoordinator.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";

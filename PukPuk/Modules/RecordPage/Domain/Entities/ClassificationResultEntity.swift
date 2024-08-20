@@ -7,6 +7,25 @@
 
 import Foundation
 
+enum ClassificationResult: String {
+    case tired
+    case hungry
+    case belly_pain
+    case discomfort
+    case burping
+    
+    init?(label: String) {
+        switch label.lowercased() {
+        case "tired": self = .tired
+        case "hungry": self = .hungry
+        case "belly_pain": self = .belly_pain
+        case "discomfort": self = .discomfort
+        case "burping": self = .burping
+        default: return nil
+        }
+    }
+}
+
 struct ClassificationResultEntity {
     struct Classification {
         let label: String
@@ -22,5 +41,10 @@ struct ClassificationResultEntity {
     
     var topResult: Classification? {
         return classifications.first
+    }
+    
+    var topClassificationResult: ClassificationResult? {
+        guard let topResult = topResult else { return nil }
+        return ClassificationResult(label: topResult.label)
     }
 }

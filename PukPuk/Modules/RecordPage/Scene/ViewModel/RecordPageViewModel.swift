@@ -12,6 +12,7 @@ internal final class RecordPageViewModel {
     @Published var recordingState: AudioRecordingState = .idle
     @Published var classificationResult: ClassificationResultEntity?
     @Published var shouldNavigateToResult = false
+    @Published var shouldNavigateToNoResult = false
 
     private var currentRecording: AudioRecordingEntity?
     
@@ -19,21 +20,25 @@ internal final class RecordPageViewModel {
     private let stopRecordUseCase: StopRecordUseCase
     private let getRecordedAudioUseCase: GetRecordedAudioUseCase
     private let classifyAudioUseCase: ClassifyAudioUseCase
+    private let detectCryUseCase: DetectCryUseCase
     private var cancellables = Set<AnyCancellable>()
     
     let didTapRecordButton = PassthroughSubject<Void, Never>()
     let didStopRecording = PassthroughSubject<Void, Never>()
     let recordedAudio = PassthroughSubject<URL, Never>()
 
-    init(startRecordUseCase: StartRecordUseCase,
+    init(startRecordUseCase: StartRecordUseCase, 
          stopRecordUseCase: StopRecordUseCase,
          getRecordedAudioUseCase: GetRecordedAudioUseCase,
          classifyAudioUseCase: ClassifyAudioUseCase,
-         cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
+         detectCryUseCase: DetectCryUseCase,
+         cancellables: Set<AnyCancellable> = Set<AnyCancellable>()
+    ){
         self.startRecordUseCase = startRecordUseCase
         self.stopRecordUseCase = stopRecordUseCase
         self.getRecordedAudioUseCase = getRecordedAudioUseCase
         self.classifyAudioUseCase = classifyAudioUseCase
+        self.detectCryUseCase = detectCryUseCase
         self.cancellables = cancellables
         
         bindInputs()
@@ -73,24 +78,40 @@ internal final class RecordPageViewModel {
             
             if let recording = currentRecording {
                 do {
-                    let classificationResult = try await classifyAudioUseCase.execute(data: recording)
-                    self.classificationResult = classificationResult
                     
-                    print("Classification result:")
-                    for classification in classificationResult.classifications {
-                        print("\(classification.label): \(classification.confidencePercentage)")
+                    let isCry = try await detectCryUseCase.execute(data: recording)
+                    
+                    //Kalau true baby is crying
+                    if isCry {
+                        print("Baby is crying")
+                        let classificationResult = try await classifyAudioUseCase.execute(data: recording)
+                        self.classificationResult = classificationResult
+                        
+                        print("Classification result:")
+                        for classification in classificationResult.classifications {
+                            print("\(classification.label): \(classification.confidencePercentage)")
+                        }
+                        
+                        if let topResult = classificationResult.topResult {
+                            print("Top result: \(topResult.label) with \(topResult.confidencePercentage) confidence")
+                        }
+                        
+                        shouldNavigateToResult = true // navigate to result Page
+                    } else { // kalau baby not crying.
+                        print("The sound is not a baby cry")
+                        
+                        shouldNavigateToNoResult = true
                     }
-                    
-                    if let topResult = classificationResult.topResult {
-                        print("Top result: \(topResult.label) with \(topResult.confidencePercentage) confidence")
-                    }
-                    
-                    shouldNavigateToResult = true // navigate to result Page
                 } catch {
                     print("Error during classification: \(error)")
                 }
             }
-            recordingState = .idle
         }
+    }
+    
+    func resetToIdle() {
+        recordingState = .idle
+        shouldNavigateToNoResult = false
+        shouldNavigateToResult = false
     }
 }

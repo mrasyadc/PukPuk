@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol DetectCryUseCaseProtocol {
+    func execute(data: AudioRecordingEntity) async throws -> Bool
+}

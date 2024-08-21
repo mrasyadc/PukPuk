@@ -5,16 +5,16 @@
 //  Created by Jason Susanto on 14/08/24.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-internal final class ClassifyAudioUseCase {
+final class ClassifyAudioUseCase: ClassifyAudioUseCaseProtocol {
     private let repository: ClassificationRepository
-    
+
     init(repository: ClassificationRepository) {
         self.repository = repository
     }
-    
+
     func execute(data: AudioRecordingEntity) async throws -> ClassificationResultEntity {
         do {
             let result = try await repository.classifyAudio(at: data.fileUrl)

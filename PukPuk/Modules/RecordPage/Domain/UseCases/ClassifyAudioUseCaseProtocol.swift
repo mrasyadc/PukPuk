@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol ClassifyAudioUseCaseProtocol {
+    func execute(data: AudioRecordingEntity) async throws -> ClassificationResultEntity
+}

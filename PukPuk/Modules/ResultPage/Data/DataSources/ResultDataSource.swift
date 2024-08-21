@@ -18,7 +18,7 @@ class ResultDataSource : ResultDataSourceProtocol {
         case .tired:
             return RecommendationEntity(
                 cryType: "Tired",
-                description: "Your baby is tired and may need to sleep. Try soothing them to sleep.",
+                description: "Place your baby to sleep in a safe and cozy spot. Wrapping them snugly might help them feel secure, but be sure to stop once they can roll onto their tummy (usually around 3-4 months). ",
                 steps: [
                     "Dim the lights and reduce noise",
                     "Rock the baby gently or use a swing",
@@ -28,7 +28,7 @@ class ResultDataSource : ResultDataSourceProtocol {
         case .hungry:
             return RecommendationEntity(
                 cryType: "Hunger",
-                description: "Your baby seems hungry. Make sure to feed them in a calm environment.",
+                description: "Your baby might be hungry, so try offering the breast or a bottle. If they’re just looking to suck for comfort, a dummy can help, or you can gently guide older babies to find their own fingers. ",
                 steps: [
                     "Prepare a bottle or breastfeed",
                     "Ensure the baby is in a comfortable position",
@@ -38,7 +38,7 @@ class ResultDataSource : ResultDataSourceProtocol {
         case .belly_pain:
             return RecommendationEntity(
                 cryType: "Belly Pain",
-                description: "Your baby may have belly pain. Gently rub their belly to relieve discomfort.",
+                description: "If your baby has belly pain, try gently massaging their tummy in a clockwise direction to help ease discomfort. Holding them close can also provide comfort, and a warm bath might relax their muscles. If the pain continues or you're worried, it's a good idea to check with a healthcare professional to ensure your baby is okay.",
                 steps: [
                     "Lay the baby on their back and move their legs in a bicycling motion",
                     "Gently massage the baby’s belly",
@@ -48,7 +48,7 @@ class ResultDataSource : ResultDataSourceProtocol {
         case .discomfort:
             return RecommendationEntity(
                 cryType: "Discomfort",
-                description: "Your baby seems uncomfortable. Check if their clothes are too tight or if the environment is too hot or cold.",
+                description: "Hold your baby close and gently pat or stroke their back to soothe them. Take a moment to check their temperature—make sure they're neither too hot nor too cold, and adjust their clothing for comfort.",
                 steps: [
                     "Check the baby's diaper and change if necessary",
                     "Ensure the baby is dressed appropriately for the weather",
@@ -58,7 +58,7 @@ class ResultDataSource : ResultDataSourceProtocol {
         case .burping:
             return RecommendationEntity(
                 cryType: "Burping",
-                description: "Your baby might need to burp. Hold them upright and gently pat their back.",
+                description: "If your baby seems to swallow air during feeding, try burping them. Gently hold your baby upright against your shoulder with a cloth to catch any spit-up. Support them with one hand and use the other to softly rub their back. It's normal if a little milk comes up during burping—don’t worry, this is completely natural.",
                 steps: [
                     "Hold the baby upright against your chest",
                     "Gently pat or rub the baby’s back",

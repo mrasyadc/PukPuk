@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 internal final class StopRecordUseCase {
     private let repository: AudioRepository

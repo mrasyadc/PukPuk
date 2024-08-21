@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $coordinator.path
         ) {
-            coordinator.build(page: .record)
+            coordinator.build(page: .home)
                 .navigationDestination(for: Page.self) {
                     page in
                     coordinator.build(page: page)

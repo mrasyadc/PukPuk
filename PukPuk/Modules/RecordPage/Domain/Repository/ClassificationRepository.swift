@@ -10,6 +10,5 @@ import Foundation
 internal protocol ClassificationRepository {
     
     func classifyAudio(at audioFileURL: URL) async throws -> ClassificationResultEntity
-    func detectCry(at audioFileURL: URL) async throws -> Bool
 
 }

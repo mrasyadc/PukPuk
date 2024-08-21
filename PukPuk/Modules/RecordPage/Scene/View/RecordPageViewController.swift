@@ -14,7 +14,7 @@ struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
     @EnvironmentObject var routingCoordinator: RoutingCoordinator
     
     func makeUIViewController(context: Context) -> UINavigationController {
-//        return RecordPageViewController()
+        //        return RecordPageViewController()
         let navigationController = UINavigationController()
         let coordinator = RecordPageCoordinator(navigationController: navigationController, routingCoordinator: routingCoordinator)
         coordinator.start()
@@ -28,6 +28,9 @@ struct RecordPageViewControllerWrapper: UIViewControllerRepresentable {
 }
 
 class RecordPageViewController: UIViewController {
+    @State private var isRecording = false
+    private var lastTriggerTime: Date?
+    
     var viewModel: RecordPageViewModel!
     var routingCoordinator: RoutingCoordinator!
     private var ringLayer: CAShapeLayer?
@@ -43,7 +46,7 @@ class RecordPageViewController: UIViewController {
     
     private var cancellables = Set<AnyCancellable>()
     var pulseLayers = [CAShapeLayer]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         changeBackgroundColor()
@@ -52,6 +55,36 @@ class RecordPageViewController: UIViewController {
         setupInfoLabel()
         
         bindViewModel()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(startRecording), name: Notification.Name("StartRecording"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopRecording), name: Notification.Name("StopRecording"), object: nil)
+    }
+    
+    @objc private func startRecording() {
+            guard canPerformAction() else { return }
+            if !isRecording {
+                onClickRecordButton(recordButton)
+            }
+        }
+
+        @objc private func stopRecording() {
+            guard canPerformAction() else { return }
+            if isRecording {
+                onClickRecordButton(recordButton)
+            }
+        }
+        
+        private func canPerformAction() -> Bool {
+            let currentTime = Date()
+            if let lastTime = lastTriggerTime, currentTime.timeIntervalSince(lastTime) < 1.0 {
+                return false
+            }
+            lastTriggerTime = currentTime
+            return true
+        }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func changeBackgroundColor() {
@@ -63,7 +96,7 @@ class RecordPageViewController: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
         // hardcode setting gradient :(
         gradientLayer.endPoint = CGPoint(x: 0.92, y: 0.69)
-
+        
         view.layer.insertSublayer(gradientLayer, at: 0)
         gradientLayer.frame = view.frame
     }
@@ -78,7 +111,7 @@ class RecordPageViewController: UIViewController {
     private func setupRecordButton() {
         let image = UIImage(resource: .babyIcon)
         recordButton.setTitle("Tap to Record", for: .normal)
-
+        
         let boldFont = UIFont.boldSystemFont(ofSize: 16.0)
         let attributes: [NSAttributedString.Key: Any] = [
             .font: boldFont
@@ -186,7 +219,7 @@ class RecordPageViewController: UIViewController {
         
         viewModel.$shouldNavigateToResult
             .sink { [weak self] shouldNavigate in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                     if shouldNavigate {
                         self?.navigateToResultPage()
                     }
@@ -207,7 +240,7 @@ class RecordPageViewController: UIViewController {
     
     private func navigateToResultPage() {
         guard let result = viewModel.classificationResult else { return }
-
+        
         DispatchQueue.main.async {
             let resultCoordinator = ResultPageCoordinator(navigationController: self.navigationController!, classificationResult: result)
             resultCoordinator.start()
@@ -256,7 +289,7 @@ class RecordPageViewController: UIViewController {
             startRingBarAnimation()
         }
     }
-
+    
     private func startRingBarAnimation() {
 
         // Hapus ringLayer sebelumnya jika ada
@@ -289,7 +322,7 @@ class RecordPageViewController: UIViewController {
         ringLayer?.removeFromSuperlayer()
         ringLayer = nil
     }
-
+    
     private func stateTextRecordConfiguration(for state: AudioRecordingState) -> String {
         switch state {
         case .idle:
@@ -368,7 +401,7 @@ class RecordPageViewController: UIViewController {
         createFirstImpulseAnimation()
         createSecondImpulseAnimation()
     }
-
+    
     private func stopImpulseAnimation() {
         for layer in pulseLayers {
             layer.removeFromSuperlayer()

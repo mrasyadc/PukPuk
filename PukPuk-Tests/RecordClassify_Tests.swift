@@ -60,7 +60,7 @@ final class RecordClassify_Tests: XCTestCase {
             // Check that results are not empty
             XCTAssertFalse(results.classifications.isEmpty, "Results should not be empty")
             
-            print(results.classifications)
+//            print(results.classifications)
             // Additional assertions for specific results can be added here
                 
         } catch {

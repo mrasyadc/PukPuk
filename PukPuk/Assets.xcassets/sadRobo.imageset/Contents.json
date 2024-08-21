@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "belly_painTop.png",
+      "filename" : "sadRobo.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "belly_painTop 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "belly_painTop 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

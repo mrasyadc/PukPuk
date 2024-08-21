@@ -52,7 +52,8 @@ class DependencyInjection: ObservableObject {
                 startRecordUseCase: StartRecordUseCase(repository: audioRepository),
                 stopRecordUseCase: StopRecordUseCase(repository: audioRepository),
                 getRecordedAudioUseCase: GetRecordedAudioUseCase(repository: audioRepository),
-                classifyAudioUseCase: ClassifyAudioUseCase(repository: audioRepository)
+                classifyAudioUseCase: ClassifyAudioUseCase(repository: audioRepository),
+                detectCryUseCase: DetectCryUseCase(repository: audioRepository)
             )
         } else {
             print("Error: Failed to initialize babyCryClassifier")

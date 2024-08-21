@@ -16,12 +16,12 @@ internal final class ClassifyAudioUseCase {
     }
     
     func execute(data: AudioRecordingEntity) async throws -> ClassificationResultEntity {
-            do {
-                let result = try await repository.classifyAudio(at: data.fileUrl)
-                return result
-            } catch {
-                print("Error classifying audio: \(error)")
-                throw error
-            }
+        do {
+            let result = try await repository.classifyAudio(at: data.fileUrl)
+            return result
+        } catch {
+            print("Error classifying audio: \(error)")
+            throw error
         }
+    }
 }

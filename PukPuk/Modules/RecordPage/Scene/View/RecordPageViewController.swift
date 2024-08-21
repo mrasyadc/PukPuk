@@ -115,20 +115,13 @@ class RecordPageViewController: UIViewController {
         recordButton.layer.shadowRadius = 20
         recordButton.layer.masksToBounds = false
         
+        recordButton.addTarget(self, action: #selector(handleRecordButtonClick), for: .touchUpInside) // Menetapkan target
+
         // add button to view.
         view.addSubview(recordButton)
         
         // Add inner shadow
         addInnerShadow(to: recordButton, with: UIScreen.main.bounds.width * 0.65)
-
-        // atur alignment ke tengah
-//        recordButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            recordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            recordButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50)
-//        ])
-        
-        recordButton.addTarget(self, action: #selector(onClickRecordButton), for: .touchUpInside)
     }
     
     private func addInnerShadow(to button: UIButton, with size: CGFloat) {
@@ -209,7 +202,19 @@ class RecordPageViewController: UIViewController {
         }
     }
     
-    @IBAction func onClickRecordButton(_ sender: UIButton) {
+//    @IBAction func onClickRecordButton(_ sender: UIButton) {
+//        if viewModel.recordingState == .idle {
+//            viewModel.didTapRecordButton.send(())
+//        } else if viewModel.recordingState == .recording {
+//            viewModel.didStopRecording.send(())
+//        }
+//    }
+    
+    @objc func handleRecordButtonClick() {
+        onClickRecordButton()
+    }
+    
+    func onClickRecordButton() {
         if viewModel.recordingState == .idle {
             viewModel.didTapRecordButton.send(())
         } else if viewModel.recordingState == .recording {

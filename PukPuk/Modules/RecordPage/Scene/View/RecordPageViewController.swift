@@ -36,7 +36,7 @@ class RecordPageViewController: UIViewController {
     private var ringLayer: CAShapeLayer?
     
     private let idleImage = UIImage(resource: .babyIcon)
-    private let recordingImage = UIImage(resource: .micIcon)  // Atau gambar custom Anda
+    private let recordingImage = UIImage(resource: .micIcon) // Atau gambar custom Anda
     
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var infoImage: UIImageView!
@@ -229,7 +229,7 @@ class RecordPageViewController: UIViewController {
         
         viewModel.$shouldNavigateToNoResult
             .sink { [weak self] shouldNavigate in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                     if shouldNavigate {
                         self?.navigateToNoResultPage()
                     }
@@ -273,6 +273,8 @@ class RecordPageViewController: UIViewController {
         let attributedTitle = NSAttributedString(string: title, attributes: attributes)
         recordButton.setAttributedTitle(attributedTitle, for: .normal)
         
+//        MARK: bisa ke viewModel, viewController hanya View
+
         switch state {
         case .idle:
             recordButton.setImage(idleImage, for: .normal)
@@ -291,7 +293,6 @@ class RecordPageViewController: UIViewController {
     }
     
     private func startRingBarAnimation() {
-
         // Hapus ringLayer sebelumnya jika ada
         ringLayer?.removeFromSuperlayer()
 
@@ -315,7 +316,7 @@ class RecordPageViewController: UIViewController {
         animation.isRemovedOnCompletion = false
         
         newRingLayer.add(animation, forKey: "ringAnimation")
-        self.ringLayer = newRingLayer
+        ringLayer = newRingLayer
     }
     
     private func stopRingBarAnimation() {

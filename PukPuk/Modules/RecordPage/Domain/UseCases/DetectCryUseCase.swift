@@ -7,13 +7,13 @@
 
 import Foundation
 
-internal final class DetectCryUseCase {
+final class DetectCryUseCase: DetectCryUseCaseProtocol {
     private let repository: ClassificationRepository
-    
+
     init(repository: ClassificationRepository) {
         self.repository = repository
     }
-    
+
     func execute(data: AudioRecordingEntity) async throws -> Bool {
         do {
             let result = try await repository.detectCry(at: data.fileUrl)

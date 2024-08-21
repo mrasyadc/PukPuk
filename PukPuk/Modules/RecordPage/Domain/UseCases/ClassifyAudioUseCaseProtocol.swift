@@ -8,5 +8,7 @@
 import Foundation
 
 protocol ClassifyAudioUseCaseProtocol {
+//    MARK: Return GENERICS
+
     func execute(data: AudioRecordingEntity) async throws -> ClassificationResultEntity
 }

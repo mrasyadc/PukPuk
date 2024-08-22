@@ -25,6 +25,7 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string></string>
+		<string>IntentIntent</string>
 		<string>com.PukPuk.App.startRecording</string>
 		<string>com.PukPuk.App.stopRecording</string>
 	</array>

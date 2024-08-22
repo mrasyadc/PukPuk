@@ -43,8 +43,8 @@ internal final class RecordPageRepositoryImpl: AudioRepository, ClassificationRe
             return
         }
         
-        audioPlayDataSource.configureAudioPlaybackSession()
-        audioPlayDataSource.play(from: audioFileURL)
+//        audioPlayDataSource.configureAudioPlaybackSession()
+//        audioPlayDataSource.play(from: audioFileURL)
     }
     
     func cancelRecording() {

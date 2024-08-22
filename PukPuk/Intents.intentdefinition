@@ -9,11 +9,11 @@
 	<key>INIntentDefinitionNamespace</key>
 	<string>MEB2tc</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>24A5320a</string>
+	<string>23G93</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>16A5221g</string>
+	<string>15E204a</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>16.0</string>
+	<string>15.3</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -21,6 +21,8 @@
 			<string>generic</string>
 			<key>INIntentConfigurable</key>
 			<true/>
+			<key>INIntentDescription</key>
+			<string>Record and analyze baby's cry sound</string>
 			<key>INIntentDescriptionID</key>
 			<string>EA51ld</string>
 			<key>INIntentManagedParameterCombinations</key>
@@ -43,6 +45,10 @@
 					<true/>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Record and analyze baby's cry sound</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>2rTqZs</string>
 				</dict>
 			</dict>
 			<key>INIntentResponse</key>

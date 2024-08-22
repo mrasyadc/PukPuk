@@ -11,15 +11,13 @@ class ResultPageViewController: UIViewController {
     private var currentPublisher: AnyCancellable?
 //    var routingCoordinator : RoutingCoordinator!
     var onTryAgainTapped: (() -> Void)?
-    private var recommendations: [RecommendationEntity] = []
-    private var allSteps: [RecommendationStepDetail] = []
-
-    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet var cardView: UIView!
     @IBOutlet weak var topFirstView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var resultIcon: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet var seeOtherResultView: UIView!
     @IBOutlet var bgResult: UIImageView!
     @IBOutlet var tryAgainButton: UIButton!
@@ -44,21 +42,19 @@ class ResultPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAllSteps()
+//        let swiftUIView = RecordPageViewControllerWrapper()
+//                    .environmentObject(routingCoordinator)
+//        let hostingController = UIHostingController(rootView: swiftUIView)
+//                
+//                // Add the hosting controller's view to your view hierarchy
+//                addChild(hostingController)
+//                view.addSubview(hostingController.view)
+//                hostingController.view.frame = view.bounds
+//                hostingController.didMove(toParent: self)
         setupUI()
-        setupTableView()
         bindViewModel()
     }
 
-    private func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(
-            UINib(nibName: RecommendationListTableViewCell.nibName(), bundle: nil),
-            forCellReuseIdentifier: RecommendationListTableViewCell.cellIdentifier
-        )
-    }
-    
     private func setupUI() {
         setupTitleLabels()
         setupTopResultImage()
@@ -71,12 +67,6 @@ class ResultPageViewController: UIViewController {
         setupMicButton()
     }
 
-    private func setupAllSteps() {
-        allSteps = recommendations.flatMap { $0.steps }
-        tableView.reloadData()
-    }
-
-    
     private func bindViewModel() {
         if let topResult = viewModel.classificationResult.topResult {
             nameLabel.text = topResult.label.replacingOccurrences(of: "_", with: " ").capitalized
@@ -148,6 +138,7 @@ class ResultPageViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] recommendation in
                 guard let recommendation = recommendation else { return }
+                self?.descriptionLabel.text = recommendation.description
             }
 //        currentPublisher?.cancel()
     }
@@ -209,22 +200,5 @@ class ResultPageViewController: UIViewController {
         feedbackButton.backgroundColor = .clear
         feedbackButton.layer.borderColor = UIColor(resource: .midPurple).cgColor
         feedbackButton.layer.borderWidth = 3.0
-    }
-}
-
-extension ResultPageViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allSteps.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommendationListTableViewCell.cellIdentifier, for: indexPath) as? RecommendationListTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        let step = allSteps[indexPath.row]
-        cell.setCell(title: step.title, desc: step.desc)
-        
-        return cell
     }
 }

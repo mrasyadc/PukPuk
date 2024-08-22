@@ -14,8 +14,6 @@ class DependencyInjection: ObservableObject {
     static let shared = DependencyInjection()
 
     private init() {}
-<<<<<<< HEAD
-=======
 
     lazy var homeDataSource = HomeLocalDataSource()
 
@@ -70,7 +68,6 @@ class DependencyInjection: ObservableObject {
         return ResultPageViewModel(classificationResult: classificationResult, getRecommendationUseCase: GetRecommendationUseCase(repository: resultRepository))
     }
     
->>>>>>> origin/development
 }
 
 //// Singleton instance

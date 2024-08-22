@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var coordinator = RoutingCoordinator()
+
     var body: some View {
-<<<<<<< HEAD
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-=======
         NavigationStack(path: $coordinator.path
         ) {
             coordinator.build(page: .record)
@@ -30,12 +25,8 @@ struct ContentView: View {
                 .fullScreenCover(item: $coordinator.fullScreenCover) {
                     fullScreenCover in coordinator.build(fullScreenCover: fullScreenCover)
                 }
->>>>>>> origin/development
         }
-        .padding()
-    }
-}
 
-#Preview {
-    ContentView()
+        .environmentObject(coordinator)
+    }
 }

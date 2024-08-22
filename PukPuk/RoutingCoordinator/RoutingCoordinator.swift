@@ -64,9 +64,9 @@ class RoutingCoordinator: ObservableObject {
     
     init() {
         if !UserDefaults.standard.hasSeenOnboarding {
-            push(page: .onBoarding)
+            self.push(page: .onBoarding)
         } else {
-            push(page: .record)
+            self.push(page: .record)
         }
     }
     
@@ -118,7 +118,7 @@ class RoutingCoordinator: ObservableObject {
                 .edgesIgnoringSafeArea(.all)
         case .onBoarding:
             OnBoardingViewControllerRepresentable(
-                pages: onboardingPages,
+                pages: self.onboardingPages,
                 currentPageIndex: Binding(
                     get: { self.currentPageIndex },
                     set: { newIndex in self.currentPageIndex = newIndex }

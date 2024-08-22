@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var vm: HomeViewModel
+
+    // Use this to apply routing mechanism
+    @EnvironmentObject var routingCoordinator: RoutingCoordinator
+
     var body: some View {
-<<<<<<< HEAD
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-=======
         ScrollView {
             // Iterate over the dictionary
             ForEach(vm.modelResult.sorted(by: <), id: \.key) { key, value in
@@ -46,10 +48,5 @@ struct HomeView: View {
             }
         }
         let _ = print(vm.$modelResult)
->>>>>>> origin/development
     }
-}
-
-#Preview {
-    HomeView()
 }

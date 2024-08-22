@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Discomfort Logo.png",
+      "filename" : "discomfort.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Discomfort Logo 1.png",
+      "filename" : "discomfort 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Discomfort Logo 2.png",
+      "filename" : "discomfort 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

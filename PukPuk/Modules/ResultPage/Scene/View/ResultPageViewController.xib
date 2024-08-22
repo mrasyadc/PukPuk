@@ -32,10 +32,13 @@
                 <outlet property="topFirstView" destination="7MC-Gh-Fvt" id="1Nd-Iz-R89"/>
                 <outlet property="topResultImage" destination="UUd-Wk-gI7" id="9IC-x7-qxt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="titleLabels" destination="d8C-nc-kF4" collectionClass="NSMutableArray" id="F6M-wO-Fnh"/>
+                <outletCollection property="titleLabels" destination="x1Y-qu-ofR" collectionClass="NSMutableArray" id="Qpx-Kx-ouQ"/>
+                <outletCollection property="titleLabels" destination="g7n-Ar-LYY" collectionClass="NSMutableArray" id="ShK-kR-wYH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -115,7 +118,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-Sd-rkC">
                             <rect key="frame" x="300" y="49" width="17" height="14.333333333333336"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                            <color key="textColor" name="DarkPurple"/>
+                            <color key="textColor" name="MidPurple"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -232,7 +235,7 @@
                                 <constraint firstAttribute="width" constant="25" id="NVq-3f-su5"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                            <color key="textColor" name="DarkPurple"/>
+                            <color key="textColor" name="MidPurple"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3rd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WW-pj-MzE">
@@ -241,7 +244,7 @@
                                 <constraint firstAttribute="width" constant="22" id="S38-Ll-1LO"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                            <color key="textColor" name="DarkPurple"/>
+                            <color key="textColor" name="MidPurple"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpC-QZ-daL">
@@ -250,7 +253,7 @@
                                 <constraint firstAttribute="width" constant="22" id="YS4-ha-gVL"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                            <color key="textColor" name="DarkPurple"/>
+                            <color key="textColor" name="MidPurple"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4th" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Do-Jk-5zX">
@@ -259,7 +262,7 @@
                                 <constraint firstAttribute="width" constant="22" id="qji-SR-MFg"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                            <color key="textColor" name="DarkPurple"/>
+                            <color key="textColor" name="MidPurple"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Possible Causes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8C-nc-kF4">
@@ -347,7 +350,7 @@
                         <constraint firstAttribute="trailing" secondItem="W9k-o9-6HG" secondAttribute="trailing" constant="15" id="ysp-yf-dOU"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klg-q2-dfV">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klg-q2-dfV">
                     <rect key="frame" x="276" y="733" width="91" height="91"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="91" id="5pU-Co-BJg"/>
@@ -392,8 +395,8 @@
         <namedColor name="Color">
             <color red="0.51764705882352946" green="0.4823529411764706" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="DarkPurple">
-            <color red="0.21568627450980393" green="0.27843137254901962" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="MidPurple">
+            <color red="0.66666666666666663" green="0.64313725490196083" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

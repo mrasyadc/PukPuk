@@ -59,27 +59,27 @@ class RecordPageViewController: UIViewController {
     }
     
     @objc private func startRecording() {
-            guard canPerformAction() else { return }
-            if !isRecording {
-                onClickRecordButton(recordButton)
-            }
+        guard canPerformAction() else { return }
+        if !isRecording {
+            onClickRecordButton()
         }
+    }
 
-        @objc private func stopRecording() {
-            guard canPerformAction() else { return }
-            if isRecording {
-                onClickRecordButton(recordButton)
-            }
+    @objc private func stopRecording() {
+        guard canPerformAction() else { return }
+        if isRecording {
+            onClickRecordButton()
         }
+    }
         
-        private func canPerformAction() -> Bool {
-            let currentTime = Date()
-            if let lastTime = lastTriggerTime, currentTime.timeIntervalSince(lastTime) < 1.0 {
-                return false
-            }
-            lastTriggerTime = currentTime
-            return true
+    private func canPerformAction() -> Bool {
+        let currentTime = Date()
+        if let lastTime = lastTriggerTime, currentTime.timeIntervalSince(lastTime) < 1.0 {
+            return false
         }
+        lastTriggerTime = currentTime
+        return true
+    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -144,7 +144,7 @@ class RecordPageViewController: UIViewController {
         recordButton.layer.shadowColor = UIColor.white.cgColor
         recordButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         recordButton.layer.shadowOpacity = 0.8
-        recordButton.layer.cornerRadius = buttonSize/2
+        recordButton.layer.cornerRadius = buttonSize / 2
         recordButton.layer.shadowRadius = 20
         recordButton.layer.masksToBounds = false
         
@@ -339,7 +339,8 @@ class RecordPageViewController: UIViewController {
         }
     }
 
-    //MARK: - Animation
+    // MARK: - Animation
+
     private func startRingBarAnimation() {
         // Hapus ringLayer sebelumnya jika ada
         ringLayer?.removeFromSuperlayer()

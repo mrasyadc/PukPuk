@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Belly Pain Logoc.png",
+      "filename" : "belly_pain.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Belly Pain Logoc 1.png",
+      "filename" : "belly_pain 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Belly Pain Logoc 2.png",
+      "filename" : "belly_pain 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

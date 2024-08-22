@@ -11,13 +11,15 @@ class ResultPageViewController: UIViewController {
     private var currentPublisher: AnyCancellable?
 //    var routingCoordinator : RoutingCoordinator!
     var onTryAgainTapped: (() -> Void)?
-    
+    private var recommendations: [RecommendationEntity] = []
+    private var allSteps: [RecommendationStepDetail] = []
+
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet var cardView: UIView!
     @IBOutlet weak var topFirstView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var resultIcon: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet var seeOtherResultView: UIView!
     @IBOutlet var bgResult: UIImageView!
     @IBOutlet var tryAgainButton: UIButton!
@@ -36,24 +38,29 @@ class ResultPageViewController: UIViewController {
     @IBOutlet var seeLessButton: UIButton!
     @IBOutlet var micButton: UIButton!
     
+    @IBOutlet var titleLabels: [UILabel]!
+    
     @EnvironmentObject var routingCoordinator: RoutingCoordinator
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let swiftUIView = RecordPageViewControllerWrapper()
-//                    .environmentObject(routingCoordinator)
-//        let hostingController = UIHostingController(rootView: swiftUIView)
-//                
-//                // Add the hosting controller's view to your view hierarchy
-//                addChild(hostingController)
-//                view.addSubview(hostingController.view)
-//                hostingController.view.frame = view.bounds
-//                hostingController.didMove(toParent: self)
+        setupAllSteps()
         setupUI()
+        setupTableView()
         bindViewModel()
     }
 
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(
+            UINib(nibName: RecommendationListTableViewCell.nibName(), bundle: nil),
+            forCellReuseIdentifier: RecommendationListTableViewCell.cellIdentifier
+        )
+    }
+    
     private func setupUI() {
+        setupTitleLabels()
         setupTopResultImage()
         setupFeedbackView()
         setupTopFirstView()
@@ -64,46 +71,57 @@ class ResultPageViewController: UIViewController {
         setupMicButton()
     }
 
+    private func setupAllSteps() {
+        allSteps = recommendations.flatMap { $0.steps }
+        tableView.reloadData()
+    }
+
+    
     private func bindViewModel() {
         if let topResult = viewModel.classificationResult.topResult {
-            nameLabel.text = topResult.label.capitalized
+            nameLabel.text = topResult.label.replacingOccurrences(of: "_", with: " ").capitalized
+            nameLabel.font = UIFont(name: "SecularOne-Regular", size: 17)
             self.topResultImage.image = UIImage(named: "\(topResult.label.lowercased())Top")
         }
 
         let classifications = viewModel.classificationResult.classifications
+        let customFont = UIFont.systemFont(ofSize: 14)
         
         if classifications.count > 1 {
             let secondResult = classifications[1]
-            self.firstOtherResult.setTitle(secondResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = secondResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            let attributedTitle = NSAttributedString(string: formattedLabel, attributes: [.font: customFont])
+            self.firstOtherResult.setAttributedTitle(attributedTitle, for: .normal)
             self.firstOtherImage.image = UIImage(named: secondResult.label.lowercased())
         }
         if classifications.count > 2 {
             let thirdResult = classifications[2]
-            self.secondOtherResult.setTitle(thirdResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = thirdResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            let attributedTitle = NSAttributedString(string: formattedLabel, attributes: [.font: customFont])
+            self.secondOtherResult.setAttributedTitle(attributedTitle, for: .normal)
             self.secondOtherIMage.image = UIImage(named: thirdResult.label.lowercased())
         }
         if classifications.count > 3 {
             let fourthResult = classifications[3]
-            self.thirdOtherResult.setTitle(fourthResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = fourthResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            let attributedTitle = NSAttributedString(string: formattedLabel, attributes: [.font: customFont])
+            self.thirdOtherResult.setAttributedTitle(attributedTitle, for: .normal)
             self.thirdOtherImage.image = UIImage(named: fourthResult.label.lowercased())
         }
         if classifications.count > 4 {
             let fifthResult = classifications[4]
-            self.fourthOtherResult.setTitle(fifthResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = fifthResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            let attributedTitle = NSAttributedString(string: formattedLabel, attributes: [.font: customFont])
+            self.fourthOtherResult.setAttributedTitle(attributedTitle, for: .normal)
             self.fourthOtherImage.image = UIImage(named: fifthResult.label.lowercased())
         }
 
         subscribeToRecommendation(viewModel.$recommendation1)
     }
 
-//    @IBAction func tryAgainButton(_ sender: Any) {
-//        DispatchQueue.main.async {
-//            let recordVC = RecordPageViewController()
-//            self.navigationController?.popViewController(animated: true)
-//            self.navigationController?.pushViewController(recordVC, animated: true)
-//            self.viewModel.shouldNavigateRecord = false
-//        }
-//    }
+    @IBAction func tryAgainButton(_ sender: Any) {
+        onTryAgainTapped?()
+    }
 
     @IBAction func firstOtherCauses(_ sender: Any) {
         subscribeToRecommendation(viewModel.$recommendation2)
@@ -130,11 +148,15 @@ class ResultPageViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] recommendation in
                 guard let recommendation = recommendation else { return }
-                self?.descriptionLabel.text = recommendation.description
             }
 //        currentPublisher?.cancel()
     }
 
+    private func setupTitleLabels(){
+        for label in titleLabels {
+            label.font = UIFont(name: "SecularOne-Regular", size: 17)
+        }
+    }
     private func setupTopFirstView() {
         topFirstView.layer.cornerRadius = 12.0
     }
@@ -179,12 +201,30 @@ class ResultPageViewController: UIViewController {
     }
 
     @IBAction func micRetryButton(_ sender: Any) {
-        onTryAgainTapped?()
+
     }
+    
     private func setupFeedbackButton(){
         feedbackButton.layer.cornerRadius = 24.0
         feedbackButton.backgroundColor = .clear
         feedbackButton.layer.borderColor = UIColor(resource: .midPurple).cgColor
         feedbackButton.layer.borderWidth = 3.0
+    }
+}
+
+extension ResultPageViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allSteps.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommendationListTableViewCell.cellIdentifier, for: indexPath) as? RecommendationListTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let step = allSteps[indexPath.row]
+        cell.setCell(title: step.title, desc: step.desc)
+        
+        return cell
     }
 }

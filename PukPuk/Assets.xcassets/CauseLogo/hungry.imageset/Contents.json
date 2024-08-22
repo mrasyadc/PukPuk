@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "hungry.png",
+      "filename" : "hungry.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "hungry 1.png",
+      "filename" : "hungry 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "hungry 2.png",
+      "filename" : "hungry 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

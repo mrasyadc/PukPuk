@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "burpingTop.png",
+      "filename" : "burpingTop.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "burpingTop 1.png",
+      "filename" : "burpingTop 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "burpingTop 2.png",
+      "filename" : "burpingTop 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

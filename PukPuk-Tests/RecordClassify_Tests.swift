@@ -5,8 +5,8 @@
 //  Created by Muhammad Rasyad Caesarardhi on 14/08/24.
 //
 
+@testable import App
 import CoreML
-@testable import PukPuk
 import XCTest
 
 final class RecordClassify_Tests: XCTestCase {

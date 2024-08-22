@@ -10,10 +10,12 @@ import UIKit
 public final class ResultPageCoordinator {
     private var navigationController: UINavigationController
     private let classificationResult: ClassificationResultEntity
+    private var onTryAgainTapped: (() -> Void)?
     
-    init(navigationController: UINavigationController, classificationResult: ClassificationResultEntity) {
+    init(navigationController: UINavigationController, classificationResult: ClassificationResultEntity, onTryAgainTapped: (() -> Void)?) {
         self.navigationController = navigationController
         self.classificationResult = classificationResult
+        self.onTryAgainTapped = onTryAgainTapped
     }
     
     private func makeResultPageViewController() -> ResultPageViewController {
@@ -21,6 +23,7 @@ public final class ResultPageCoordinator {
         
         let viewController = ResultPageViewController()
         viewController.viewModel = viewModel // inject viewModel
+        viewController.onTryAgainTapped = onTryAgainTapped
         return viewController
     }
     

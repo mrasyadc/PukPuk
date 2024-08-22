@@ -289,7 +289,15 @@ class RecordPageViewController: UIViewController {
         guard let result = viewModel.classificationResult else { return }
         
         DispatchQueue.main.async {
-            let resultCoordinator = ResultPageCoordinator(navigationController: self.navigationController!, classificationResult: result)
+            let resultCoordinator = ResultPageCoordinator(
+                navigationController: self.navigationController!,
+                classificationResult: result,
+                onTryAgainTapped: { [weak self] in
+                    self?.navigationController?.popToRootViewController(animated: true)
+                    self?.resetToIdleState()
+                    self?.onClickRecordButton()
+                }
+            )
             resultCoordinator.start()
         }
     }

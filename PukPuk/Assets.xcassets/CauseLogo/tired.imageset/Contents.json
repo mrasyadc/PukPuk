@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Tired Logo.png",
+      "filename" : "tired.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Tired Logo 1.png",
+      "filename" : "tired 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Tired Logo 2.png",
+      "filename" : "tired 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

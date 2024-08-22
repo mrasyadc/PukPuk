@@ -66,7 +66,8 @@ class ResultPageViewController: UIViewController {
 
     private func bindViewModel() {
         if let topResult = viewModel.classificationResult.topResult {
-            nameLabel.text = topResult.label.capitalized
+            nameLabel.text = topResult.label.replacingOccurrences(of: "_", with: " ").capitalized
+            nameLabel.font = UIFont(name: "SecularOne-Regular", size: 17)
             self.topResultImage.image = UIImage(named: "\(topResult.label.lowercased())Top")
         }
 
@@ -74,22 +75,26 @@ class ResultPageViewController: UIViewController {
         
         if classifications.count > 1 {
             let secondResult = classifications[1]
-            self.firstOtherResult.setTitle(secondResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = secondResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            self.firstOtherResult.setTitle(formattedLabel, for: .normal)
             self.firstOtherImage.image = UIImage(named: secondResult.label.lowercased())
         }
         if classifications.count > 2 {
             let thirdResult = classifications[2]
-            self.secondOtherResult.setTitle(thirdResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = thirdResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            self.secondOtherResult.setTitle(formattedLabel, for: .normal)
             self.secondOtherIMage.image = UIImage(named: thirdResult.label.lowercased())
         }
         if classifications.count > 3 {
             let fourthResult = classifications[3]
-            self.thirdOtherResult.setTitle(fourthResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = fourthResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            self.thirdOtherResult.setTitle(formattedLabel, for: .normal)
             self.thirdOtherImage.image = UIImage(named: fourthResult.label.lowercased())
         }
         if classifications.count > 4 {
             let fifthResult = classifications[4]
-            self.fourthOtherResult.setTitle(fifthResult.label.localizedCapitalized, for: .normal)
+            let formattedLabel = fifthResult.label.replacingOccurrences(of: "_", with: " ").localizedCapitalized
+            self.fourthOtherResult.setTitle(formattedLabel, for: .normal)
             self.fourthOtherImage.image = UIImage(named: fifthResult.label.lowercased())
         }
 
@@ -179,7 +184,15 @@ class ResultPageViewController: UIViewController {
     }
 
     @IBAction func micRetryButton(_ sender: Any) {
-        onTryAgainTapped?()
+        DispatchQueue.main.async {
+            let noResultVC = NoResultViewController()
+            noResultVC.onTryAgainTapped = { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+                self?.resetToIdleState()
+            }
+            self.navigationController?.pushViewController(noResultVC, animated: true)
+            self.viewModel.shouldNavigateToNoResult = false
+        }
     }
     private func setupFeedbackButton(){
         feedbackButton.layer.cornerRadius = 24.0

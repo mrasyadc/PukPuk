@@ -35,7 +35,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -347,8 +347,8 @@
                         <constraint firstAttribute="trailing" secondItem="W9k-o9-6HG" secondAttribute="trailing" constant="15" id="ysp-yf-dOU"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klg-q2-dfV">
-                    <rect key="frame" x="276" y="739" width="91" height="91"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klg-q2-dfV">
+                    <rect key="frame" x="276" y="733" width="91" height="91"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="91" id="5pU-Co-BJg"/>
                         <constraint firstAttribute="width" constant="91" id="nVd-rl-paX"/>
@@ -393,7 +393,7 @@
             <color red="0.51764705882352946" green="0.4823529411764706" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="DarkPurple">
-            <color red="0.66666666666666663" green="0.64313725490196083" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.21568627450980393" green="0.27843137254901962" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

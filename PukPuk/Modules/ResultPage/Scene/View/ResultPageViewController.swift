@@ -36,7 +36,7 @@ class ResultPageViewController: UIViewController {
     @IBOutlet var seeLessButton: UIButton!
     @IBOutlet var micButton: UIButton!
     
-//    @EnvironmentObject var routingCoordinator: RoutingCoordinator
+    @EnvironmentObject var routingCoordinator: RoutingCoordinator
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,7 +154,7 @@ class ResultPageViewController: UIViewController {
     private func setupTopResultImage(){
         bgView.layer.cornerRadius = bgView.frame.size.width / 2
         bgView.backgroundColor = .clear // Set your desired background color
-        bgView.layer.borderColor = UIColor(resource: .darkPurple).cgColor // Set border color
+        bgView.layer.borderColor = UIColor(resource: .midPurple).cgColor // Set border color
         bgView.layer.borderWidth = 5.0
 
         // Ensure the image view is in front of the circular background
@@ -184,7 +184,7 @@ class ResultPageViewController: UIViewController {
     private func setupFeedbackButton(){
         feedbackButton.layer.cornerRadius = 24.0
         feedbackButton.backgroundColor = .clear
-        feedbackButton.layer.borderColor = UIColor(resource: .darkPurple).cgColor
+        feedbackButton.layer.borderColor = UIColor(resource: .midPurple).cgColor
         feedbackButton.layer.borderWidth = 3.0
     }
 }

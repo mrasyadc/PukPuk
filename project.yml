@@ -28,14 +28,38 @@ targets:
         GENERATE_INFOPLIST_FILE: true
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/PukPuk.app/PukPuk"
         BUNDLE_LOADER: "$(TEST_HOST)"
-        
+
+  PukPukIntentsExtension:
+    type: app-extension
+    platform: iOS
+    sources: [PukPukIntentsExtension]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.PukPukIntentsExtension
+      INFOPLIST_FILE: PukPukIntentsExtension/Info.plist
+      GENERATE_INFOPLIST_FILE: true
+    dependencies:
+      - target: PukPuk
+      
+  PukPukIntentsExtensionUI:
+    type: app-extension
+    platform: iOS
+    sources: [PukPukIntentsExtensionUI]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.PukPukIntentsExtensionUI
+      INFOPLIST_FILE: PukPukIntentsExtensionUI/Info.plist
+      GENERATE_INFOPLIST_FILE: true
+    dependencies:
+      - target: PukPukIntentsExtension
+
 schemes:
- PukPuk:
+  PukPuk:
     build:
       targets:
         PukPuk: all
         PukPuk-Tests: all
+        PukPukIntentsExtension: all
+        PukPukIntentsExtensionUI: all
     test:
-        targets:
+      targets:
         - name: PukPuk-Tests
-        gatherCoverageData: true
+          gatherCoverageData: true

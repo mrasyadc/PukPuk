@@ -47,7 +47,17 @@
     </array>
     <key>CFBundleShortVersionString</key>
     <string>$(MARKETING_VERSION)</string>
-		<key>NSMicrophoneUsageDescription</key>
+	<key>NSMicrophoneUsageDescription</key>
 	<string>Microphone use for detection</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string></string>
+		<string>com.PukPuk.PukPuk.startRecording</string>
+		<string>com.PukPuk.PukPuk.stopRecording</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SecularOne-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

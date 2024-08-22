@@ -14,9 +14,8 @@ protocol ClassificationDataSource {
 }
 
 class classificationDataSource: ClassificationDataSource {
-    
     private let model: MLModel
-    
+
     init(model: MLModel) {
         self.model = model
     }
@@ -30,13 +29,13 @@ class classificationDataSource: ClassificationDataSource {
             let babyCryClassifier = try BabyCrySoundClassifierFinal(configuration: defaultConfig)
             let classifySoundRequest = try SNClassifySoundRequest(mlModel: babyCryClassifier.model)
             let audioFileAnalyzer = try SNAudioFileAnalyzer(url: url)
-            
+
             return try await withCheckedThrowingContinuation { continuation in
                 resultsObserver.onCompletion = { finalResults in
                     let classifications = finalResults.map {
                         ClassificationResultEntity.Classification(label: $0.key, confidence: $0.value)
                     }.sorted { $0.confidence > $1.confidence }
-                    
+
                     let result = ClassificationResultEntity(
                         classifications: classifications,
                         timestamp: Date()
@@ -54,12 +53,12 @@ class classificationDataSource: ClassificationDataSource {
             throw error
         }
     }
-    
+
     // classify baby cry and not cey
     func detectCry(at url: URL) async throws -> Bool {
         let resultsObserver = ResultsObserver()
         let defaultConfig = MLModelConfiguration()
-        
+
         do {
             let babyCryDetection = try CryNotCry(configuration: defaultConfig)
             let classifySoundRequest = try SNClassifySoundRequest(mlModel: babyCryDetection.model)

@@ -5,7 +5,7 @@
 //  Created by Muhammad Rasyad Caesarardhi on 14/08/24.
 //
 
-@testable import PukPuk
+@testable import App
 import XCTest
 
 final class PukPuk_Tests: XCTestCase {

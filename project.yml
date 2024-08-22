@@ -6,27 +6,30 @@ options:
   bundleIdPrefix: com.PukPuk
 
 targets:
-  PukPuk:
+  App:
     type: application
     platform: iOS
     sources: [PukPuk]
     resources: [Resources]
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.PukPuk
+      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.App
       INFOPLIST_FILE: PukPuk/Info.plist
       GENERATE_INFOPLIST_FILE: true
+      base:
+        TARGETED_DEVICE_FAMILY: "1"  # iPhone only
+        SUPPORTED_INTERFACE_ORIENTATIONS: "UIInterfaceOrientationPortrait"  # Portrait only
 
   PukPuk-Tests:
     type: bundle.unit-test
     platform: iOS
     sources: [PukPuk-Tests]
     dependencies:
-      - target: PukPuk
+      - target: App
     settings:
       base:
         INFOPLIST_FILE: PukPuk/Info.plist
         GENERATE_INFOPLIST_FILE: true
-        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/PukPuk.app/PukPuk"
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/App.app/App"
         BUNDLE_LOADER: "$(TEST_HOST)"
 
   PukPukIntentsExtension:
@@ -34,18 +37,18 @@ targets:
     platform: iOS
     sources: [PukPukIntentsExtension]
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.PukPukIntentsExtension
+      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.AppIntentsExtension
       INFOPLIST_FILE: PukPukIntentsExtension/Info.plist
       GENERATE_INFOPLIST_FILE: true
     dependencies:
-      - target: PukPuk
+      - target: App
       
   PukPukIntentsExtensionUI:
     type: app-extension
     platform: iOS
     sources: [PukPukIntentsExtensionUI]
     settings:
-      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.PukPukIntentsExtensionUI
+      PRODUCT_BUNDLE_IDENTIFIER: com.PukPuk.AppIntentsExtensionUI
       INFOPLIST_FILE: PukPukIntentsExtensionUI/Info.plist
       GENERATE_INFOPLIST_FILE: true
     dependencies:
@@ -55,7 +58,7 @@ schemes:
   PukPuk:
     build:
       targets:
-        PukPuk: all
+        App: all
         PukPuk-Tests: all
         PukPukIntentsExtension: all
         PukPukIntentsExtensionUI: all

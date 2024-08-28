@@ -18,6 +18,7 @@ enum Page: String, Identifiable {
     case record
     case missRecord
     case onBoarding
+    case result
     
     var id: String {
         self.rawValue
@@ -126,6 +127,9 @@ class RoutingCoordinator: ObservableObject {
             )
             .edgesIgnoringSafeArea(.all)
             .navigationBarHidden(true)
+        case .result:
+            ResultsPageViewControllerRepresentable()
+                .edgesIgnoringSafeArea(.all)
         }
     }
     

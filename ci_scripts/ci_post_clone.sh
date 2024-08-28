@@ -25,7 +25,7 @@ rm -rf ./DerivedData
 rm -rf ./YourProject.xcodeproj
 
 echo "Moving to the project directory..."
-cd $PROJECT_DIR
+cd ../
 # Generate the Xcode project using xcodegen
 echo "Generating Xcode project..."
 xcodegen generate

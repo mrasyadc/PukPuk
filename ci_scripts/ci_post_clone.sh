@@ -24,14 +24,16 @@ rm -rf ./build
 rm -rf ./DerivedData
 rm -rf ./YourProject.xcodeproj
 
+echo "Moving to the project directory..."
+cd $PROJECT_DIR
 # Generate the Xcode project using xcodegen
 echo "Generating Xcode project..."
 xcodegen generate
 
-# Install CocoaPods dependencies if your project uses CocoaPods
-if [ -f "Podfile" ]; then
-	echo "Installing CocoaPods dependencies..."
-	pod install
-fi
+# # Install CocoaPods dependencies if your project uses CocoaPods
+# if [ -f "Podfile" ]; then
+# 	echo "Installing CocoaPods dependencies..."
+# 	pod install
+# fi
 
 echo "Pre-build setup complete!"

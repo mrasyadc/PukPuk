@@ -69,33 +69,3 @@ class DependencyInjection: ObservableObject {
     }
     
 }
-
-//// Singleton instance
-// private var createPlanViewModelInstance: CreateEditPlanViewModel?
-//
-//// MARK: IMPLEMENTATION
-//
-// lazy var planLocalDataSource = PlanLocalDataSource(modelContext: modelContext!)
-// lazy var aqiDataSource = AQIRemoteDataSource()
-//
-// lazy var planRepository = PlanRepository(planLocalDataSource: planLocalDataSource)
-// lazy var aqiRepository = AQIRepository(AQIRemoteDataSource: aqiDataSource)
-//
-//// MARK: IMPLEMENTATION USE CASES
-//
-// lazy var getPlanPreviewUseCase = PlanUseCases(planRepository: planRepository, AQIRepository: aqiRepository)
-// lazy var refreshPageViewUseCase = RefreshHomeViewUseCase(planRepository: planRepository)
-//
-//// MARK: TESTING
-//
-// lazy var dummyPlanRepository = DummyPlanRepository(dummyPlans: dummyPlans)
-// lazy var dummyGetAllPlansPreviewUseCase = PlanUseCases(planRepository: dummyPlanRepository, AQIRepository: aqiRepository)
-// lazy var dummyRefreshHomeViewUseCase = RefreshHomeViewUseCase(planRepository: DummyPlanRepository(dummyPlans: dummyPlans))
-//
-//// MARK: FUNCTION
-//
-// func homeViewModel() -> HomeViewModel {
-//    HomeViewModel(
-//        getAllPlansUseCase: getPlanPreviewUseCase
-//    )
-// }

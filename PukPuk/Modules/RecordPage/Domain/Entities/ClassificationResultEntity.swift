@@ -43,45 +43,8 @@ struct ClassificationResultEntity {
         return classifications.first
     }
     
-    var secondResult: Classification?{
-        return classifications[1]
-    }
-    
-    var thirdResult: Classification?{
-        return classifications[2]
-    }
-    
-    var fourthResult: Classification?{
-        return classifications[3]
-    }
-    
-    var fifthResult: Classification?{
-        return classifications[4]
-    }
-    
-    
     var topClassificationResult: ClassificationResult? {
         guard let topResult = topResult else { return nil }
         return ClassificationResult(label: topResult.label)
-    }
-    
-    var secondClassificationResult: ClassificationResult?{
-        guard let secondResult = secondResult else { return nil }
-        return ClassificationResult(label: secondResult.label)
-    }
-    
-    var thirdClassificationResult: ClassificationResult?{
-        guard let thirdResult = thirdResult else { return nil }
-        return ClassificationResult(label: thirdResult.label)
-    }
-    
-    var fourthClassificationResult: ClassificationResult?{
-        guard let fourthResult = fourthResult else { return nil }
-        return ClassificationResult(label: fourthResult.label)
-    }
-    
-    var fifthClassificationResult: ClassificationResult?{
-        guard let fifthResult = fifthResult else { return nil }
-        return ClassificationResult(label: fifthResult.label)
     }
 }

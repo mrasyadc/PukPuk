@@ -10,5 +10,11 @@ import Foundation
 struct RecommendationEntity {
     let cryType: String
     let description: String
-    let steps: [String]
+    let steps: [RecommendationStepDetail]
 }
+
+struct RecommendationStepDetail {
+    let title: String
+    let desc: String
+}
+

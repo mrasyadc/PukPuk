@@ -32,6 +32,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>SecularOne-Regular.ttf</string>
+		<string>Rounded-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

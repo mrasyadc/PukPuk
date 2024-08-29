@@ -18,51 +18,51 @@ class ResultDataSource : ResultDataSourceProtocol {
         case .tired:
             return RecommendationEntity(
                 cryType: "Tired",
-                description: "Place your baby to sleep in a safe and cozy spot. Wrapping them snugly might help them feel secure, but be sure to stop once they can roll onto their tummy (usually around 3-4 months). ",
+                description: "Your baby might be tired, they could be ready for a nap or bedtime.",
                 steps: [
-                    "Dim the lights and reduce noise",
-                    "Rock the baby gently or use a swing",
-                    "Place the baby in their crib for a nap"
+                    RecommendationStepDetail(title: "Sleep your baby", desc: "Put your baby to sleep in a safe and cozy spot."),
+                    RecommendationStepDetail(title: "Wrap Securely", desc: "Wrap your baby snugly to help them feel secure, but stop once they can roll onto their tummy (around 3-4 months)")
                 ]
             )
         case .hungry:
             return RecommendationEntity(
                 cryType: "Hunger",
-                description: "Your baby might be hungry, so try offering the breast or a bottle. If they’re just looking to suck for comfort, a dummy can help, or you can gently guide older babies to find their own fingers. ",
+                description: "Your baby might be hungry, they could be signaling it’s feeding time.",
                 steps: [
-                    "Prepare a bottle or breastfeed",
-                    "Ensure the baby is in a comfortable position",
-                    "Feed the baby slowly and burp frequently"
+                    RecommendationStepDetail(title: "Hunger Check", desc: "Offer the breast or bottle if your baby seems hungry."),
+                    RecommendationStepDetail(title: "Comfort Sucking", desc: "Use a dummy if your baby just wants to suck for comfort."),
+                    RecommendationStepDetail(title: "Self-Soothing", desc: "Help older babies find their fingers to self-soothe."),
                 ]
             )
         case .belly_pain:
             return RecommendationEntity(
                 cryType: "Belly Pain",
-                description: "If your baby has belly pain, try gently massaging their tummy in a clockwise direction to help ease discomfort. Holding them close can also provide comfort, and a warm bath might relax their muscles. If the pain continues or you're worried, it's a good idea to check with a healthcare professional to ensure your baby is okay.",
+                description: "Your baby might be experiencing belly pain, they could be uncomfortable.",
                 steps: [
-                    "Lay the baby on their back and move their legs in a bicycling motion",
-                    "Gently massage the baby’s belly",
-                    "Give the baby a warm bath to relax them"
+                    RecommendationStepDetail(title: "Gentle Tummy Massage", desc: "Try gently massaging your baby's tummy in a clockwise direction to relieve discomfort."),
+                    RecommendationStepDetail(title: "Hold for Comfort", desc: "Hold your baby close to provide comfort during belly pain."),
+                    RecommendationStepDetail(title: "Warm Bath", desc: "A warm bath might help relax your baby's muscles and ease their discomfort."),
+                    RecommendationStepDetail(title: "Consult a Professional", desc: "If the pain persists or you're concerned, check with a healthcare professional to ensure everything is okay."),
+                    
                 ]
             )
         case .discomfort:
             return RecommendationEntity(
                 cryType: "Discomfort",
-                description: "Hold your baby close and gently pat or stroke their back to soothe them. Take a moment to check their temperature—make sure they're neither too hot nor too cold, and adjust their clothing for comfort.",
+                description: "Your baby might be trying to tell you something isn’t right.",
                 steps: [
-                    "Check the baby's diaper and change if necessary",
-                    "Ensure the baby is dressed appropriately for the weather",
-                    "Adjust the room temperature to a comfortable level"
+                    RecommendationStepDetail(title: "Soothe Your Baby", desc: "Hold your baby close and gently pat or stroke their back."),
+                    RecommendationStepDetail(title: "Temperature Check", desc: "Ensure your baby is not too hot or too cold, and adjust their clothing for comfort."),
                 ]
             )
         case .burping:
             return RecommendationEntity(
                 cryType: "Burping",
-                description: "If your baby seems to swallow air during feeding, try burping them. Gently hold your baby upright against your shoulder with a cloth to catch any spit-up. Support them with one hand and use the other to softly rub their back. It's normal if a little milk comes up during burping—don’t worry, this is completely natural.",
+                description: "Your baby might need to burp and trying to release some trapped air.",
                 steps: [
-                    "Hold the baby upright against your chest",
-                    "Gently pat or rub the baby’s back",
-                    "Try different burping positions if needed"
+                    RecommendationStepDetail(title: "Burp After Feeding", desc: "If your baby swallows air during feeding, try burping them."),
+                    RecommendationStepDetail(title: "Hold Upright", desc: "Gently hold your baby upright against your shoulder with a cloth to catch any spit-up."),
+                    RecommendationStepDetail(title: "Rub Their Back", desc: "Support your baby with one hand and softly rub their back with the other. It's normal if a little milk comes up during burping—don’t worry, this is completely natural."),
                 ]
             )
         }

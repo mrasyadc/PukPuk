@@ -211,7 +211,6 @@
                 let nextVC = OnBoardingViewController(page: nextPage, pages: pages, currentPageIndex: currentPageIndex + 1, coordinator: coordinator)
                 self.navigationController?.pushViewController(nextVC, animated: false)
             } else {
-                print("GO TO COntent view")
                 UserDefaults.standard.hasSeenOnboarding = true
                 coordinator.push(page: .record)
             }

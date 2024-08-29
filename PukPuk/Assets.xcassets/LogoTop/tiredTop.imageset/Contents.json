@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "tiredTop.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "tiredTop 1.svg",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "tiredTop 2.svg",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "tired.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

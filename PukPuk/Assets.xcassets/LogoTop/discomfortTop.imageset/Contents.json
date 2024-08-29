@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "discomfortTop.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "discomfortTop 1.svg",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "discomfortTop 2.svg",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "disc.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

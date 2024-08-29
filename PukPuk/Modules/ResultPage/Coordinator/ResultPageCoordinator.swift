@@ -18,10 +18,10 @@ public final class ResultPageCoordinator {
         self.onTryAgainTapped = onTryAgainTapped
     }
     
-    private func makeResultPageViewController() -> ResultPageViewController {
+    private func makeResultPageViewController() -> ResultsPageViewController {
         let viewModel = DependencyInjection.shared.resultPageViewModel(classificationResult: classificationResult) // create viewModel
         
-        let viewController = ResultPageViewController()
+        let viewController = ResultsPageViewController()
         viewController.viewModel = viewModel // inject viewModel
         viewController.onTryAgainTapped = onTryAgainTapped
         return viewController

@@ -57,21 +57,25 @@ class ResultsPageViewController: UIViewController {
         onTryAgainTapped?()
     }
     
+    @IBAction func clickedFeedbackButton(_ sender: UIButton) {
+        let overLayerView = FeedBackPopUpViewController()
+        overLayerView.appear(sender: self)
+    }
+    
     private func bindViewModel() {
         if let topResult = viewModel.classificationResult.topResult {
             topTitle.text = topResult.label.replacingOccurrences(of: "-", with: " ").capitalized
-            topTitle.font = UIFont(name: "SecularOne-Regular", size: 20)
+            topTitle.font = UIFont(name: "SecularOne-Regular", size: 18)
             iconView.image = UIImage(named: "\(topResult.label.lowercased())Top")
             topDesc.text = viewModel.selectedRecommendation?.description ?? "No description available"
             topDesc.font = UIFont.systemFont(ofSize: 12)
         }
-        
         possibleTable.reloadData()
         recommendationTable.reloadData()
     }
     
     func setupView() {
-        var imageView = UIImageView(frame: .zero)
+        let imageView = UIImageView(frame: .zero)
         imageView.image = UIImage(resource: .resultBg)
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -141,6 +145,15 @@ class ResultsPageViewController: UIViewController {
         feedBackButton.setTitleColor(UIColor(resource: .lightPurple), for: .normal)
         feedBackButton.backgroundColor = .white
         
+        var configuration = UIButton.Configuration.filled()
+        configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont(name: "SecularOne-Regular", size: 16)
+            return outgoing
+        }
+        configuration.baseBackgroundColor = .clear
+        feedBackButton.configuration = configuration
+        
         feedBackButton.layoutIfNeeded()
         feedBackButton.layer.cornerRadius = feedBackButton.bounds.height / 2
         
@@ -159,7 +172,9 @@ class ResultsPageViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        updateTableHeights()
+        DispatchQueue.main.async {
+            self.updateTableHeights()
+        }
     }
     
     func updateTableHeights() {
@@ -183,7 +198,6 @@ class ResultsPageViewController: UIViewController {
     }
     
     func setupMicButton() {
-        let buttonSize: CGFloat = 91
         micButton.setTitle("", for: .normal)
         let largeMicImage = UIImage(systemName: "mic")?.withTintColor(.white, renderingMode: .alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(pointSize: 25))
         micButton.setImage(largeMicImage, for: .normal)

@@ -266,7 +266,7 @@ class RecordPageViewController: UIViewController {
         
         viewModel.$shouldNavigateToResult
             .sink { [weak self] shouldNavigate in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
                     if shouldNavigate {
                         self?.navigateToResultPage()
                     }
@@ -276,7 +276,7 @@ class RecordPageViewController: UIViewController {
         
         viewModel.$shouldNavigateToNoResult
             .sink { [weak self] shouldNavigate in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
                     if shouldNavigate {
                         self?.navigateToNoResultPage()
                     }
@@ -367,7 +367,7 @@ class RecordPageViewController: UIViewController {
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.toValue = 1
-        animation.duration = 10
+        animation.duration = 6
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
